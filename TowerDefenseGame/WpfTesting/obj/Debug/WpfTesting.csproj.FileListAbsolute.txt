@@ -1,0 +1,13 @@
+D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\bin\Debug\WpfTesting.exe.config
+D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting.csprojResolveAssemblyReference.cache
+D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\obj\Debug\MainWindow.baml
+D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\obj\Debug\MainWindow.g.cs
+D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\obj\Debug\App.g.cs
+D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting_MarkupCompile.cache
+D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting.g.resources
+D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting.Properties.Resources.resources
+D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting.csproj.GenerateResource.Cache
+D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\bin\Debug\WpfTesting.exe
+D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\bin\Debug\WpfTesting.pdb
+D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting.exe
+D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting.pdb
