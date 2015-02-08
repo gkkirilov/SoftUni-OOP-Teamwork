@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Media;
 
 namespace TowerDefenseGame.Models.Enemies
 {
@@ -7,7 +8,7 @@ namespace TowerDefenseGame.Models.Enemies
         private const int LifePoints = 50;
         private const int Speed = 10;
 
-        public BasicEnemy(int x, int y) : base(x, y, 50, 50, BasicEnemy.LifePoints, BasicEnemy.Speed)
+        public BasicEnemy(int x, int y) : base(x, y, 50, 50, BasicEnemy.LifePoints, BasicEnemy.Speed, Brushes.Black)
         {
 
         }

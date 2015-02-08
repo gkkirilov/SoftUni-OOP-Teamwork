@@ -13,7 +13,7 @@ namespace TowerDefenseGame.Models
         private int height;
         private Rectangle model;
 
-        protected GameObject(int x, int y, int width, int height)
+        protected GameObject(int x, int y, int width, int height, Brush fillBrush)
         {
             this.Coordinates = new Point(x, y);
             this.Model = new Rectangle();
@@ -22,6 +22,7 @@ namespace TowerDefenseGame.Models
 
             this.Model.Height = height;
             this.Model.Width = width;
+            this.Model.Fill = fillBrush;
         }
 
         public Point Coordinates

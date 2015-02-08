@@ -8,9 +8,8 @@ namespace TowerDefenseGame.Models
     class FieldSegment : GameObject, IFieldSegment
     {
         public FieldSegment(int x, int y)
-            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize)
+            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, Brushes.AliceBlue)
         {
-            this.Model.Fill = Brushes.AliceBlue;
             this.Model.Stroke = Brushes.DarkBlue;
         }
     }
