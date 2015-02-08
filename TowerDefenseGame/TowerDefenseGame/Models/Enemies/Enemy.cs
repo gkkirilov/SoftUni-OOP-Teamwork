@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using TowerDefenseGame.Geometry;
+using TowerDefenseGame.Interfaces;
 
 namespace TowerDefenseGame.Models.Enemies
 {
-    abstract class Enemy : GameObject
+    abstract class Enemy : GameObject, IEnemy
     {
         private int speed;
         private int lifePoints;
-        private Rectangle model;
         private List<Point> beacons = new List<Point>();
 
         protected Enemy(int x, int y, int width, int height, int lifePoints, int speed)
@@ -18,10 +18,7 @@ namespace TowerDefenseGame.Models.Enemies
         {
             this.LifePoints = lifePoints;
             this.Speed = speed;
-            this.Model = new Rectangle();
-            this.Model.Fill = Brushes.Aquamarine;
-            this.Model.Width = this.Width;
-            this.Model.Height = this.Height;
+            this.Model.Fill = Brushes.Black;
         }
 
         public List<Point> Beacons
@@ -64,51 +61,36 @@ namespace TowerDefenseGame.Models.Enemies
             }
         }
 
-        public Rectangle Model
-        {
-            get
-            {
-                return this.model;
-            }
-            private set
-            {
-                this.model = value;
-            }
-        }
-
-        public override int Update()
+        public bool Update()
         {
             if (this.Beacons.Count == 0)
             {
-                return 1;
+                return true;
             }
 
             if (this.Beacons[0].X > this.Coordinates.X && this.Beacons[0].Y == this.Coordinates.Y)
             {
-                this.Coordinates.X += this.Speed;
-                return 0;
+                this.Coordinates.X += this.Speed; // Right
             }
             else if (this.Beacons[0].X < this.Coordinates.X && this.Beacons[0].Y == this.Coordinates.Y)
             {
-                this.Coordinates.X -= this.Speed;
-                return 0;
+                this.Coordinates.X -= this.Speed; // Left
             }
             else if (this.Beacons[0].X == this.Coordinates.X && this.Beacons[0].Y < this.Coordinates.Y)
             {
-                this.Coordinates.Y -= this.Speed;
-                return 0;
+                this.Coordinates.Y -= this.Speed; // Top
             }
             else if (this.Beacons[0].X == this.Coordinates.X && this.Beacons[0].Y > this.Coordinates.Y)
             {
-                this.Coordinates.Y += this.Speed;
-                return 0;
+                this.Coordinates.Y += this.Speed; // Bottom
             }
             else
             {
                 this.Beacons.RemoveAt(0);
-                return 0;
+                this.Update();
             }
-            
+
+            return false;
         }
 
         public void SetBeacons(List<Point> beacons)

@@ -3,49 +3,38 @@ using System.Collections.Generic;
 using TowerDefenseGame.Models.Enemies;
 using TowerDefenseGame.Core;
 using System.Windows.Shapes;
+using System.Windows.Controls;
+using Animations.AnimationInterfaces;
+using TowerDefenseGame.Models;
+using TowerDefenseGame.Geometry;
+using System.Windows.Media;
+using System.Windows.Threading;
+using Animations;
+using TowerDefenseGame.Controllers;
+using TowerDefenseGame.Interfaces;
 
 namespace TowerDefenseGame.Core
 {
-    static class Engine
+    class Engine : IEngine
     {
-        private static List<Enemy> enemies = new List<Enemy>();
-        private static List<Rectangle> enemyBeacons = new List<Rectangle>();
-        private static Rectangle[][] gameField = new Rectangle[Constants.FieldRows][];
-
-        public static List<Enemy> Enemies 
+        public Engine()
         {
-            get 
-            {
-                return Engine.enemies;
-            }
+            GameFieldController.Initialize();
+            Timers.InitializeTimers(this);
+
+            Timers.UpdateTimer.Start();
+            Timers.RenderTimer.Start();
+            EnemyController.GenerateNextWave();
         }
 
-        public static Rectangle[][] GameField
+        public void Update()
         {
-            get
-            {
-                return Engine.gameField;
-            }
+            EnemyController.Update();
         }
 
-        public static void GenerateEnemy(int x, int y)
+        public void Render()
         {
-            Engine.Enemies.Add(new BasicEnemy(x, y));
-        }
-
-        public static void Update()
-        {
-            int exitCode = 0;
-            foreach (var enemy in enemies)
-            {
-                exitCode = enemy.Update();
-            }
-
-            if (exitCode == 1)
-            {
-                enemies.RemoveAt(0);
-            }
-
+            EnemyController.Render();
         }
     }
 }

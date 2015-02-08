@@ -12,18 +12,13 @@ namespace TowerDefenseGame.Core
         public const int FieldCols = 22;
         public const int EnemyStartCol = 22;
         public const int EnemyStartRow = 10;
-        public const int FieldRectangeSize = 50;
-        
-        public static List<Point> GetEnemyBeacons() 
-        {
-            List<Point> beacons = new List<Point> 
-            { 
-                new Point(2 * Constants.FieldRectangeSize, 10 * Constants.FieldRectangeSize),
-                new Point(2 * Constants.FieldRectangeSize, 1 * Constants.FieldRectangeSize),
-                new Point(7 * Constants.FieldRectangeSize, 1 * Constants.FieldRectangeSize)
-            };
+        public const int FieldSegmentSize = 50;
+        public const int WaveEnemiesMaxCount = 20;
 
-            return beacons;
-        }
+        // The time intervals for the different timers in milliseconds.
+        public const int EnemyGenerationDelay = 2000;
+        public const int UpdateDelay = 100;
+        public const int RenderDelay = 100;
+        public const int WaveDelay = 5000;
     }
 }

@@ -1,20 +1,27 @@
 ﻿using System;
 using System.Windows.Media;
+using System.Windows.Shapes;
 using TowerDefenseGame.Geometry;
+using TowerDefenseGame.Interfaces;
 
 namespace TowerDefenseGame.Models
 {
-    abstract class GameObject
+    abstract class GameObject : IGameObject
     {
         private Point coordinates;
         private int width;
         private int height;
+        private Rectangle model;
 
         protected GameObject(int x, int y, int width, int height)
         {
             this.Coordinates = new Point(x, y);
+            this.Model = new Rectangle();
             this.Width = width;
             this.Height = height;
+
+            this.Model.Height = height;
+            this.Model.Width = width;
         }
 
         public Point Coordinates
@@ -61,6 +68,16 @@ namespace TowerDefenseGame.Models
             }
         }
 
-        public abstract int Update();
+        public Rectangle Model
+        {
+            get 
+            { 
+                return this.model; 
+            }
+            set
+            {
+                this.model = value;
+            }
+        }
     }
 }

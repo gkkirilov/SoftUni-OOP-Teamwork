@@ -57,13 +57,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Controllers\AnimationController.cs" />
+    <Compile Include="Controllers\EnemyController.cs" />
+    <Compile Include="Controllers\GameFieldController.cs" />
+    <Compile Include="Core\Renderer.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Core\Constants.cs" />
     <Compile Include="Core\Engine.cs" />
+    <Compile Include="Core\Timers.cs" />
     <Compile Include="Geometry\Point.cs" />
+    <Compile Include="Interfaces\IEnemy.cs" />
+    <Compile Include="Interfaces\IEngine.cs" />
+    <Compile Include="Interfaces\IFieldSegment.cs" />
+    <Compile Include="Interfaces\IGameObject.cs" />
+    <Compile Include="Interfaces\IRenderer.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -72,6 +82,7 @@
   <ItemGroup>
     <Compile Include="Models\Enemies\BasicEnemy.cs" />
     <Compile Include="Models\Enemies\Enemy.cs" />
+    <Compile Include="Models\FieldSegment.cs" />
     <Compile Include="Models\GameObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
