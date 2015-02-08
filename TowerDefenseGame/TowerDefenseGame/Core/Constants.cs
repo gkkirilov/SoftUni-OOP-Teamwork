@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Shapes;
+using TowerDefenseGame.Geometry;
+using TowerDefenseGame.Models.Enemies;
+
+namespace TowerDefenseGame.Core
+{
+    static class Constants
+    {
+        public const int FieldRows = 12;
+        public const int FieldCols = 22;
+        public const int EnemyStartCol = 22;
+        public const int EnemyStartRow = 10;
+        public const int FieldSegmentSize = 50;
+        public const int WaveEnemiesMaxCount = 20;
+
+        // The time intervals for the different timers in milliseconds.
+        public const int EnemyGenerationDelay = 2000;
+        public const int UpdateDelay = 100;
+        public const int RenderDelay = 100;
+        public const int WaveDelay = 5000;
+    }
+}
