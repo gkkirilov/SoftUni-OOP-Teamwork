@@ -17,8 +17,8 @@ namespace TowerDefenseGame.Core
 
         // The time intervals for the different timers in milliseconds.
         public const int EnemyGenerationDelay = 2000;
-        public const int UpdateDelay = 100;
-        public const int RenderDelay = 100;
-        public const int WaveDelay = 5000;
+        public const int UpdateDelay = 10;
+        public const int RenderDelay = 10;
+        public const int WaveDelay = 1000;
     }
 }

@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>c:\users\daniel\documents\visual studio 2013\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\grass.xnb</Output>
-      <Time>2015-02-05T23:28:18.8150185+02:00</Time>
+      <Output>D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseXNA\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\grass.xnb</Output>
+      <Time>2015-02-10T16:57:38.0727093+02:00</Time>
     </Item>
     <Item>
       <Source>path.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>c:\users\daniel\documents\visual studio 2013\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\path.xnb</Output>
-      <Time>2015-02-05T23:28:18.0814486+02:00</Time>
+      <Output>D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseXNA\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\path.xnb</Output>
+      <Time>2015-02-10T16:57:38.0827093+02:00</Time>
     </Item>
     <Item>
       <Source>enemy.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Daniel\documents\visual studio 2013\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enemy.xnb</Output>
-      <Time>2015-02-06T11:54:50.8269301+02:00</Time>
+      <Output>D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseXNA\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enemy.xnb</Output>
+      <Time>2015-02-10T16:57:38.0727093+02:00</Time>
     </Item>
     <Item>
       <Source>arrow tower.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Daniel\documents\visual studio 2013\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\arrow tower.xnb</Output>
-      <Time>2015-02-06T15:51:08.3907227+02:00</Time>
+      <Output>D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseXNA\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\arrow tower.xnb</Output>
+      <Time>2015-02-10T16:57:38.0627093+02:00</Time>
     </Item>
     <Item>
       <Source>bullet.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Daniel\documents\visual studio 2013\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bullet.xnb</Output>
-      <Time>2015-02-06T17:07:12.537719+02:00</Time>
+      <Output>D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseXNA\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bullet.xnb</Output>
+      <Time>2015-02-10T16:57:38.0727093+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -53,10 +53,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Daniel\documents\visual studio 2013\Projects\WindowsGame1\WindowsGame1\WindowsGame1Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Daniel\documents\visual studio 2013\Projects\WindowsGame1\WindowsGame1\WindowsGame1\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Daniel\documents\visual studio 2013\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Daniel\documents\visual studio 2013\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseXNA\WindowsGame1\WindowsGame1\WindowsGame1Content\</RootDirectory>
+      <LoggerRootDirectory>D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseXNA\WindowsGame1\WindowsGame1\WindowsGame1\</LoggerRootDirectory>
+      <IntermediateDirectory>D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseXNA\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseXNA\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -85,7 +85,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2015-02-05T18:33:57.9598318+02:00</Value>
+        <Value>2015-02-10T17:12:54.4730664+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
