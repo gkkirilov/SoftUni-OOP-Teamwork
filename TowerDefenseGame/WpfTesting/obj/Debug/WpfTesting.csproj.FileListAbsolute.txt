@@ -11,3 +11,16 @@ D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-J
 D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\bin\Debug\WpfTesting.pdb
 D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting.exe
 D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting.pdb
+C:\Users\Daniel\Documents\GitHub\SoftUni-OOP-Teamwork\TowerDefenseGame\WpfTesting\bin\Debug\WpfTesting.exe.config
+C:\Users\Daniel\Documents\GitHub\SoftUni-OOP-Teamwork\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting.exe
+C:\Users\Daniel\Documents\GitHub\SoftUni-OOP-Teamwork\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting.pdb
+C:\Users\Daniel\Documents\GitHub\SoftUni-OOP-Teamwork\TowerDefenseGame\WpfTesting\bin\Debug\WpfTesting.exe
+C:\Users\Daniel\Documents\GitHub\SoftUni-OOP-Teamwork\TowerDefenseGame\WpfTesting\bin\Debug\WpfTesting.pdb
+C:\Users\Daniel\Documents\GitHub\SoftUni-OOP-Teamwork\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Documents\GitHub\SoftUni-OOP-Teamwork\TowerDefenseGame\WpfTesting\obj\Debug\MainWindow.baml
+C:\Users\Daniel\Documents\GitHub\SoftUni-OOP-Teamwork\TowerDefenseGame\WpfTesting\obj\Debug\MainWindow.g.cs
+C:\Users\Daniel\Documents\GitHub\SoftUni-OOP-Teamwork\TowerDefenseGame\WpfTesting\obj\Debug\App.g.cs
+C:\Users\Daniel\Documents\GitHub\SoftUni-OOP-Teamwork\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting_MarkupCompile.cache
+C:\Users\Daniel\Documents\GitHub\SoftUni-OOP-Teamwork\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting.g.resources
+C:\Users\Daniel\Documents\GitHub\SoftUni-OOP-Teamwork\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting.Properties.Resources.resources
+C:\Users\Daniel\Documents\GitHub\SoftUni-OOP-Teamwork\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting.csproj.GenerateResource.Cache
