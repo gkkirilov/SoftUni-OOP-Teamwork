@@ -11,3 +11,6 @@ D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-J
 D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\bin\Debug\WpfTesting.pdb
 D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting.exe
 D:\Programming\Software-University-Courses\Level 2\Object-Oriented-Programming-January2015\WPF-Applications\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting.pdb
+D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseGame\WpfTesting\bin\Debug\WpfTesting.exe.config
+D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting.exe
+D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseGame\WpfTesting\obj\Debug\WpfTesting.pdb
