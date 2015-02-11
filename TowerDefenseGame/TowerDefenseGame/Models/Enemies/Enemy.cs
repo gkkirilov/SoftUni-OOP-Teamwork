@@ -13,7 +13,7 @@ namespace TowerDefenseGame.Models.Enemies
         private int lifePoints;
         private List<Point> beacons = new List<Point>();
 
-        protected Enemy(int x, int y, int width, int height, int lifePoints, int speed, Brush fillBrush)
+        protected Enemy(double x, double y, int width, int height, int lifePoints, int speed, Brush fillBrush)
             : base(x, y, width, height, fillBrush)
         {
             this.LifePoints = lifePoints;

@@ -60,6 +60,7 @@
     <Compile Include="Controllers\AnimationController.cs" />
     <Compile Include="Controllers\EnemyController.cs" />
     <Compile Include="Controllers\GameFieldController.cs" />
+    <Compile Include="Controllers\PlayerInterfaceController.cs" />
     <Compile Include="Core\Renderer.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -68,6 +69,7 @@
     <Compile Include="Core\Constants.cs" />
     <Compile Include="Core\Engine.cs" />
     <Compile Include="Core\Timers.cs" />
+    <Compile Include="Enumerations\TowerType.cs" />
     <Compile Include="Geometry\Point.cs" />
     <Compile Include="Interfaces\IEnemy.cs" />
     <Compile Include="Interfaces\IEngine.cs" />

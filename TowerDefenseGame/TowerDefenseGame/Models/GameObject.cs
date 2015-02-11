@@ -13,7 +13,7 @@ namespace TowerDefenseGame.Models
         private int height;
         private Rectangle model;
 
-        protected GameObject(int x, int y, int width, int height, Brush fillBrush)
+        protected GameObject(double x, double y, int width, int height, Brush fillBrush)
         {
             this.Coordinates = new Point(x, y);
             this.Model = new Rectangle();

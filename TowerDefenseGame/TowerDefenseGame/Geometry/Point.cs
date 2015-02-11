@@ -4,16 +4,16 @@ namespace TowerDefenseGame.Geometry
 {
     class Point
     {
-        private int x;
-        private int y;
+        private double x;
+        private double y;
 
-        public Point(int x, int y)
+        public Point(double x, double y)
         {
             this.x = x;
             this.y = y;
         }
 
-        public int X
+        public double X
         {
             get
             {
@@ -24,7 +24,7 @@ namespace TowerDefenseGame.Geometry
                 this.x = value;
             }
         }
-        public int Y
+        public double Y
         {
             get
             {

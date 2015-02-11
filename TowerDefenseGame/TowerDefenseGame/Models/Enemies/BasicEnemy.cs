@@ -8,7 +8,7 @@ namespace TowerDefenseGame.Models.Enemies
         private const int LifePoints = 50;
         private const int Speed = 1;
 
-        public BasicEnemy(int x, int y) : base(x, y, 50, 50, BasicEnemy.LifePoints, BasicEnemy.Speed, Brushes.Black)
+        public BasicEnemy(double x, double y) : base(x, y, 50, 50, BasicEnemy.LifePoints, BasicEnemy.Speed, Brushes.Black)
         {
 
         }

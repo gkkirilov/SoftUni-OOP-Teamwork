@@ -35,6 +35,7 @@ namespace TowerDefenseGame.Core
         public void Render()
         {
             EnemyController.Render();
+            GameFieldController.Render();
         }
     }
 }

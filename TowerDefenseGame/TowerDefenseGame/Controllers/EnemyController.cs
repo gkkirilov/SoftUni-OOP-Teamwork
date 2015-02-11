@@ -67,14 +67,6 @@ namespace TowerDefenseGame.Controllers
 
         public static void Render()
         {
-            for (int row = 0; row < Constants.FieldRows; row++)
-            {
-                for (int col = 0; col < Constants.FieldCols; col++)
-                {
-                    AnimationController.Renderer.Render(GameFieldController.GameField[row][col]);
-                }
-            }
-
             foreach (var enemy in EnemyController.Enemies)
             {
                 AnimationController.Renderer.Render(enemy);
