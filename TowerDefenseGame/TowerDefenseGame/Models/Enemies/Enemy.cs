@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TowerDefenseGame.Geometry;
 using TowerDefenseGame.Interfaces;
@@ -12,9 +14,12 @@ namespace TowerDefenseGame.Models.Enemies
         private int speed;
         private int lifePoints;
         private List<Point> beacons = new List<Point>();
+        
+         
+        
 
-        protected Enemy(double x, double y, int width, int height, int lifePoints, int speed, Brush fillBrush)
-            : base(x, y, width, height, fillBrush)
+        protected Enemy(double x, double y, int width, int height, int lifePoints, int speed)
+            : base(x, y, width, height)
         {
             this.LifePoints = lifePoints;
             this.Speed = speed;

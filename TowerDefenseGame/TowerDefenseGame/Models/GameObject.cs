@@ -1,8 +1,12 @@
 ﻿using System;
+using System.IO;
+using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using TowerDefenseGame.Geometry;
 using TowerDefenseGame.Interfaces;
+using TowerDefenseGame.Models.Enemies;
+using Point = TowerDefenseGame.Geometry.Point;
 
 namespace TowerDefenseGame.Models
 {
@@ -13,7 +17,7 @@ namespace TowerDefenseGame.Models
         private int height;
         private Rectangle model;
 
-        protected GameObject(double x, double y, int width, int height, Brush fillBrush)
+        protected GameObject(double x, double y, int width, int height)
         {
             this.Coordinates = new Point(x, y);
             this.Model = new Rectangle();
@@ -22,7 +26,19 @@ namespace TowerDefenseGame.Models
 
             this.Model.Height = height;
             this.Model.Width = width;
-            this.Model.Fill = fillBrush;
+
+            Uri uri = new Uri(
+            Directory.GetCurrentDirectory() +
+            @"\skeleton.png", UriKind.Absolute);
+            BitmapImage bmi = new BitmapImage(uri);
+            CroppedBitmap cbm = new CroppedBitmap();
+
+
+            cbm.BeginInit();
+            cbm.Source = bmi;
+            cbm.EndInit();
+            cbm.SourceRect = new Int32Rect(100, 250, 100, 200);
+            this.Model.Fill = new ImageBrush(cbm);
         }
 
         public Point Coordinates
