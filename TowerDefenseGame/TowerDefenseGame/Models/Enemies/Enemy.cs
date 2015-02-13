@@ -9,17 +9,14 @@ using TowerDefenseGame.Interfaces;
 
 namespace TowerDefenseGame.Models.Enemies
 {
-    abstract class Enemy : GameObject, IEnemy
+    public abstract class Enemy : GameObject, IEnemy
     {
         private int speed;
         private int lifePoints;
         private List<Point> beacons = new List<Point>();
-        
-         
-        
 
-        protected Enemy(double x, double y, int width, int height, int lifePoints, int speed)
-            : base(x, y, width, height)
+        protected Enemy(double x, double y, int width, int height, int lifePoints, int speed, Brush fillType)
+            : base(x, y, width, height, fillType)
         {
             this.LifePoints = lifePoints;
             this.Speed = speed;

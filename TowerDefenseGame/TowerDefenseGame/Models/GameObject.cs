@@ -10,14 +10,14 @@ using Point = TowerDefenseGame.Geometry.Point;
 
 namespace TowerDefenseGame.Models
 {
-    abstract class GameObject : IGameObject
+    public abstract class GameObject : IGameObject
     {
         private Point coordinates;
         private int width;
         private int height;
         private Rectangle model;
 
-        protected GameObject(double x, double y, int width, int height)
+        protected GameObject(double x, double y, int width, int height, Brush fillType)
         {
             this.Coordinates = new Point(x, y);
             this.Model = new Rectangle();
@@ -38,7 +38,8 @@ namespace TowerDefenseGame.Models
             cbm.Source = bmi;
             cbm.EndInit();
             cbm.SourceRect = new Int32Rect(100, 250, 100, 200);
-            this.Model.Fill = new ImageBrush(cbm);
+            //this.Model.Fill = new ImageBrush(cbm);
+            this.Model.Fill = fillType;
         }
 
         public Point Coordinates

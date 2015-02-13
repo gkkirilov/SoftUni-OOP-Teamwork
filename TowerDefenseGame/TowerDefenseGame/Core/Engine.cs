@@ -30,12 +30,14 @@ namespace TowerDefenseGame.Core
         public void Update()
         {
             EnemyController.Update();
+            ProjectileController.Update();
         }
 
         public void Render()
         {
             EnemyController.Render();
             GameFieldController.Render();
+            ProjectileController.Render();
         }
     }
 }
