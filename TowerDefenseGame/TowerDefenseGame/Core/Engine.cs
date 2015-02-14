@@ -31,7 +31,7 @@ namespace TowerDefenseGame.Core
         {
             EnemyController.Update();
 			TowerController.Update();
-			ProjectileController.Update;        }
+			ProjectileController.Update();        }
 
         public void Render()
         {
