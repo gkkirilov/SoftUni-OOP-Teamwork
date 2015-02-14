@@ -22,5 +22,5 @@
                    Width="69"
                    MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" />
 
-    </Canvas>
+        </Canvas>
 </Window>

@@ -51,6 +51,7 @@ namespace TowerDefenseGame.Core
             {
                 EnemyController.GenerateEnemy(Constants.EnemyStartCol * Constants.FieldSegmentSize,
                                    Constants.EnemyStartRow * Constants.FieldSegmentSize);
+                
             };
 
             Timers.UpdateTimer.Interval = TimeSpan.FromMilliseconds(Constants.UpdateDelay);

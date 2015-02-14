@@ -17,7 +17,7 @@ namespace TowerDefenseGame.Core
 
         public const int EnemyStartCol = 22;
         public const int EnemyStartRow = 10;
-        public const int WaveEnemiesMaxCount = 20;
+        public const int WaveEnemiesMaxCount = 3;
 
         // The time intervals for the different timers in milliseconds.
         public const int EnemyGenerationDelay = 2000;

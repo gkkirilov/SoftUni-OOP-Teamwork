@@ -51,6 +51,7 @@ namespace TowerDefenseGame.Controllers
                     hasExited = true;
                 }
             }
+            
 
             if (hasExited)
             {
