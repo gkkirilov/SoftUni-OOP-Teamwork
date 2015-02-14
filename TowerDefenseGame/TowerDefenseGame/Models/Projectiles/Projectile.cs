@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Media;
 using TowerDefenseGame.Core;
+using TowerDefenseGame.Geometry;
 using TowerDefenseGame.Models.Enemies;
 
 namespace TowerDefenseGame.Models.Projectiles
@@ -14,10 +15,10 @@ namespace TowerDefenseGame.Models.Projectiles
             : base(x, y, Constants.ProjectileSize, Constants.ProjectileSize, fillType)
         {
             this.Target = target;
-            this.Speed = speed;
+            this.ProjectileSpeed = speed;
         }
 
-        public int Speed
+        public int ProjectileSpeed
         {
             get
             {
@@ -45,47 +46,12 @@ namespace TowerDefenseGame.Models.Projectiles
             }
         }
 
-        public void Update()
+        public override void Update()
         {
-            if (this.Target.Coordinates.X > this.Coordinates.X && this.Target.Coordinates.Y == this.Coordinates.Y)
+            Point.HandleMovement(this.Coordinates, this.Target.Coordinates, this.ProjectileSpeed);
+            if (this.Intersects(this.Target))
             {
-                this.Coordinates.X += this.Speed; // Right
-            }
-            else if (this.Target.Coordinates.X < this.Coordinates.X && this.Target.Coordinates.Y == this.Coordinates.Y)
-            {
-                this.Coordinates.X -= this.Speed; // Left
-            }
-            else if (this.Target.Coordinates.X == this.Coordinates.X && this.Target.Coordinates.Y < this.Coordinates.Y)
-            {
-                this.Coordinates.Y -= this.Speed; // Top
-            }
-            else if (this.Target.Coordinates.X == this.Coordinates.X && this.Target.Coordinates.Y > this.Coordinates.Y)
-            {
-                this.Coordinates.Y += this.Speed; // Bottom
-            }
-            else if (this.Target.Coordinates.X > this.Coordinates.X && this.Target.Coordinates.Y > this.Coordinates.Y) 
-            {
-                this.Coordinates.Y += this.Speed; // Bottom right
-                this.Coordinates.X += this.Speed;
-            }
-            else if (this.Target.Coordinates.X < this.Coordinates.X && this.Target.Coordinates.Y > this.Coordinates.Y)
-            {
-                this.Coordinates.Y += this.Speed; // Bottom left
-                this.Coordinates.X -= this.Speed;
-            }
-            else if (this.Target.Coordinates.X > this.Coordinates.X && this.Target.Coordinates.Y < this.Coordinates.Y)
-            {
-                this.Coordinates.Y -= this.Speed; // Top right
-                this.Coordinates.X += this.Speed;
-            }
-            else if (this.Target.Coordinates.X < this.Coordinates.X && this.Target.Coordinates.Y < this.Coordinates.Y)
-            {
-                this.Coordinates.Y -= this.Speed; // Top left
-                this.Coordinates.X -= this.Speed;
-            }
-            else
-            {
-                throw new ArgumentException();
+                this.Exists = false;
             }
         }
     }

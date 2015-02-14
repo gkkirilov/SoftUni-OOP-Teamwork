@@ -1,17 +1,18 @@
 ﻿
 using System.Windows.Media;
+using TowerDefenseGame.Core;
 
 namespace TowerDefenseGame.Models.Towers
 {
     class SlowTower:Tower
     {
-        private const int TowerSpeed = 10;
-        private const int TowerRadius = 400;
-        private const string TowerEffect = "SlowTower";
+        private const int Speed = 10;
+        private const int Range = 400;
 
-        public SlowTower(int x, int y): base(x, y, 50, 50, SlowTower.TowerSpeed, SlowTower.TowerRadius, SlowTower.TowerEffect, Brushes.DeepSkyBlue)
+        public SlowTower(double x, double y)
+            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize,
+                SlowTower.Speed, SlowTower.Range, Brushes.DeepSkyBlue)
         {
-
         }
     }
 }

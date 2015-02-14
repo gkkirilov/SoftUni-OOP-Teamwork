@@ -18,9 +18,15 @@ namespace TowerDefenseGame.Controllers
 
         public static void Update()
         {
-            foreach (Projectile projectile in ProjectileController.Projectiles)
+            for (int index = 0; index < ProjectileController.Projectiles.Count; index++)
             {
-                projectile.Update();
+                ProjectileController.Projectiles[index].Update();
+                if (!ProjectileController.Projectiles[index].Exists)
+                {
+                    AnimationController.Renderer.RemoveModel(ProjectileController.Projectiles[index]);
+                    ProjectileController.Projectiles.RemoveAt(index);
+                    index--;
+                }
             }
         }
 

@@ -15,6 +15,7 @@ namespace TowerDefenseGame.Models
         private Point coordinates;
         private int width;
         private int height;
+        private bool exists = true;
         private Rectangle model;
 
         protected GameObject(double x, double y, int width, int height, Brush fillType)
@@ -27,17 +28,18 @@ namespace TowerDefenseGame.Models
             this.Model.Height = height;
             this.Model.Width = width;
 
-            Uri uri = new Uri(
-            Directory.GetCurrentDirectory() +
-            @"\skeleton.png", UriKind.Absolute);
-            BitmapImage bmi = new BitmapImage(uri);
-            CroppedBitmap cbm = new CroppedBitmap();
-
-
-            cbm.BeginInit();
-            cbm.Source = bmi;
-            cbm.EndInit();
-            cbm.SourceRect = new Int32Rect(100, 250, 100, 200);
+            // Uri uri = new Uri(
+            // Directory.GetCurrentDirectory() +
+            // @"..\..\..\Models\skeleton.png", UriKind.Absolute);
+            // 
+            // BitmapImage bmi = new BitmapImage(uri);
+            // CroppedBitmap cbm = new CroppedBitmap();
+            // 
+            // 
+            // cbm.BeginInit();
+            // cbm.Source = bmi;
+            // cbm.EndInit();
+            // cbm.SourceRect = new Int32Rect(100, 250, 100, 200);
             //this.Model.Fill = new ImageBrush(cbm);
             this.Model.Fill = fillType;
         }
@@ -86,6 +88,18 @@ namespace TowerDefenseGame.Models
             }
         }
 
+        public bool Exists
+        {
+            get
+            {
+                return this.exists;
+            }
+            protected set
+            {
+                this.exists = value;
+            }
+        }
+
         public Rectangle Model
         {
             get 
@@ -96,6 +110,23 @@ namespace TowerDefenseGame.Models
             {
                 this.model = value;
             }
+        }
+
+        public bool Intersects(GameObject target)
+        {
+            if (this.Coordinates.X + this.Width > target.Coordinates.X && this.Coordinates.X < target.Coordinates.X + target.Width &&
+            this.Coordinates.Y + this.Height > target.Coordinates.Y && this.Coordinates.Y < target.Coordinates.Y + target.Height)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public virtual void Update()
+        {
         }
     }
 }

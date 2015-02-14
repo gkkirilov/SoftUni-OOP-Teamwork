@@ -96,7 +96,7 @@
     <Compile Include="Models\Towers\ArrowTower.cs" />
     <Compile Include="Models\Towers\SlowTower.cs" />
     <Compile Include="Models\Towers\SniperTower.cs" />
-    <Compile Include="Models\Towers\SplashTower.cs" />
+    <Compile Include="Models\Towers\FireTower.cs" />
     <Compile Include="Models\Towers\Tower.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -122,9 +122,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <Folder Include="Models\Towers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Models\skeleton.png" />
   </ItemGroup>

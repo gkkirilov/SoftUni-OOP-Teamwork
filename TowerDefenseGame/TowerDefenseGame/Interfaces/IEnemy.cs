@@ -7,9 +7,8 @@ namespace TowerDefenseGame.Interfaces
     interface IEnemy
     {
         List<Point> Beacons { get; }
-        int Speed { get; }
-        int LifePoints { get; }
-        bool Update();
+        int EnemySpeed { get; }
+        int EnemyLifePoints { get; }
         void SetBeacons(List<Point> beacons);
     }
 }

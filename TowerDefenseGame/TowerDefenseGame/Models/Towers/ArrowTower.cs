@@ -9,21 +9,19 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Forms;
+using TowerDefenseGame.Core;
 
 namespace TowerDefenseGame.Models.Towers
 {
-    class ArrowTower :Tower
+    class ArrowTower : Tower
     {
-        
-        private const int TowerSpeed = 10;
-        private const int TowerRadius = 400;
-        private const string TowerEffect = "ArrowTower";
+        private const int Speed = 10;
+        private const int Range = 400;
 
-        public ArrowTower(int x, int y) : base(x, y, 50, 50, ArrowTower.TowerSpeed, ArrowTower.TowerRadius,ArrowTower.TowerEffect, Brushes.LawnGreen)
+        public ArrowTower(double x, double y)
+            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, 
+                ArrowTower.Speed, ArrowTower.Range, Brushes.LawnGreen)
         {
-
         }
-
-        
     }
 }

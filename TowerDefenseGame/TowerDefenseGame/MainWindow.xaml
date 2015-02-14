@@ -5,10 +5,11 @@
     <Canvas Name="MainCanvas">
         <Rectangle Fill="Black" Height="173" Stroke="Black" Canvas.Top="599" Width="1109"/>
         <Rectangle Fill="AliceBlue" 
-                   Name="CannonTowerSelection"
+                   Stroke="Blue"
+                   StrokeThickness="3"
+                   Name="SniperTowerSelection"
                    Height="69" 
                    Canvas.Left="110" 
-                   Stroke="Black" 
                    Canvas.Top="660" 
                    Width="74" 
                    RenderTransformOrigin="-1.614,0.596"

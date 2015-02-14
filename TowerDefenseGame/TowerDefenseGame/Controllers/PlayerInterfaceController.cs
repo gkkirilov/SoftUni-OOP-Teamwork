@@ -5,7 +5,7 @@ namespace TowerDefenseGame.Controllers
 {
     static class PlayerInterfaceController
     {
-        private static TowerType towerSelected;
+        private static TowerType towerSelected = TowerType.Sniper;
 
         public static TowerType TowerSelected
         {

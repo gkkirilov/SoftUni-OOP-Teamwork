@@ -9,7 +9,7 @@ namespace TowerDefenseGame.Models
 {
     public class FieldSegment : GameObject, IFieldSegment
     {
-        private FieldType fieldType = FieldType.Regular;
+        private FieldType fieldType;
 
         public FieldSegment(double x, double y)
             : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, Brushes.AliceBlue)

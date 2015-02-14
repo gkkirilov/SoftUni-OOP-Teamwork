@@ -2,8 +2,9 @@
 {
     public enum TowerType
     {
-        Freeze,
+        Arrow,
         Fire,
-        Cannon
+        Slow,
+        Sniper
     }
 }

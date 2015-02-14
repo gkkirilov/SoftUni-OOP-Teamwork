@@ -48,15 +48,16 @@ namespace TowerDefenseGame
             Rectangle selectionField = (Rectangle)sender;
             selectionField.Stroke = Brushes.Blue;
             selectionField.StrokeThickness = 3;
+
             switch (selectionField.Name)
             {
-                case "CannonTowerSelection":
-                    PlayerInterfaceController.TowerSelected = TowerType.Cannon;
+                case "SniperTowerSelection":
+                    PlayerInterfaceController.TowerSelected = TowerType.Sniper;
                     this.FireTowerSelection.StrokeThickness = 0;
                     break;
                 case "FireTowerSelection":
                     PlayerInterfaceController.TowerSelected = TowerType.Fire;
-                    this.CannonTowerSelection.StrokeThickness = 0;
+                    this.SniperTowerSelection.StrokeThickness = 0;
                     break;
                 default:
                     break;
@@ -88,8 +89,8 @@ namespace TowerDefenseGame
                 double x = Canvas.GetLeft(model);
                 double y = Canvas.GetTop(model);
 
-                ProjectileController.Projectiles.Add(new BasicProjectile(x, y)); // To be changed to a tower when it is created
-                AnimationController.Renderer.Render(ProjectileController.Projectiles[ProjectileController.Projectiles.Count - 1]);  
+                TowerController.GenerateTower(x, y);
+                // AnimationController.Renderer.Render(ProjectileController.Projectiles[ProjectileController.Projectiles.Count - 1]);  
             }
         }
     }

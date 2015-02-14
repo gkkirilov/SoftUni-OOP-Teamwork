@@ -36,27 +36,22 @@ namespace TowerDefenseGame.Controllers
         public static void GenerateEnemy(int x, int y)
         {
             EnemyController.WaveEnemiesCount++;
-            EnemyController.Enemies.Add(new BasicEnemy(x, y));
+            EnemyController.Enemies.Add(new BasicEnemy(x, y)); // TODO: Generate enemies based on type
             EnemyController.Enemies[EnemyController.Enemies.Count - 1].SetBeacons(EnemyController.GetEnemyBeacons());
         }
 
         public static void Update() 
         {
-            bool hasExited = false;
-            foreach (var enemy in EnemyController.Enemies)
+            for (int index = 0; index < EnemyController.Enemies.Count; index++)
             {
-                bool exitStatus = enemy.Update();
-                if (exitStatus == true)
-                {
-                    hasExited = true;
-                }
-            }
-            
+                EnemyController.Enemies[index].Update();
 
-            if (hasExited)
-            {
-                AnimationController.Renderer.RemoveModel(EnemyController.Enemies[0]);
-                EnemyController.Enemies.RemoveAt(0);
+                if (!EnemyController.Enemies[index].Exists)
+                {
+                    AnimationController.Renderer.RemoveModel(EnemyController.Enemies[index]);
+                    EnemyController.Enemies.RemoveAt(index);
+                    index--;
+                }
             }
 
             if (EnemyController.WaveEnemiesCount >= Constants.WaveEnemiesMaxCount)

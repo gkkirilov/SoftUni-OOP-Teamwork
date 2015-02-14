@@ -18,8 +18,8 @@ namespace TowerDefenseGame.Models.Enemies
         protected Enemy(double x, double y, int width, int height, int lifePoints, int speed, Brush fillType)
             : base(x, y, width, height, fillType)
         {
-            this.LifePoints = lifePoints;
-            this.Speed = speed;
+            this.EnemyLifePoints = lifePoints;
+            this.EnemySpeed = speed;
         }
 
         public List<Point> Beacons
@@ -34,7 +34,7 @@ namespace TowerDefenseGame.Models.Enemies
             }
         }
 
-        public int Speed
+        public int EnemySpeed
         {
             get
             {
@@ -50,7 +50,7 @@ namespace TowerDefenseGame.Models.Enemies
             }
         }
 
-        public int LifePoints
+        public int EnemyLifePoints
         {
             get
             {
@@ -62,36 +62,21 @@ namespace TowerDefenseGame.Models.Enemies
             }
         }
 
-        public bool Update()
+        public override void Update()
         {
             if (this.Beacons.Count == 0)
             {
-                return true;
+                this.Exists = false;
+                return;
             }
 
-            if (this.Beacons[0].X > this.Coordinates.X && this.Beacons[0].Y == this.Coordinates.Y)
-            {
-                this.Coordinates.X += this.Speed; // Right
-            }
-            else if (this.Beacons[0].X < this.Coordinates.X && this.Beacons[0].Y == this.Coordinates.Y)
-            {
-                this.Coordinates.X -= this.Speed; // Left
-            }
-            else if (this.Beacons[0].X == this.Coordinates.X && this.Beacons[0].Y < this.Coordinates.Y)
-            {
-                this.Coordinates.Y -= this.Speed; // Top
-            }
-            else if (this.Beacons[0].X == this.Coordinates.X && this.Beacons[0].Y > this.Coordinates.Y)
-            {
-                this.Coordinates.Y += this.Speed; // Bottom
-            }
-            else
-            {
+            Point.HandleMovement(this.Coordinates, this.Beacons[0], this.EnemySpeed);
+
+            if (this.Beacons[0].IsInside(this))
+	        {
                 this.Beacons.RemoveAt(0);
                 this.Update();
-            }
-
-            return false;
+	        }  
         }
 
         public void SetBeacons(List<Point> beacons)

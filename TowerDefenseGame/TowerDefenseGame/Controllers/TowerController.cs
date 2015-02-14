@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Media;
+using TowerDefenseGame.Enumerations;
 
 
 namespace TowerDefenseGame.Controllers
@@ -28,33 +29,41 @@ namespace TowerDefenseGame.Controllers
             }
         }
 
-        public static void GenerateTower(int x, int y,string towerEffect)
+        public static void GenerateTower(double x, double y)
         {
             TowerController.towerCount++;
-            if (towerEffect == "ArrowTower")
+
+            switch (PlayerInterfaceController.TowerSelected)
             {
-                TowerController.Towers.Add(new ArrowTower(x, y));
+                case TowerType.Arrow:
+                    TowerController.Towers.Add(new ArrowTower(x, y));
+                    break;
+                case TowerType.Fire:
+                    TowerController.Towers.Add(new FireTower(x, y));
+                    break;
+                case TowerType.Slow:
+                    TowerController.Towers.Add(new SlowTower(x, y));
+                    break;
+                case TowerType.Sniper:
+                    TowerController.Towers.Add(new SniperTower(x, y));
+                    break;
+                default:
+                    break;
             }
-                
-            else if (towerEffect == "SlowTower")
-            {
-                TowerController.Towers.Add(new SlowTower(x, y));
-            }
-            else if (towerEffect == "SniperTower")
-            {
-                TowerController.Towers.Add(new SniperTower(x, y));
-            }
-            else if(towerEffect=="SplashTower")
-                TowerController.Towers.Add(new SplashTower(x, y));
-           
         }
 
         public static void Update()
         {
-            TowerController.GenerateTower(6 * Constants.FieldSegmentSize, 7 * Constants.FieldSegmentSize,"ArrowTower");
-            TowerController.GenerateTower(5 * Constants.FieldSegmentSize, 8 * Constants.FieldSegmentSize, "SlowTower"); 
-            TowerController.GenerateTower(1 * Constants.FieldSegmentSize, 2 * Constants.FieldSegmentSize, "SniperTower");
-            TowerController.GenerateTower(10 * Constants.FieldSegmentSize, 7 * Constants.FieldSegmentSize, "SplashTower");
+            for (int index = 0; index < TowerController.Towers.Count; index++)
+            {
+                TowerController.Towers[index].Update();
+                if (!TowerController.Towers[index].Exists)
+                {
+                    TowerController.Towers.RemoveAt(index);
+                    index--;
+                }
+            }
+
         }
 
         
