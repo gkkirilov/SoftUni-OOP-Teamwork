@@ -1,11 +1,11 @@
-﻿using Animations.AnimationInterfaces;
-using System;
-using System.Windows.Controls;
-using TowerDefenseGame.Core;
-
-namespace TowerDefenseGame.Controllers
+﻿namespace TowerDefenseGame.Controllers
 {
-    static class AnimationController
+    using System;
+    using System.Windows.Controls;
+    using TowerDefenseGame.Core;
+    using TowerDefenseGame.Interfaces;
+
+    public static class AnimationController
     {
         private static IRenderer renderer;
 
@@ -15,6 +15,7 @@ namespace TowerDefenseGame.Controllers
             {
                 return AnimationController.renderer;
             }
+
             private set
             {
                 AnimationController.renderer = value;

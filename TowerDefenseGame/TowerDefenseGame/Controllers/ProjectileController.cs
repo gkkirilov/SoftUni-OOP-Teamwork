@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using TowerDefenseGame.Models.Projectiles;
-
-namespace TowerDefenseGame.Controllers
+﻿namespace TowerDefenseGame.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using TowerDefenseGame.Models.Projectiles;
+
     public static class ProjectileController
     {
         private static List<Projectile> projectiles = new List<Projectile>();

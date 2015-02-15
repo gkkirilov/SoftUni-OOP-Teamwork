@@ -1,9 +1,9 @@
-﻿using System;
-using TowerDefenseGame.Enumerations;
-
-namespace TowerDefenseGame.Controllers
+﻿namespace TowerDefenseGame.Controllers
 {
-    static class PlayerInterfaceController
+    using System;
+    using TowerDefenseGame.Enumerations;
+
+    public static class PlayerInterfaceController
     {
         private static TowerType towerSelected = TowerType.Sniper;
 
@@ -13,6 +13,7 @@ namespace TowerDefenseGame.Controllers
             {
                 return PlayerInterfaceController.towerSelected;
             }
+
             set
             {
                 PlayerInterfaceController.towerSelected = value;

@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using TowerDefenseGame.Models.Enemies;
-using TowerDefenseGame.Core;
-using System.Windows.Shapes;
-using System.Windows.Controls;
-using Animations.AnimationInterfaces;
-using TowerDefenseGame.Models;
-using TowerDefenseGame.Geometry;
-using System.Windows.Media;
-using System.Windows.Threading;
-using Animations;
-using TowerDefenseGame.Controllers;
-using TowerDefenseGame.Interfaces;
-
-namespace TowerDefenseGame.Core
+﻿namespace TowerDefenseGame.Core
 {
-    class Engine : IEngine
+    using System;
+    using System.Collections.Generic;
+    using System.Windows.Controls;
+    using System.Windows.Media;
+    using System.Windows.Shapes;
+    using TowerDefenseGame.Controllers;
+    using TowerDefenseGame.Core;
+    using TowerDefenseGame.Geometry;
+    using TowerDefenseGame.Interfaces;
+    using TowerDefenseGame.Models;
+    using TowerDefenseGame.Models.Enemies;
+
+    public class Engine : IEngine
     {
         public Engine()
         {
@@ -30,14 +27,16 @@ namespace TowerDefenseGame.Core
         public void Update()
         {
             EnemyController.Update();
-			TowerController.Update();
-			ProjectileController.Update();        }
+            TowerController.Update();
+            ProjectileController.Update();        
+        }
 
         public void Render()
         {
             EnemyController.Render();
-			TowerController.Render();
-			GameFieldController.Render();
-			ProjectileController.Render();        }
+            TowerController.Render();
+            GameFieldController.Render();
+            ProjectileController.Render();        
+        }
     }
 }

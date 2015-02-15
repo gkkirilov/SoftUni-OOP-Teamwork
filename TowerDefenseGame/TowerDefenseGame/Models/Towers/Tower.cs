@@ -1,25 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Documents;
-using System.Windows.Media;
-using TowerDefenseGame.Controllers;
-using TowerDefenseGame.Geometry;
-using TowerDefenseGame.Interfaces;
-using TowerDefenseGame.Models.Enemies;
-using TowerDefenseGame.Models.Projectiles;
-
-
-namespace TowerDefenseGame.Models.Towers
+﻿namespace TowerDefenseGame.Models.Towers
 {
+    using System;
+    using System.Linq;
+    using System.Windows.Media;
+    using TowerDefenseGame.Controllers;
+    using TowerDefenseGame.Models.Enemies;
+    using TowerDefenseGame.Models.Projectiles;
+
     public abstract class Tower : GameObject
     {
         private int towerSpeed;
         private int towerRange;
         private int frameCount = 0;
         private Enemy target;
-        // private string TowerEffect; - We shall implement this when we make the Effects class
 
+        // private string TowerEffect; - We shall implement this when we make the Effects class
         protected Tower(double x, double y, int width, int height, int towerSpeed, int towerRange, Brush fillBrush)
             : base(x, y, width, height, fillBrush)
         {
@@ -33,6 +28,7 @@ namespace TowerDefenseGame.Models.Towers
             {
                 return this.towerSpeed;
             }
+
             private set
             {
                 this.towerSpeed = value;
@@ -45,6 +41,7 @@ namespace TowerDefenseGame.Models.Towers
             {
                 return this.towerRange;
             }
+
             private set
             {
                 this.towerRange = value;
@@ -57,12 +54,14 @@ namespace TowerDefenseGame.Models.Towers
             {
                 return this.target;
             }
+
             private set
             {
                 if (value == null)
                 {
                     throw new ArgumentNullException("The target cannot be null.");
                 }
+
                 this.target = value;
             }
         }
@@ -77,6 +76,7 @@ namespace TowerDefenseGame.Models.Towers
             if (this.Target != null && this.frameCount >= this.TowerSpeed)
             {
                 this.frameCount = 0;
+
                 // TODO: Change the projectile according to the tower type
                 ProjectileController.Projectiles.Add(new BasicProjectile(this.Coordinates.X, this.Coordinates.Y, this.Target));
             }

@@ -1,67 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
-using TowerDefenseGame.Controllers;
-using TowerDefenseGame.Core;
-using TowerDefenseGame.Enumerations;
-using TowerDefenseGame.Models;
-using TowerDefenseGame.Models.Enemies;
-using TowerDefenseGame.Models.Projectiles;
-
-namespace TowerDefenseGame
+﻿namespace TowerDefenseGame
 {
+    using System.Linq;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Input;
+    using System.Windows.Media;
+    using System.Windows.Shapes;
+    using TowerDefenseGame.Controllers;
+    using TowerDefenseGame.Core;
+    using TowerDefenseGame.Enumerations;
+    using TowerDefenseGame.Models;
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        static Engine engine;
+        private Engine engine;
 
         public MainWindow()
         {
-            InitializeComponent();
-            engine = new Engine();
+            this.InitializeComponent();
+            this.engine = new Engine();
             AnimationController.ConfigureRenderer(this.MainCanvas);
             GameFieldController.SetGameFieldEvents(this);
-        }
-
-        private void SelectionFieldMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (!(sender is Rectangle))
-            {
-                return;
-    }
-
-            Rectangle selectionField = (Rectangle)sender;
-            selectionField.Stroke = Brushes.Blue;
-            selectionField.StrokeThickness = 3;
-
-            switch (selectionField.Name)
-            {
-                case "SniperTowerSelection":
-                    PlayerInterfaceController.TowerSelected = TowerType.Sniper;
-                    this.FireTowerSelection.StrokeThickness = 0;
-                    break;
-                case "FireTowerSelection":
-                    PlayerInterfaceController.TowerSelected = TowerType.Fire;
-                    this.SniperTowerSelection.StrokeThickness = 0;
-                    break;
-                default:
-                    break;
-            }
         }
 
         public void GameFieldMouseLeftButtonDown(object sender, MouseEventArgs e)
@@ -90,7 +52,32 @@ namespace TowerDefenseGame
                 double y = Canvas.GetTop(model);
 
                 TowerController.GenerateTower(x, y);
-                // AnimationController.Renderer.Render(ProjectileController.Projectiles[ProjectileController.Projectiles.Count - 1]);  
+            }
+        }
+
+        private void SelectionFieldMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender is Rectangle))
+            {
+                return;
+            }
+
+            Rectangle selectionField = (Rectangle)sender;
+            selectionField.Stroke = Brushes.Blue;
+            selectionField.StrokeThickness = 3;
+
+            switch (selectionField.Name)
+            {
+                case "SniperTowerSelection":
+                    PlayerInterfaceController.TowerSelected = TowerType.Sniper;
+                    this.FireTowerSelection.StrokeThickness = 0;
+                    break;
+                case "FireTowerSelection":
+                    PlayerInterfaceController.TowerSelected = TowerType.Fire;
+                    this.SniperTowerSelection.StrokeThickness = 0;
+                    break;
+                default:
+                    break;
             }
         }
     }

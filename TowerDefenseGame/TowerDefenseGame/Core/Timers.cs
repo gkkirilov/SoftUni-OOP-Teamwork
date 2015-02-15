@@ -1,11 +1,11 @@
-﻿using System;
-using System.Windows.Threading;
-using TowerDefenseGame.Controllers;
-using TowerDefenseGame.Interfaces;
-
-namespace TowerDefenseGame.Core
+﻿namespace TowerDefenseGame.Core
 {
-    static class Timers
+    using System;
+    using System.Windows.Threading;
+    using TowerDefenseGame.Controllers;
+    using TowerDefenseGame.Interfaces;
+
+    public static class Timers
     {
         private static DispatcherTimer enemyGeneratorTimer = new DispatcherTimer();
         private static DispatcherTimer updateTimer = new DispatcherTimer();
@@ -49,9 +49,9 @@ namespace TowerDefenseGame.Core
             Timers.EnemyGeneratorTimer.Interval = TimeSpan.FromMilliseconds(Constants.EnemyGenerationDelay);
             Timers.EnemyGeneratorTimer.Tick += (obj, args) =>
             {
-                EnemyController.GenerateEnemy(Constants.EnemyStartCol * Constants.FieldSegmentSize,
-                                   Constants.EnemyStartRow * Constants.FieldSegmentSize);
-                
+                EnemyController.GenerateEnemy(
+                    Constants.EnemyStartCol * Constants.FieldSegmentSize,
+                    Constants.EnemyStartRow * Constants.FieldSegmentSize); 
             };
 
             Timers.UpdateTimer.Interval = TimeSpan.FromMilliseconds(Constants.UpdateDelay);

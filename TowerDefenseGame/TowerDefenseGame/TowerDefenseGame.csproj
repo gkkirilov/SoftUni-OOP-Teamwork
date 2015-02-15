@@ -78,7 +78,6 @@
     <Compile Include="Geometry\Point.cs" />
     <Compile Include="Interfaces\IEnemy.cs" />
     <Compile Include="Interfaces\IEngine.cs" />
-    <Compile Include="Interfaces\IFieldSegment.cs" />
     <Compile Include="Interfaces\IGameObject.cs" />
     <Compile Include="Interfaces\IRenderer.cs" />
     <Compile Include="MainWindow.xaml.cs">

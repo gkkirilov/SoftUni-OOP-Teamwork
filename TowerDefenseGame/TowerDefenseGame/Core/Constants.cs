@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Shapes;
-using TowerDefenseGame.Geometry;
-using TowerDefenseGame.Models.Enemies;
-
-namespace TowerDefenseGame.Core
+﻿namespace TowerDefenseGame.Core
 {
-    static class Constants
+    public static class Constants
     {
         public const int FieldRows = 20;
         public const int FieldCols = 30;

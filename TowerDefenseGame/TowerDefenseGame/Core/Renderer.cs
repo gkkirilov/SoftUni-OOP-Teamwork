@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Shapes;
-using Animations.AnimationInterfaces;
-using TowerDefenseGame.Models;
-using TowerDefenseGame.Interfaces;
-
-namespace TowerDefenseGame.Core
+﻿namespace TowerDefenseGame.Core
 {
-    class Renderer : IRenderer
-    {
-        private readonly Brush BallFillColor = Brushes.AliceBlue;
-        private readonly Brush BallStrokeColor = Brushes.DarkBlue;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Controls;
+    using System.Windows.Media;
+    using System.Windows.Shapes;
+    using TowerDefenseGame.Interfaces;
+    using TowerDefenseGame.Models;
 
+    public class Renderer : IRenderer
+    {
         public Renderer(Canvas container)
         {
             this.Container = container;

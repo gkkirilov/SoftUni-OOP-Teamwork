@@ -1,12 +1,8 @@
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Shapes;
-using TowerDefenseGame.Interfaces;
-
-
-namespace Animations.AnimationInterfaces
+namespace TowerDefenseGame.Interfaces
 {
-    interface IRenderer
+    using TowerDefenseGame.Interfaces;
+
+    public interface IRenderer
     {
         void Render(object obj);
 

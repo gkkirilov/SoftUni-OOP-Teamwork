@@ -1,10 +1,11 @@
-﻿using System;
-
-namespace TowerDefenseGame.Interfaces
+﻿namespace TowerDefenseGame.Interfaces
 {
-    interface IEngine
+    using System;
+
+    public interface IEngine
     {
         void Update();
+        
         void Render();
     }
 }

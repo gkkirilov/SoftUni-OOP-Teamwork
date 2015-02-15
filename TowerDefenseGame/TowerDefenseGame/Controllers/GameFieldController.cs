@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
-using TowerDefenseGame.Core;
-using TowerDefenseGame.Models;
-
-namespace TowerDefenseGame.Controllers
+﻿namespace TowerDefenseGame.Controllers
 {
-    static class GameFieldController
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Media;
+    using TowerDefenseGame.Core;
+    using TowerDefenseGame.Models;
+
+    public static class GameFieldController
     {
         private static FieldSegment[][] gameField = new FieldSegment[Constants.FieldRows][];
 

@@ -1,10 +1,10 @@
-﻿using System;
-using System.Windows.Media;
-using TowerDefenseGame.Controllers;
-using TowerDefenseGame.Models.Enemies;
-
-namespace TowerDefenseGame.Models.Projectiles
+﻿namespace TowerDefenseGame.Models.Projectiles
 {
+    using System;
+    using System.Windows.Media;
+    using TowerDefenseGame.Controllers;
+    using TowerDefenseGame.Models.Enemies;
+
     public class BasicProjectile : Projectile
     {
         private const int Speed = 2;

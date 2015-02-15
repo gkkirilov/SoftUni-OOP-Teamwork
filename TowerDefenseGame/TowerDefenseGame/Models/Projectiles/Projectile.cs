@@ -1,11 +1,11 @@
-﻿using System;
-using System.Windows.Media;
-using TowerDefenseGame.Core;
-using TowerDefenseGame.Geometry;
-using TowerDefenseGame.Models.Enemies;
-
-namespace TowerDefenseGame.Models.Projectiles
+﻿namespace TowerDefenseGame.Models.Projectiles
 {
+    using System;
+    using System.Windows.Media;
+    using TowerDefenseGame.Core;
+    using TowerDefenseGame.Geometry;
+    using TowerDefenseGame.Models.Enemies;
+
     public abstract class Projectile : GameObject
     {
         private int speed;
@@ -24,6 +24,7 @@ namespace TowerDefenseGame.Models.Projectiles
             {
                 return this.speed;
             }
+
             private set
             {
                 this.speed = value;
@@ -36,12 +37,14 @@ namespace TowerDefenseGame.Models.Projectiles
             {
                 return this.target;
             }
+
             private set
             {
                 if (value == null)
                 {
                     throw new ArgumentException("The target of the projectile cannot be null");
                 }
+
                 this.target = value;
             }
         }

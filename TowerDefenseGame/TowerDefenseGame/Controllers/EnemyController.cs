@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using TowerDefenseGame.Core;
-using TowerDefenseGame.Geometry;
-using TowerDefenseGame.Interfaces;
-using TowerDefenseGame.Models.Enemies;
-
-namespace TowerDefenseGame.Controllers
+﻿namespace TowerDefenseGame.Controllers
 {
-    static class EnemyController
+    using System;
+    using System.Collections.Generic;
+    using TowerDefenseGame.Core;
+    using TowerDefenseGame.Geometry;
+    using TowerDefenseGame.Interfaces;
+    using TowerDefenseGame.Models.Enemies;
+
+    public static class EnemyController
     {
         private static List<Enemy> enemies = new List<Enemy>();
         private static List<Point> enemyBeacons = new List<Point>();
@@ -27,6 +27,7 @@ namespace TowerDefenseGame.Controllers
             {
                 return EnemyController.waveEnemiesCount;
             }
+
             set
             {
                 EnemyController.waveEnemiesCount = value;

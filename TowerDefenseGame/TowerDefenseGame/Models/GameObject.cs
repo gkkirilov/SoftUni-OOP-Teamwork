@@ -1,15 +1,14 @@
-﻿using System;
-using System.IO;
-using System.Windows;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using TowerDefenseGame.Interfaces;
-using TowerDefenseGame.Models.Enemies;
-using Point = TowerDefenseGame.Geometry.Point;
-
-namespace TowerDefenseGame.Models
+﻿namespace TowerDefenseGame.Models
 {
+    using System;
+    using System.IO;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
+    using System.Windows.Shapes;
+    using TowerDefenseGame.Geometry;
+    using TowerDefenseGame.Interfaces;
+    using TowerDefenseGame.Models.Enemies;
+
     public abstract class GameObject : IGameObject
     {
         private Point coordinates;
@@ -40,7 +39,7 @@ namespace TowerDefenseGame.Models
             // cbm.Source = bmi;
             // cbm.EndInit();
             // cbm.SourceRect = new Int32Rect(100, 250, 100, 200);
-            //this.Model.Fill = new ImageBrush(cbm);
+            // this.Model.Fill = new ImageBrush(cbm);
             this.Model.Fill = fillType;
         }
 
@@ -50,6 +49,7 @@ namespace TowerDefenseGame.Models
             {
                 return this.coordinates;
             }
+
             set
             {
                 this.coordinates = value;
@@ -62,12 +62,14 @@ namespace TowerDefenseGame.Models
             {
                 return this.width;
             }
+
             set 
             {
                 if (value < 0)
                 {
                     throw new ArgumentException("The width cannot be negative");
                 }
+
                 this.width = value;
             }
         }
@@ -78,12 +80,14 @@ namespace TowerDefenseGame.Models
             {
                 return this.height;
             }
+
             set
             {
                 if (value < 0)
                 {
                     throw new ArgumentException("The height cannot be negative.");
                 }
+
                 this.height = value;
             }
         }
@@ -94,6 +98,7 @@ namespace TowerDefenseGame.Models
             {
                 return this.exists;
             }
+
             protected set
             {
                 this.exists = value;
@@ -106,7 +111,8 @@ namespace TowerDefenseGame.Models
             { 
                 return this.model; 
             }
-            set
+
+            private set
             {
                 this.model = value;
             }

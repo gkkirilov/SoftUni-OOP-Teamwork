@@ -1,8 +1,8 @@
-﻿using System;
-using TowerDefenseGame.Models;
-
-namespace TowerDefenseGame.Geometry
+﻿namespace TowerDefenseGame.Geometry
 {
+    using System;
+    using TowerDefenseGame.Models;
+
     public class Point
     {
         private double x;
@@ -20,27 +20,24 @@ namespace TowerDefenseGame.Geometry
             {
                 return this.x;
             }
+
             set
             {
                 this.x = value;
             }
         }
+
         public double Y
         {
             get
             {
                 return this.y;
             }
+
             set
             {
                 this.y = value;
             } 
-        }
-
-        public double CalculateDistance(Point target)
-        {
-            double distance = Math.Sqrt(Math.Pow(this.X - target.X, 2) + Math.Pow(this.Y - target.Y, 2));
-            return distance;
         }
 
         public static void HandleMovement(Point objectPosition, Point targetPosition, int speed)
@@ -81,6 +78,12 @@ namespace TowerDefenseGame.Geometry
                 objectPosition.Y -= speed; // Top left
                 objectPosition.X -= speed;
             }
+        }
+
+        public double CalculateDistance(Point target)
+        {
+            double distance = Math.Sqrt(Math.Pow(this.X - target.X, 2) + Math.Pow(this.Y - target.Y, 2));
+            return distance;
         }
 
         public bool IsInside(GameObject gameObject)

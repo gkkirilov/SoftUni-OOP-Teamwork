@@ -1,13 +1,13 @@
-﻿using System;
-using System.Windows.Media;
-using TowerDefenseGame.Core;
-using TowerDefenseGame.Enumerations;
-using TowerDefenseGame.Interfaces;
-using TowerDefenseGame.Models.Enemies;
-
-namespace TowerDefenseGame.Models
+﻿namespace TowerDefenseGame.Models
 {
-    public class FieldSegment : GameObject, IFieldSegment
+    using System;
+    using System.Windows.Media;
+    using TowerDefenseGame.Core;
+    using TowerDefenseGame.Enumerations;
+    using TowerDefenseGame.Interfaces;
+    using TowerDefenseGame.Models.Enemies;
+
+    public class FieldSegment : GameObject
     {
         private FieldType fieldType;
 
@@ -23,6 +23,7 @@ namespace TowerDefenseGame.Models
             {
                 return this.fieldType;
             }
+
             set
             {
                 this.fieldType = value;
