@@ -1,0 +1,28 @@
+TODO:
+
+Towers - Abstract class		  ///
+Tower logic				 	  ///  Georgi - Done
+
+
+Projectiles - Abstract Class //
+Projectile Logic			 // Preslav - Done
+Projectile - Enemy Collision //
+
+Player Interface:		
+Event handlers			/// Preslav
+
+UI:
+Images/Sprites 				/// Dani/Vesko
+
+Enemy derived classes
+Tower Derived classes 	/// Georgi - Done
+Projectile Derived Classes
+
+Money logic			/// Vesko
+Price properties for towers/enemies	/// Vesko
+wave enemies counter /// Vesko
+Statistics interface /// Vesko
+player interface optimisation /// Vesko
+
+Effects classes to be applied to projectiles
+debuff effects property on enemies
