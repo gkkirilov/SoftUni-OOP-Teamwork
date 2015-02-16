@@ -1,10 +1,8 @@
-﻿using System.Drawing;
-using System.Windows;
-
-namespace TowerDefenseGame.Models.Towers
+﻿namespace TowerDefenseGame.Models.Towers
 {
     using System;
     using System.Linq;
+    using System.Windows;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
     using TowerDefenseGame.Controllers;
@@ -21,26 +19,18 @@ namespace TowerDefenseGame.Models.Towers
         private double playerAngle = 0;
         private double lastAngle;
         private double rotationBlendFactor = 0.05;
-        
-
 
         // private string TowerEffect; - We shall implement this when we make the Effects class
         protected Tower(double x, double y, int width, int height, int towerSpeed, int towerRange, Brush fillBrush)
-            : base(x, y, width, height, new ImageBrush(new BitmapImage(
-             new Uri(@"C:\Users\Daniel\Desktop\teamwork\TowerDefenseGame\TowerDefenseGame\Common\arrowtower.png", UriKind.Relative))))
+            : base(x, y, width, height, new ImageBrush(new CroppedBitmap(new BitmapImage(
+             new Uri(@"C:\Users\Daniel\Desktop\TowerDefenseGame\TowerDefenseGame\Common\arrowtower.png", UriKind.Relative)), new Int32Rect(0, 0, 32, 32))))
         {
-
-            var imgbrush =  new ImageBrush(new BitmapImage(
-             new Uri(@"C:\Users\Daniel\Desktop\teamwork\TowerDefenseGame\TowerDefenseGame\Common\arrowtower.png", UriKind.Relative)));
-
-            CroppedBitmap cmb = new CroppedBitmap((BitmapSource)imgbrush.ImageSource, new Int32Rect(30, 20, 105, 50));
             // For debugging reasons - mihayloff
-            // new ImageBrush(new BitmapImage(
-            // new Uri(@"D:\Programming\Repositories\SoftAvengers Game\Images\heart.png", UriKind.Relative)))
+             //new ImageBrush(new CroppedBitmap(new BitmapImage(
+             //new Uri(@"D:\Programming\Repositories\SoftAvengers Game\Images\heart.png", UriKind.Relative)), new Int32Rect(0, 0, 10, 10)))
             this.TowerSpeed = towerSpeed;
             this.TowerRange = towerRange;
         }
-
 
         public int TowerSpeed
         {
