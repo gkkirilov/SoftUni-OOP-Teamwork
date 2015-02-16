@@ -4,7 +4,7 @@
         Title="MainWindow" Height="800" Width="1115">
     <Canvas Name="MainCanvas">
         <Rectangle Fill="Black" Height="173" Stroke="Black" Canvas.Top="599" Width="1109"/>
-        <Rectangle Fill="AliceBlue" 
+        <Rectangle Fill="Yellow" 
                    Stroke="Blue"
                    StrokeThickness="3"
                    Name="SniperTowerSelection"
@@ -14,13 +14,34 @@
                    Width="74" 
                    RenderTransformOrigin="-1.614,0.596"
                    MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" />
-        <Rectangle Fill="Red"
+        <Rectangle Fill="Purple"
                    Name="FireTowerSelection"
                    Height="69" 
-                   Canvas.Left="223" 
+                   Canvas.Left="220" 
                    Stroke="Black" 
                    Canvas.Top="660" 
                    Width="69"
+                   MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" />
+        <Rectangle Fill="LawnGreen" 
+                   Stroke="Blue"
+                   StrokeThickness="3"
+                   Name="ArrowTowerSelection"
+                   Height="69" 
+                   Canvas.Left="330" 
+                   Canvas.Top="660" 
+                   Width="74" 
+                   RenderTransformOrigin="-1.614,0.596"
+                   MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" />
+        
+        <Rectangle Fill="DeepSkyBlue" 
+                   Stroke="Blue"
+                   StrokeThickness="3"
+                   Name="SlowTowerSelection"
+                   Height="69" 
+                   Canvas.Left="440" 
+                   Canvas.Top="660" 
+                   Width="74" 
+                   RenderTransformOrigin="-1.614,0.596"
                    MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" />
 
         </Canvas>
