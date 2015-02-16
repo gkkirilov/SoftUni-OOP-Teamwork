@@ -1,4 +1,6 @@
-﻿namespace TowerDefenseGame.Models.Enemies
+﻿using System.Windows;
+
+namespace TowerDefenseGame.Models.Enemies
 {
     using System;
     using System.Collections.Generic;

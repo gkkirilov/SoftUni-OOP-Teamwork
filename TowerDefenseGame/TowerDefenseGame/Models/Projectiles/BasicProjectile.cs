@@ -1,4 +1,6 @@
-﻿namespace TowerDefenseGame.Models.Projectiles
+﻿using TowerDefenseGame.Models.Effects.Debuffs;
+
+namespace TowerDefenseGame.Models.Projectiles
 {
     using System;
     using System.Windows.Media;

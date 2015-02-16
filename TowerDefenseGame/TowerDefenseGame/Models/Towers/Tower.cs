@@ -25,8 +25,8 @@
             : base(x, y, width, height, fillBrush)
         {
             // For debugging reasons - mihayloff
-            // new ImageBrush(new CroppedBitmap(new BitmapImage(
-            // new Uri(@"D:\Programming\Repositories\SoftAvengers Game\Images\heart.png", UriKind.Relative)), new Int32Rect(0, 0, 10, 10)))
+             //new ImageBrush(new CroppedBitmap(new BitmapImage(
+             //new Uri(@"D:\Programming\Repositories\SoftAvengers Game\Images\heart.png", UriKind.Relative)), new Int32Rect(0, 0, 10, 10)))
             this.TowerSpeed = towerSpeed;
             this.TowerRange = towerRange;
         }

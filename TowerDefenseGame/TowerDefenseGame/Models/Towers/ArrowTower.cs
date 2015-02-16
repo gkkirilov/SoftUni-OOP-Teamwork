@@ -1,4 +1,8 @@
-﻿namespace TowerDefenseGame.Models.Towers
+﻿using System;
+using System.Windows;
+using System.Windows.Media.Imaging;
+
+namespace TowerDefenseGame.Models.Towers
 {
     using System.Windows.Media;
     using TowerDefenseGame.Core;
@@ -9,7 +13,8 @@
         private const int Range = 150;
 
         public ArrowTower(double x, double y)
-            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, ArrowTower.Speed, ArrowTower.Range, Brushes.LawnGreen)
+            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, ArrowTower.Speed, ArrowTower.Range, new ImageBrush(new CroppedBitmap(new BitmapImage(
+             new Uri(@"C:\Users\Daniel\Desktop\TowerDefenseGame\TowerDefenseGame\Common\arrowtower.png", UriKind.Relative)), new Int32Rect(0, 0, 32, 32))))
         {
         }
     }
