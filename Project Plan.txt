@@ -4,19 +4,16 @@ Towers - Abstract class		  ///
 Tower logic				 	  ///  Georgi - Done
 
 
-Projectiles - Abstract Class //
-Projectile Logic			 // Preslav - Done
-Projectile - Enemy Collision //
+Projectiles - Abstract Class 	///
+Projectile Logic			 	/// Preslav - Done
+Projectile - Enemy Collision 	///
 
 Player Interface:		
 Event handlers			/// Preslav
 
 UI:
-Images/Sprites 				/// Dani/Vesko
-
-Enemy derived classes
-Tower Derived classes 	/// Georgi - Done
-Projectile Derived Classes
+Images/Sprites 				/// Dani
+Animations					/// ?
 
 Money logic			/// Vesko
 Price properties for towers/enemies	/// Vesko
@@ -24,5 +21,13 @@ wave enemies counter /// Vesko
 Statistics interface /// Vesko
 player interface optimisation /// Vesko
 
+Projectile Derived Classes /// Georgi
+Enemy derived classes	/// Georgi
+Tower Derived classes 	/// Georgi - Done
+
 Effects classes to be applied to projectiles
 debuff effects property on enemies
+
+Add event handlers to towers that exist
+Add the ability to destroy a tower.
+add the ability to upgrade a tower
