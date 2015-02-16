@@ -6,7 +6,7 @@
     public class SniperTower : Tower
     {
         private const int Speed = 100;
-        private const int Range = 10;
+        private const int Range = 100;
 
         public SniperTower(double x, double y)
             : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, SniperTower.Speed, SniperTower.Range, Brushes.Yellow)

@@ -4,7 +4,6 @@ D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseGame\TowerDefenseGa
 D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseGame\TowerDefenseGame\obj\Debug\MainWindow.baml
 D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseGame\TowerDefenseGame\obj\Debug\MainWindow.g.cs
 D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseGame\TowerDefenseGame\obj\Debug\App.g.cs
-D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseGame\TowerDefenseGame\obj\Debug\TowerDefenseGame_Content.g.cs
 D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseGame\TowerDefenseGame\obj\Debug\TowerDefenseGame_MarkupCompile.cache
 D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseGame\TowerDefenseGame\obj\Debug\TowerDefenseGame.g.resources
 D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseGame\TowerDefenseGame\obj\Debug\TowerDefenseGame.Properties.Resources.resources

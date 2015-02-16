@@ -10,12 +10,31 @@
     {
         private int speed;
         private Enemy target;
+        private int damage;
 
-        public Projectile(double x, double y, int speed, Enemy target, Brush fillType)
+        public Projectile(double x, double y, int speed, Enemy target, Brush fillType, int damage)
             : base(x, y, Constants.ProjectileSize, Constants.ProjectileSize, fillType)
         {
             this.Target = target;
             this.ProjectileSpeed = speed;
+            this.Damage = damage;
+        }
+
+        public int Damage
+        {
+            get
+            {
+                return this.damage;
+            }
+            private set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("The damage of the projectiles cannot be negative");
+                }
+
+                this.damage = value;
+            }
         }
 
         public int ProjectileSpeed
@@ -54,6 +73,7 @@
             Point.HandleMovement(this.Coordinates, this.Target.Coordinates, this.ProjectileSpeed);
             if (this.Intersects(this.Target))
             {
+                this.Target.InflictDamage(this.Damage);
                 this.Exists = false;
             }
         }

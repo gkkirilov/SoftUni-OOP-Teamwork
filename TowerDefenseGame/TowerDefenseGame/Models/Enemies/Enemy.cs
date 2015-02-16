@@ -73,6 +73,10 @@
                 this.Exists = false;
                 return;
             }
+            else if (this.EnemyLifePoints <= 0) 
+            {
+                this.Exists = false;
+            }
 
             Point.HandleMovement(this.Coordinates, this.Beacons[0], this.EnemySpeed);
 
@@ -86,6 +90,11 @@
         public void SetBeacons(List<Point> beacons)
         {
             this.Beacons = beacons;
+        }
+
+        public void InflictDamage(int damage)
+        {
+            this.EnemyLifePoints -= damage;
         }
     }
 }

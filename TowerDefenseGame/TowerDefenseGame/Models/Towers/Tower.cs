@@ -65,11 +65,6 @@
 
             private set
             {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("The target cannot be null.");
-                }
-
                 this.target = value;
             }
         }
@@ -81,7 +76,8 @@
                 this.GetTarget();
             }
 
-            if (this.Target != null && this.frameCount >= this.TowerSpeed)
+
+            if (this.Target != null && this.Target.Exists && this.frameCount >= this.TowerSpeed)
             {
                 this.frameCount = 0;
 
@@ -109,6 +105,11 @@
                 .OrderBy(e => this.Coordinates.CalculateDistance(e.Coordinates))
                 .First();
 
+            if (targetSelected != null && this.Coordinates.CalculateDistance(targetSelected.Coordinates) > this.TowerRange)
+            {
+                this.Target = null;
+                return;
+            }
             this.Target = targetSelected;
         }
 
