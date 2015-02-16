@@ -4,9 +4,10 @@
     using System.Windows.Media;
     using TowerDefenseGame.Core;
     using TowerDefenseGame.Geometry;
+    using TowerDefenseGame.Interfaces;
     using TowerDefenseGame.Models.Enemies;
 
-    public abstract class Projectile : GameObject
+    public abstract class Projectile : GameObject, IProjectile
     {
         private int speed;
         private Enemy target;
@@ -16,7 +17,7 @@
             : base(x, y, Constants.ProjectileSize, Constants.ProjectileSize, fillType)
         {
             this.Target = target;
-            this.ProjectileSpeed = speed;
+            this.Speed = speed;
             this.Damage = damage;
         }
 
@@ -37,7 +38,7 @@
             }
         }
 
-        public int ProjectileSpeed
+        public int Speed
         {
             get
             {
@@ -70,7 +71,7 @@
 
         public override void Update()
         {
-            Point.HandleMovement(this.Coordinates, this.Target.Coordinates, this.ProjectileSpeed);
+            Point.HandleMovement(this.Coordinates, this.Target.Coordinates, this.Speed);
             if (this.Intersects(this.Target))
             {
                 this.Target.InflictDamage(this.Damage);
