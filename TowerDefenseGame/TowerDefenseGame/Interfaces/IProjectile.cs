@@ -1,10 +1,10 @@
 ﻿using TowerDefenseGame.Models.Enemies;
 namespace TowerDefenseGame.Interfaces
 {
-    public interface IProjectile
+    public interface IProjectile : IGameObject
     {
         int Damage { get; }
         int Speed { get; }
-        Enemy Target { get; }
+        IEnemy Target { get; }
     }
 }

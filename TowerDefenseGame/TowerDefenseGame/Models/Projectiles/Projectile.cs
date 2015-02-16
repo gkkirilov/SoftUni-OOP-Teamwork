@@ -10,15 +10,17 @@
     public abstract class Projectile : GameObject, IProjectile
     {
         private int speed;
-        private Enemy target;
+        private IEnemy target;
         private int damage;
+        private IDebuff inflictionDebuff;
 
-        public Projectile(double x, double y, int speed, Enemy target, Brush fillType, int damage)
+        public Projectile(double x, double y, int speed, IEnemy target, Brush fillType, int damage, IDebuff inflictionDebuff)
             : base(x, y, Constants.ProjectileSize, Constants.ProjectileSize, fillType)
         {
             this.Target = target;
             this.Speed = speed;
             this.Damage = damage;
+            this.InflictionDebuff = inflictionDebuff;
         }
 
         public int Damage
@@ -51,7 +53,7 @@
             }
         }
 
-        public Enemy Target
+        public IEnemy Target
         {
             get
             {
@@ -69,14 +71,36 @@
             }
         }
 
+        public IDebuff InflictionDebuff
+        {
+            get
+            {
+                return this.inflictionDebuff;
+            }
+            private set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException("The value cannot be null");
+                }
+
+                this.inflictionDebuff = value;
+            }
+        }
+
         public override void Update()
         {
             Point.HandleMovement(this.Coordinates, this.Target.Coordinates, this.Speed);
             if (this.Intersects(this.Target))
             {
-                this.Target.InflictDamage(this.Damage);
+                this.Target.TakeDamage(this.Damage);
                 this.Exists = false;
             }
+        }
+
+        private void InflictDebuff()
+        {
+
         }
     }
 }

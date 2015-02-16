@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using TowerDefenseGame.Geometry;
 
-    public interface IEnemy
+    public interface IEnemy : IGameObject
     {
         List<Point> Beacons { get; }
 
@@ -12,5 +12,6 @@
         int EnemyLifePoints { get; }
         
         void SetBeacons(List<Point> beacons);
+        void TakeDamage(int damage);
     }
 }

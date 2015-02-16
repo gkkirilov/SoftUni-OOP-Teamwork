@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using System.Windows;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
     using TowerDefenseGame.Controllers;
@@ -24,8 +25,8 @@
             : base(x, y, width, height, fillBrush)
         {
             // For debugging reasons - mihayloff
-            // new ImageBrush(new BitmapImage(
-            // new Uri(@"D:\Programming\Repositories\SoftAvengers Game\Images\heart.png", UriKind.Relative)))
+            // new ImageBrush(new CroppedBitmap(new BitmapImage(
+            // new Uri(@"D:\Programming\Repositories\SoftAvengers Game\Images\heart.png", UriKind.Relative)), new Int32Rect(0, 0, 10, 10)))
             this.TowerSpeed = towerSpeed;
             this.TowerRange = towerRange;
         }
