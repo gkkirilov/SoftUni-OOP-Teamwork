@@ -1,2 +1,0 @@
-c:\users\daniel\documents\visual studio 2013\Projects\WindowsGame1\WindowsGame1\WindowsGame1Content\obj\x86\Debug\WindowsGame1Content.contentprojResolveAssemblyReference.cache
-D:\Programming\Repositories\SoftUni-OOP-Teamwork\TowerDefenseXNA\WindowsGame1\WindowsGame1\WindowsGame1Content\obj\x86\Debug\WindowsGame1Content.contentprojResolveAssemblyReference.cache
