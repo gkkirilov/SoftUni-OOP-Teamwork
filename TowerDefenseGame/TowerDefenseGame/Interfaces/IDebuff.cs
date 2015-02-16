@@ -2,7 +2,7 @@
 {
     public interface IDebuff : IEffect
     {
-        int LifePointsEffect { get; }
-        int SpeedEffect { get; }
+        double LifePointsEffect { get; }
+        double SpeedEffect { get; }
     }
 }

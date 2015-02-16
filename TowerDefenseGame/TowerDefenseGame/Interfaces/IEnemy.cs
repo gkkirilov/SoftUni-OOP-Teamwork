@@ -7,9 +7,10 @@
     {
         List<Point> Beacons { get; }
 
-        int EnemySpeed { get; }
-
-        int EnemyLifePoints { get; }
+        double Speed { get; }
+      
+        double LifePoints { get; }
+        IDebuff Debuff { get; set; }
         
         void SetBeacons(List<Point> beacons);
         void TakeDamage(int damage);

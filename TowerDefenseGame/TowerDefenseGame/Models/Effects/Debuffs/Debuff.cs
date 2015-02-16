@@ -5,17 +5,17 @@
 
     public abstract class Debuff : Effect, IDebuff
     {
-        private int lifePointsEffect;
-        private int speedEffect;
+        private double lifePointsEffect;
+        private double speedEffect;
 
-        public Debuff(int duration, int lifePointsEffect, int speedEffect)
+        public Debuff(int duration, double lifePointsEffect, double speedEffect)
             : base(duration)
         {
             this.LifePointsEffect = lifePointsEffect;
             this.SpeedEffect = speedEffect;
         }
 
-        public int LifePointsEffect
+        public double LifePointsEffect
         {
             get
             {
@@ -31,7 +31,7 @@
             }
         }
 
-        public int SpeedEffect
+        public double SpeedEffect
         {
             get
             {

@@ -4,9 +4,9 @@ namespace TowerDefenseGame.Models.Effects.Debuffs
 {
     public class BasicDebuff : Debuff
     {
-        private const int DebuffDuration = 5;
-        private const int DebuffLifePointsEffect = 5;
-        private const int DebuffSpeedEffect = 1;
+        private const int DebuffDuration = 200;
+        private const double DebuffLifePointsEffect = 0;
+        private const double DebuffSpeedEffect = 0.8;
 
         public BasicDebuff()
             : base(DebuffDuration, DebuffLifePointsEffect, DebuffSpeedEffect)

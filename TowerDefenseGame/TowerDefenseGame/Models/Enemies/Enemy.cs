@@ -12,16 +12,16 @@ using TowerDefenseGame.Models.Effects.Debuffs;
 
     public abstract class Enemy : GameObject, IEnemy
     {
-        private int speed;
-        private int lifePoints;
+        private double speed;
+        private double lifePoints;
         private List<Point> beacons = new List<Point>();
         private IDebuff debuff = new NullDebuff();
 
-        protected Enemy(double x, double y, int width, int height, int lifePoints, int speed, Brush fillType)
+        protected Enemy(double x, double y, int width, int height, double lifePoints, double speed, Brush fillType)
             : base(x, y, width, height, fillType)
         {
-            this.EnemyLifePoints = lifePoints;
-            this.EnemySpeed = speed;
+            this.LifePoints = lifePoints;
+            this.Speed = speed;
         }
 
         public List<Point> Beacons
@@ -37,7 +37,7 @@ using TowerDefenseGame.Models.Effects.Debuffs;
             }
         }
 
-        public int EnemySpeed
+        public double Speed
         {
             get
             {
@@ -55,7 +55,7 @@ using TowerDefenseGame.Models.Effects.Debuffs;
             }
         }
 
-        public int EnemyLifePoints
+        public double LifePoints
         {
             get
             {
@@ -74,7 +74,7 @@ using TowerDefenseGame.Models.Effects.Debuffs;
             {
                 return this.debuff;
             }
-            private set
+            set
             {
                 if (value == null)
                 {
@@ -86,17 +86,25 @@ using TowerDefenseGame.Models.Effects.Debuffs;
 
         public override void Update()
         {
+            this.Debuff.Update();
+            if (this.Debuff.HasElapsed)
+            {
+                this.Debuff = new NullDebuff();
+            }
+
+            this.LifePoints -= this.Debuff.LifePointsEffect;
+
             if (this.Beacons.Count == 0)
             {
                 this.Exists = false;
                 return;
             }
-            else if (this.EnemyLifePoints <= 0) 
+            else if (this.LifePoints <= 0) 
             {
                 this.Exists = false;
             }
 
-            Point.HandleMovement(this.Coordinates, this.Beacons[0], this.EnemySpeed);
+            Point.HandleMovement(this.Coordinates, this.Beacons[0], this.Speed - this.Debuff.SpeedEffect);
 
             if (this.Beacons[0].IsInside(this))
             {
@@ -112,7 +120,7 @@ using TowerDefenseGame.Models.Effects.Debuffs;
 
         public void TakeDamage(int damage)
         {
-            this.EnemyLifePoints -= damage;
+            this.LifePoints -= damage;
         }
     }
 }

@@ -40,7 +40,7 @@
             } 
         }
 
-        public static void HandleMovement(Point objectPosition, Point targetPosition, int speed)
+        public static void HandleMovement(Point objectPosition, Point targetPosition, double speed)
         {
             //Point temp = new Point(objectPosition.X, objectPosition.Y + 5);
             //

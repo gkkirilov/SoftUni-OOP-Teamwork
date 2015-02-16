@@ -94,9 +94,7 @@
     <Compile Include="Models\Effects\Effect.cs" />
     <Compile Include="Models\Effects\Debuffs\NullDebuff.cs" />
     <Compile Include="Models\Enemies\BasicEnemy.cs" />
-    <Compile Include="Models\Enemies\BossEnemy.cs" />
     <Compile Include="Models\Enemies\Enemy.cs" />
-    <Compile Include="Models\Enemies\FastEnemy.cs" />
     <Compile Include="Models\FieldSegment.cs" />
     <Compile Include="Models\GameObject.cs" />
     <Compile Include="Models\Projectiles\BasicProjectile.cs" />

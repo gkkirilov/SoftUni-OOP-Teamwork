@@ -94,13 +94,9 @@
             if (this.Intersects(this.Target))
             {
                 this.Target.TakeDamage(this.Damage);
+                this.Target.Debuff = this.InflictionDebuff;
                 this.Exists = false;
             }
-        }
-
-        private void InflictDebuff()
-        {
-
         }
     }
 }
