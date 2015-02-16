@@ -36,6 +36,25 @@
             Rectangle model = (Rectangle)sender;
             FieldSegment fieldSegment = null;
 
+            for (int row = 0; row < Constants.FieldRows; row++)
+            {
+                for (int col = 0; col < Constants.FieldCols; col++)
+                {
+                    if (GameFieldController.GameField[row][col].Model == model)
+                    {
+                        if (GameFieldController.GameField[row][col].Occupied == true)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            GameFieldController.GameField[row][col].Occupied = true;
+                        }
+                    }
+                }
+            }
+            
+
             for (int col = 0; col < Constants.FieldCols; col++)
             {
                 var selection = GameFieldController.GameField.Select(f => f[col]).Where(f => f.Model == model);
