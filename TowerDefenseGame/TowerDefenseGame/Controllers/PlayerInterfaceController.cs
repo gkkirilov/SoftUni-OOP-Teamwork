@@ -5,7 +5,7 @@
 
     public static class PlayerInterfaceController
     {
-        private static TowerType towerSelected=TowerType.Sniper;
+        private static TowerType towerSelected = TowerType.Sniper;
 
         public static TowerType TowerSelected
         {

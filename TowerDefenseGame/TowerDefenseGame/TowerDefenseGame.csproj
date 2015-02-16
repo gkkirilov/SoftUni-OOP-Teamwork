@@ -76,12 +76,9 @@
     <Compile Include="Enumerations\FieldType.cs" />
     <Compile Include="Enumerations\TowerType.cs" />
     <Compile Include="Geometry\Point.cs" />
-    <Compile Include="Interfaces\IDebuff.cs" />
-    <Compile Include="Interfaces\IEffect.cs" />
     <Compile Include="Interfaces\IEnemy.cs" />
     <Compile Include="Interfaces\IEngine.cs" />
     <Compile Include="Interfaces\IGameObject.cs" />
-    <Compile Include="Interfaces\IProjectile.cs" />
     <Compile Include="Interfaces\IRenderer.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -89,14 +86,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Effects\Debuffs\BasicDebuff.cs" />
-    <Compile Include="Models\Effects\Debuffs\Debuff.cs" />
-    <Compile Include="Models\Effects\Effect.cs" />
-    <Compile Include="Models\Effects\Debuffs\NullDebuff.cs" />
     <Compile Include="Models\Enemies\BasicEnemy.cs" />
-    <Compile Include="Models\Enemies\BossEnemy.cs" />
     <Compile Include="Models\Enemies\Enemy.cs" />
-    <Compile Include="Models\Enemies\FastEnemy.cs" />
     <Compile Include="Models\FieldSegment.cs" />
     <Compile Include="Models\GameObject.cs" />
     <Compile Include="Models\Projectiles\BasicProjectile.cs" />
@@ -129,8 +120,9 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Common\arrowtower.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

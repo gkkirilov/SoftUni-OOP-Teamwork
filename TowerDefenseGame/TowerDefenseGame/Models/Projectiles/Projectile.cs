@@ -4,23 +4,20 @@
     using System.Windows.Media;
     using TowerDefenseGame.Core;
     using TowerDefenseGame.Geometry;
-    using TowerDefenseGame.Interfaces;
     using TowerDefenseGame.Models.Enemies;
 
-    public abstract class Projectile : GameObject, IProjectile
+    public abstract class Projectile : GameObject
     {
         private int speed;
-        private IEnemy target;
+        private Enemy target;
         private int damage;
-        private IDebuff inflictionDebuff;
 
-        public Projectile(double x, double y, int speed, IEnemy target, Brush fillType, int damage, IDebuff inflictionDebuff)
+        public Projectile(double x, double y, int speed, Enemy target, Brush fillType, int damage)
             : base(x, y, Constants.ProjectileSize, Constants.ProjectileSize, fillType)
         {
             this.Target = target;
-            this.Speed = speed;
+            this.ProjectileSpeed = speed;
             this.Damage = damage;
-            this.InflictionDebuff = inflictionDebuff;
         }
 
         public int Damage
@@ -40,7 +37,7 @@
             }
         }
 
-        public int Speed
+        public int ProjectileSpeed
         {
             get
             {
@@ -53,7 +50,7 @@
             }
         }
 
-        public IEnemy Target
+        public Enemy Target
         {
             get
             {
@@ -71,36 +68,14 @@
             }
         }
 
-        public IDebuff InflictionDebuff
-        {
-            get
-            {
-                return this.inflictionDebuff;
-            }
-            private set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("The value cannot be null");
-                }
-
-                this.inflictionDebuff = value;
-            }
-        }
-
         public override void Update()
         {
-            Point.HandleMovement(this.Coordinates, this.Target.Coordinates, this.Speed);
+            Point.HandleMovement(this.Coordinates, this.Target.Coordinates, this.ProjectileSpeed);
             if (this.Intersects(this.Target))
             {
-                this.Target.TakeDamage(this.Damage);
+                this.Target.InflictDamage(this.Damage);
                 this.Exists = false;
             }
-        }
-
-        private void InflictDebuff()
-        {
-
         }
     }
 }

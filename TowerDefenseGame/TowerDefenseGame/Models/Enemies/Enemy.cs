@@ -8,17 +8,16 @@
     using System.Windows.Shapes;
     using TowerDefenseGame.Geometry;
     using TowerDefenseGame.Interfaces;
-using TowerDefenseGame.Models.Effects.Debuffs;
 
     public abstract class Enemy : GameObject, IEnemy
     {
         private int speed;
         private int lifePoints;
         private List<Point> beacons = new List<Point>();
-        private IDebuff debuff = new NullDebuff();
 
         protected Enemy(double x, double y, int width, int height, int lifePoints, int speed, Brush fillType)
-            : base(x, y, width, height, fillType)
+            : base(x, y, width, height, new ImageBrush(new BitmapImage(
+            new Uri(@"C:\Users\Daniel\Desktop\teamwork\skeleton_dying", UriKind.Relative))))
         {
             this.EnemyLifePoints = lifePoints;
             this.EnemySpeed = speed;
@@ -68,22 +67,6 @@ using TowerDefenseGame.Models.Effects.Debuffs;
             }
         }
 
-        public IDebuff Debuff 
-        {
-            get
-            {
-                return this.debuff;
-            }
-            private set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("The value cannot be null");
-                }
-                this.debuff = value;
-            }
-        }
-
         public override void Update()
         {
             if (this.Beacons.Count == 0)
@@ -110,7 +93,7 @@ using TowerDefenseGame.Models.Effects.Debuffs;
             this.Beacons = beacons;
         }
 
-        public void TakeDamage(int damage)
+        public void InflictDamage(int damage)
         {
             this.EnemyLifePoints -= damage;
         }

@@ -7,11 +7,11 @@
 
     public class BasicProjectile : Projectile
     {
-        private const int ProjectileSpeed = 2;
+        private const int Speed = 2;
         private const int ProjectileDamage = 20;
 
         public BasicProjectile(double x, double y, Enemy target)
-            : base(x, y, BasicProjectile.ProjectileSpeed, target, Brushes.Brown, BasicProjectile.ProjectileDamage)
+            : base(x, y, BasicProjectile.Speed, target, Brushes.Brown, BasicProjectile.ProjectileDamage)
         {
         }
     }

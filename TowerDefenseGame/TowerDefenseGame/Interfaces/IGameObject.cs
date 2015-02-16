@@ -14,7 +14,7 @@
         
         Rectangle Model { get; }
         
-        bool Intersects(IGameObject target);
+        bool Intersects(GameObject target);
         
         void Update();
     }

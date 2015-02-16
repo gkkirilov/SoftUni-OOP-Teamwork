@@ -118,7 +118,7 @@
             }
         }
 
-        public bool Intersects(IGameObject target)
+        public bool Intersects(GameObject target)
         {
             if (this.Coordinates.X + this.Width > target.Coordinates.X && this.Coordinates.X < target.Coordinates.X + target.Width &&
             this.Coordinates.Y + this.Height > target.Coordinates.Y && this.Coordinates.Y < target.Coordinates.Y + target.Height)
