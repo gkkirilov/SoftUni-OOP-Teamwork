@@ -14,7 +14,7 @@ namespace TowerDefenseGame.Models.Towers
 
         public ArrowTower(double x, double y)
             : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, ArrowTower.Speed, ArrowTower.Range, new ImageBrush(new CroppedBitmap(new BitmapImage(
-             new Uri(@"C:\Users\Daniel\Desktop\TowerDefenseGame\TowerDefenseGame\Common\arrowtower.png", UriKind.Relative)), new Int32Rect(0, 0, 32, 32))))
+             new Uri(@"..\..\Common\arrowtower.png", UriKind.Relative)), new Int32Rect(0, 0, 32, 32))))
         {
         }
     }
