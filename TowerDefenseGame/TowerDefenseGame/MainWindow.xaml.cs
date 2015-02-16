@@ -76,6 +76,14 @@
                     PlayerInterfaceController.TowerSelected = TowerType.Fire;
                     this.SniperTowerSelection.StrokeThickness = 0;
                     break;
+                case "SlowTowerSelection":
+                    PlayerInterfaceController.TowerSelected = TowerType.Slow;
+                    this.SlowTowerSelection.StrokeThickness = 0;
+                    break;
+                case "ArrowTowerSelection":
+                    PlayerInterfaceController.TowerSelected = TowerType.Arrow;
+                    this.ArrowTowerSelection.StrokeThickness = 0;
+                    break;
                 default:
                     break;
             }
