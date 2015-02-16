@@ -5,8 +5,8 @@
 
     public class ArrowTower : Tower
     {
-        private const int Speed = 10;
-        private const int Range = 400;
+        private const int Speed = 25;
+        private const int Range = 150;
 
         public ArrowTower(double x, double y)
             : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, ArrowTower.Speed, ArrowTower.Range, Brushes.LawnGreen)
