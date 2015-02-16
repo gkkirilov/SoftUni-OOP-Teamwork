@@ -22,8 +22,7 @@
 
         // private string TowerEffect; - We shall implement this when we make the Effects class
         protected Tower(double x, double y, int width, int height, int towerSpeed, int towerRange, Brush fillBrush)
-            : base(x, y, width, height, new ImageBrush(new CroppedBitmap(new BitmapImage(
-             new Uri(@"C:\Users\Daniel\Desktop\TowerDefenseGame\TowerDefenseGame\Common\arrowtower.png", UriKind.Relative)), new Int32Rect(0, 0, 32, 32))))
+            : base(x, y, width, height, fillBrush)
         {
             // For debugging reasons - mihayloff
              //new ImageBrush(new CroppedBitmap(new BitmapImage(

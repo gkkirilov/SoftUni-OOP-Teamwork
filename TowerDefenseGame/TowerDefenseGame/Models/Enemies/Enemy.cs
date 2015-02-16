@@ -20,8 +20,7 @@ using TowerDefenseGame.Models.Effects.Debuffs;
         private IDebuff debuff = new NullDebuff();
 
         protected Enemy(double x, double y, int width, int height, int lifePoints, int speed, Brush fillType)
-            : base(x, y, width, height, new ImageBrush(new CroppedBitmap(new BitmapImage(
-             new Uri(@"C:\Users\Daniel\Desktop\TowerDefenseGame\TowerDefenseGame\Common\goblinsword.png", UriKind.Relative)), new Int32Rect(14, 0, 35, 60))))
+            : base(x, y, width, height, fillType)
         {
             this.EnemyLifePoints = lifePoints;
             this.EnemySpeed = speed;
