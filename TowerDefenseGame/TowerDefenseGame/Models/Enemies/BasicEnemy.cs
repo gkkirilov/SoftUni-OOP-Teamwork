@@ -16,10 +16,11 @@ namespace TowerDefenseGame.Models.Enemies
         public BasicEnemy(double x, double y)
             : base(
                 x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, BasicEnemy.LifePoints, BasicEnemy.Speed,
-                new ImageBrush(new CroppedBitmap(new BitmapImage(
+                (new BitmapImage(
                     new Uri(@"..\..\Common\goblinsword.png",
-                        UriKind.Relative)), new Int32Rect(13, 197, 38, 53))))
+                        UriKind.Relative))))
         {
+
         }
     }
 }

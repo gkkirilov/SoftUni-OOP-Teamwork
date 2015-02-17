@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using TowerDefenseGame.Enumerations;
 
 namespace TowerDefenseGame.Models.Enemies
 {
@@ -18,12 +19,18 @@ using TowerDefenseGame.Models.Effects.Debuffs;
         private double lifePoints;
         private List<Point> beacons = new List<Point>();
         private IDebuff debuff = new NullDebuff();
-
-        protected Enemy(double x, double y, int width, int height, double lifePoints, double speed, Brush fillType)
-            : base(x, y, width, height, fillType)
+        private BitmapImage enemySpriteSheet;
+        private int directionMultiplierY = 65;
+        private int directionMultiplierX = 65;
+        private int spriteFrameCounter = 0;
+        private EnemyDirection currentDirection = EnemyDirection.Left;
+        private int frameCounter = 0;
+        protected Enemy(double x, double y, int width, int height, double lifePoints, double speed, BitmapImage enemySpriteSheet)
+            : base(x, y, width, height, Brushes.AliceBlue)
         {
             this.LifePoints = lifePoints;
             this.Speed = speed;
+            this.enemySpriteSheet = enemySpriteSheet;
         }
 
         public List<Point> Beacons
@@ -107,6 +114,38 @@ using TowerDefenseGame.Models.Effects.Debuffs;
             }
 
             Point.HandleMovement(this.Coordinates, this.Beacons[0], this.Speed - this.Debuff.SpeedEffect);
+
+            if (this.Beacons[0].X < this.Coordinates.X)
+            {
+                currentDirection = EnemyDirection.Left;
+            }
+            else if (this.Beacons[0].X > this.Coordinates.X)
+            {
+                currentDirection = EnemyDirection.Right;
+            }
+
+            else if (this.Beacons[0].Y < this.Coordinates.Y)
+            {
+                currentDirection = EnemyDirection.Up;
+            }
+            else if (this.Beacons[0].Y > this.Coordinates.Y)
+            {
+                currentDirection = EnemyDirection.Down;
+            }
+
+
+            frameCounter++;  
+            if (frameCounter >= 5)
+            {
+                frameCounter = 0;
+                this.Model.Fill = new ImageBrush(new CroppedBitmap(enemySpriteSheet,
+                new Int32Rect(directionMultiplierX * spriteFrameCounter, directionMultiplierY * (int)currentDirection, 60, 57)));
+                spriteFrameCounter++;
+            }
+            if (spriteFrameCounter >= 7)
+            {
+                spriteFrameCounter = 0;
+            }
 
             if (this.Beacons[0].IsInside(this))
             {

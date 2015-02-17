@@ -82,7 +82,8 @@
             { 
                 new Point(2 * Constants.FieldSegmentSize, 10 * Constants.FieldSegmentSize),
                 new Point(2 * Constants.FieldSegmentSize, 1 * Constants.FieldSegmentSize),
-                new Point(7 * Constants.FieldSegmentSize, 1 * Constants.FieldSegmentSize)
+                new Point(7 * Constants.FieldSegmentSize, 1 * Constants.FieldSegmentSize),
+                new Point(7 * Constants.FieldSegmentSize, 10 * Constants.FieldSegmentSize),
             };
 
             return beacons;
