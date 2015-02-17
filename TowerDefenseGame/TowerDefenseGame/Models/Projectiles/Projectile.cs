@@ -91,6 +91,12 @@
         public override void Update()
         {
             Point.HandleMovement(this.Coordinates, this.Target.Coordinates, this.Speed);
+
+            if (this.Target.IsDying || !this.Target.Exists)
+            {
+                this.Exists = false;
+            }
+
             if (this.Intersects(this.Target))
             {
                 this.Target.TakeDamage(this.Damage);

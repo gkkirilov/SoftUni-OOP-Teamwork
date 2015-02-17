@@ -1,17 +1,13 @@
-﻿using System.Windows;
-using TowerDefenseGame.Enumerations;
-
-namespace TowerDefenseGame.Models.Enemies
+﻿namespace TowerDefenseGame.Models.Enemies
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
+    using TowerDefenseGame.Enumerations;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
-    using System.Windows.Shapes;
     using TowerDefenseGame.Geometry;
     using TowerDefenseGame.Interfaces;
-using TowerDefenseGame.Models.Effects.Debuffs;
+    using TowerDefenseGame.Models.Effects.Debuffs;
 
     public abstract class Enemy : GameObject, IEnemy
     {
@@ -19,12 +15,17 @@ using TowerDefenseGame.Models.Effects.Debuffs;
         private double lifePoints;
         private List<Point> beacons = new List<Point>();
         private IDebuff debuff = new NullDebuff();
+
+        // Variables used for the animation
+        private EnemyState currentState = EnemyState.Left;
         private BitmapImage enemySpriteSheet;
-        private int directionMultiplierY = 65;
-        private int directionMultiplierX = 65;
+        private const int DirectionMultiplierY = 65;
+        private const int DirectionMultiplierX = 65;
         private int spriteFrameCounter = 6;
-        private EnemyDirection currentDirection = EnemyDirection.Left;
         private int frameCounter = 0;
+        private int deathSpriteFrameCounter = 0;
+        private bool isDying = false;
+
         protected Enemy(double x, double y, int width, int height, double lifePoints, double speed, BitmapImage enemySpriteSheet)
             : base(x, y, width, height, Brushes.AliceBlue)
         {
@@ -64,18 +65,7 @@ using TowerDefenseGame.Models.Effects.Debuffs;
             }
         }
 
-        public double LifePoints
-        {
-            get
-            {
-                return this.lifePoints;
-            }
-
-            private set
-            {
-                this.lifePoints = value;
-            }
-        }
+        public double LifePoints { get; private set; }
 
         public IDebuff Debuff 
         {
@@ -93,9 +83,21 @@ using TowerDefenseGame.Models.Effects.Debuffs;
             }
         }
 
+        public bool IsDying
+        {
+            get { return this.isDying; }
+        }
+
         public override void Update()
         {
             this.Debuff.Update();
+
+            if (this.isDying)
+            {
+                ResolveDeath();
+                return;
+            }
+
             if (this.Debuff.HasElapsed)
             {
                 this.Debuff = new NullDebuff();
@@ -110,38 +112,22 @@ using TowerDefenseGame.Models.Effects.Debuffs;
             }
             else if (this.LifePoints <= 0) 
             {
-                this.Exists = false;
+                this.isDying = true;
             }
 
             Point.HandleMovement(this.Coordinates, this.Beacons[0], this.Speed - this.Debuff.SpeedEffect);
 
-            if (this.Beacons[0].X < this.Coordinates.X)
-            {
-                currentDirection = EnemyDirection.Left;
-            }
-            else if (this.Beacons[0].X > this.Coordinates.X)
-            {
-                currentDirection = EnemyDirection.Right;
-            }
-
-            else if (this.Beacons[0].Y < this.Coordinates.Y)
-            {
-                currentDirection = EnemyDirection.Up;
-            }
-            else if (this.Beacons[0].Y > this.Coordinates.Y)
-            {
-                currentDirection = EnemyDirection.Down;
-            }
-
+            ResolveState();
 
             frameCounter++;  
             if (frameCounter >= 5 + (this.Debuff.SpeedEffect * 2))
             {
                 frameCounter = 0;
                 this.Model.Fill = new ImageBrush(new CroppedBitmap(enemySpriteSheet,
-                new Int32Rect(directionMultiplierX * spriteFrameCounter, directionMultiplierY * (int)currentDirection, 60, 57)));
+                new System.Windows.Int32Rect(DirectionMultiplierX * spriteFrameCounter, DirectionMultiplierY * (int)currentState, 60, 57)));
                 spriteFrameCounter--;
             }
+
             if (spriteFrameCounter <= 0)
             {
                 spriteFrameCounter = 6;
@@ -162,6 +148,54 @@ using TowerDefenseGame.Models.Effects.Debuffs;
         public void TakeDamage(int damage)
         {
             this.LifePoints -= damage;
+        }
+
+        private void ResolveState()
+        {
+            if (isDying)
+            {
+                currentState = EnemyState.Dying;
+            }
+            else if (this.Beacons[0].X < this.Coordinates.X)
+            {
+                currentState = EnemyState.Left;
+            }
+            else if (this.Beacons[0].X > this.Coordinates.X)
+            {
+                currentState = EnemyState.Right;
+            }
+
+            else if (this.Beacons[0].Y < this.Coordinates.Y)
+            {
+                currentState = EnemyState.Up;
+            }
+            else if (this.Beacons[0].Y > this.Coordinates.Y)
+            {
+                currentState = EnemyState.Down;
+            }
+        }
+
+        private void ResolveDeath()
+        {
+            if (deathSpriteFrameCounter >= 5)
+            {
+                this.Exists = false;
+                return;
+            }
+
+            frameCounter++;
+            if (frameCounter >= 8)
+            {
+                frameCounter = 0;
+
+                this.Model.Fill = new ImageBrush(
+                   new CroppedBitmap(enemySpriteSheet,
+                   new System.Windows.Int32Rect(
+                       DirectionMultiplierX * deathSpriteFrameCounter,
+                       DirectionMultiplierY * (int)currentState, 60, 57)));
+
+                deathSpriteFrameCounter++;   
+            }
         }
     }
 }

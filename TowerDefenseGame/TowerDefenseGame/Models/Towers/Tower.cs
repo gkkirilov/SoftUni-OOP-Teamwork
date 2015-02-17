@@ -72,7 +72,7 @@
 
         public override void Update()
         {
-            if (this.Target == null || !this.Target.Exists || this.Coordinates.CalculateDistance(this.Target.Coordinates) > this.TowerRange)
+            if (this.Target == null || !this.Target.Exists || this.Target.IsDying || this.Coordinates.CalculateDistance(this.Target.Coordinates) > this.TowerRange)
             {
                 this.GetTarget();
             }

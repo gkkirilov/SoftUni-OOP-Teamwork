@@ -11,7 +11,8 @@
       
         double LifePoints { get; }
         IDebuff Debuff { get; set; }
-        
+        bool IsDying { get; }
+
         void SetBeacons(List<Point> beacons);
         void TakeDamage(int damage);
     }

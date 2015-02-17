@@ -13,7 +13,7 @@ Event handlers			/// Preslav
 
 UI:
 Images/Sprites 				/// Dani - Partially done
-Animations					/// Dani
+Animations					/// Dani - Partially done
 
 Money logic			/// Vesko
 Price properties for towers/enemies	/// Vesko
@@ -37,6 +37,6 @@ Remove the bullets when the target doesn't exist anymore.
 
 Fix Abstract dependencies /// Preslav - Done
 
+StyleCop the entire project
+
 Add Buff Classes for User to be able to acquire /// Delayed for now
-
-
