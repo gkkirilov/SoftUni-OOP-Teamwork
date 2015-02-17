@@ -135,7 +135,7 @@ using TowerDefenseGame.Models.Effects.Debuffs;
 
 
             frameCounter++;  
-            if (frameCounter >= 5 + this.Debuff.SpeedEffect)
+            if (frameCounter >= 5 + (this.Debuff.SpeedEffect * 2))
             {
                 frameCounter = 0;
                 this.Model.Fill = new ImageBrush(new CroppedBitmap(enemySpriteSheet,
