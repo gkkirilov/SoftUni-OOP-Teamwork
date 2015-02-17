@@ -12,8 +12,8 @@ Player Interface:
 Event handlers			/// Preslav
 
 UI:
-Images/Sprites 				/// Dani
-Animations					/// ?
+Images/Sprites 				/// Dani - Partially done
+Animations					/// Dani
 
 Money logic			/// Vesko
 Price properties for towers/enemies	/// Vesko
@@ -24,15 +24,16 @@ player interface optimisation /// Vesko
 Projectile Derived Classes /// Georgi
 Enemy derived classes	/// Georgi
 Tower Derived classes 	/// Georgi - Done
+Debuff Derived classes
 
 Effects classes to be applied to projectiles	///
 debuff effects property on enemies				/// Preslav - Done
 
-Debuff Derived classes
-
 Add event handlers to towers that exist
 Add the ability to destroy a tower.
 add the ability to upgrade a tower
+
+Remove the bullets when the target doesn't exist anymore.
 
 Fix Abstract dependencies /// Preslav - Done
 
