@@ -10,6 +10,7 @@
     public class FieldSegment : GameObject
     {
         private FieldType fieldType;
+        private bool occupied = false;
 
         public FieldSegment(double x, double y)
             : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, Brushes.AliceBlue)
@@ -27,6 +28,18 @@
             set
             {
                 this.fieldType = value;
+            }
+        }
+
+        public bool Occupied
+        {
+            get
+            {
+                return this.occupied;
+            }
+            set
+            {
+                this.occupied = value;
             }
         }
     }

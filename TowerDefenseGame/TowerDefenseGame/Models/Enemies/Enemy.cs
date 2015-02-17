@@ -22,7 +22,7 @@ using TowerDefenseGame.Models.Effects.Debuffs;
         private BitmapImage enemySpriteSheet;
         private int directionMultiplierY = 65;
         private int directionMultiplierX = 65;
-        private int spriteFrameCounter = 0;
+        private int spriteFrameCounter = 6;
         private EnemyDirection currentDirection = EnemyDirection.Left;
         private int frameCounter = 0;
         protected Enemy(double x, double y, int width, int height, double lifePoints, double speed, BitmapImage enemySpriteSheet)
@@ -135,16 +135,16 @@ using TowerDefenseGame.Models.Effects.Debuffs;
 
 
             frameCounter++;  
-            if (frameCounter >= 5)
+            if (frameCounter >= 5 + this.Debuff.SpeedEffect)
             {
                 frameCounter = 0;
                 this.Model.Fill = new ImageBrush(new CroppedBitmap(enemySpriteSheet,
                 new Int32Rect(directionMultiplierX * spriteFrameCounter, directionMultiplierY * (int)currentDirection, 60, 57)));
-                spriteFrameCounter++;
+                spriteFrameCounter--;
             }
-            if (spriteFrameCounter >= 7)
+            if (spriteFrameCounter <= 0)
             {
-                spriteFrameCounter = 0;
+                spriteFrameCounter = 6;
             }
 
             if (this.Beacons[0].IsInside(this))
