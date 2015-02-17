@@ -120,7 +120,7 @@
             ResolveState();
 
             frameCounter++;  
-            if (frameCounter >= 5 + (this.Debuff.SpeedEffect * 2))
+            if (frameCounter >= 5)
             {
                 frameCounter = 0;
                 this.Model.Fill = new ImageBrush(new CroppedBitmap(enemySpriteSheet,
@@ -156,20 +156,20 @@
             {
                 currentState = EnemyState.Dying;
             }
-            else if (this.Beacons[0].X < this.Coordinates.X)
+            else if (this.Beacons[0].X < Math.Round(this.Coordinates.X))
             {
                 currentState = EnemyState.Left;
             }
-            else if (this.Beacons[0].X > this.Coordinates.X)
+            else if (this.Beacons[0].X > Math.Round(this.Coordinates.X))
             {
                 currentState = EnemyState.Right;
             }
 
-            else if (this.Beacons[0].Y < this.Coordinates.Y)
+            else if (this.Beacons[0].Y < Math.Round(this.Coordinates.Y))
             {
                 currentState = EnemyState.Up;
             }
-            else if (this.Beacons[0].Y > this.Coordinates.Y)
+            else if (this.Beacons[0].Y > Math.Round(this.Coordinates.Y))
             {
                 currentState = EnemyState.Down;
             }
