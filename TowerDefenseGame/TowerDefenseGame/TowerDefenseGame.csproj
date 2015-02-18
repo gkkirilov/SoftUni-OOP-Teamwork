@@ -76,6 +76,7 @@
     <Compile Include="Core\Timers.cs" />
     <Compile Include="Enumerations\FieldType.cs" />
     <Compile Include="Enumerations\TowerType.cs" />
+    <Compile Include="Geometry\GeometryUtils.cs" />
     <Compile Include="Geometry\Point.cs" />
     <Compile Include="Interfaces\IDebuff.cs" />
     <Compile Include="Interfaces\IEffect.cs" />
@@ -84,7 +85,6 @@
     <Compile Include="Interfaces\IGameObject.cs" />
     <Compile Include="Interfaces\IProjectile.cs" />
     <Compile Include="Interfaces\IRenderer.cs" />
-    <Compile Include="Interfaces\IRotateable.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

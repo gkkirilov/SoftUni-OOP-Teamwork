@@ -111,7 +111,7 @@
 
             if (this.Beacons.Count == 0)
             {
-                // Handle Player Base life points reduction
+                // TODO: Handle Player Base life points reduction
                 this.Exists = false;
                 return;
             }
@@ -122,7 +122,8 @@
 
             double lastPositionX = this.Coordinates.X;
             double lastPositionY = this.Coordinates.Y;
-            Point.HandleMovement(this.Coordinates, this.Beacons[0], this.Speed - this.Debuff.SpeedEffect);
+
+            GeometryUtils.HandleMovement(this.Coordinates, this.Beacons[0], this.Speed - this.Debuff.SpeedEffect);
 
             ResolveState(lastPositionX, lastPositionY);
             ResolveMovementAnimation();

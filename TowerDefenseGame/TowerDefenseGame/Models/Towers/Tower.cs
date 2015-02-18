@@ -3,29 +3,28 @@
     using System;
     using System.Linq;
     using System.Windows.Media;
+    using Geometry;
     using TowerDefenseGame.Controllers;
     using TowerDefenseGame.Core;
     using TowerDefenseGame.Models.Enemies;
     using TowerDefenseGame.Models.Projectiles;
     using TowerDefenseGame.Interfaces;
 
-    public abstract class Tower : GameObject, IRotateable
+    public abstract class Tower : GameObject
     {
         private int towerSpeed;
         private int towerRange;
         private int frameCount = 0;
         private Enemy target;
-        private double playerAngle = 0;
+
+        // Variables used for the calculation of the tower rotation
+        private double towerAngle = 0;
         private double lastAngle;
         private const double RotationBlendFactor = 0.05;
 
-        // private string TowerEffect; - We shall implement this when we make the Effects class
         protected Tower(double x, double y, int width, int height, int towerSpeed, int towerRange, Brush fillBrush)
             : base(x, y, width, height, fillBrush)
         {
-            // For debugging reasons - mihayloff
-             //new ImageBrush(new CroppedBitmap(new BitmapImage(
-             //new Uri(@"D:\Programming\Repositories\SoftAvengers Game\Images\heart.png", UriKind.Relative)), new Int32Rect(0, 0, 10, 10)))
             this.TowerSpeed = towerSpeed;
             this.TowerRange = towerRange;
         }
@@ -74,37 +73,28 @@
             if (this.Target == null ||
                 !this.Target.Exists ||
                 this.Target.IsDying ||
-                this.Coordinates.CalculateDistance(this.Target.Coordinates) > this.TowerRange)
+                GeometryUtils.CalculateDistance(this.Coordinates, this.Target.Coordinates) > this.TowerRange)
             {
                 this.GetTarget();
             }
 
+            CalculateRotationAngle();
+            GeometryUtils.RotateModel(this.Model, this.towerAngle);
 
             if (this.Target != null && this.Target.Exists && this.frameCount >= this.TowerSpeed)
             {
                 this.frameCount = 0;
 
                 // TODO: Change the projectile according to the tower type
-                ProjectileController.Projectiles.Add(new BasicProjectile(this.Coordinates.X, this.Coordinates.Y, this.Target));
+                if (Math.Abs(this.lastAngle - this.towerAngle) < 0.5)
+                {
+                    ProjectileController.Projectiles.Add(new BasicProjectile(this.Coordinates.X, this.Coordinates.Y, this.Target));   
+                }
             }
             else
             {
                 this.frameCount++;
             }
-
-            CalculateRotationAngle();
-            RotateModel();
-        }
-
-        private void RotateModel()
-        {
-            RotateTransform rotateTransform =
-                new RotateTransform(
-                    90.0 - (this.playerAngle * 180 / Math.PI),
-                    Constants.FieldSegmentSize / 2,
-                    Constants.FieldSegmentSize / 2);
-
-            this.Model.RenderTransform = rotateTransform;
         }
 
         private void GetTarget()
@@ -115,10 +105,10 @@
             }
 
             var targetSelected = EnemyController.Enemies
-                .OrderBy(e => this.Coordinates.CalculateDistance(e.Coordinates))
+                .OrderBy(e => GeometryUtils.CalculateDistance(this.Coordinates, e.Coordinates))
                 .First();
 
-            if (targetSelected != null && this.Coordinates.CalculateDistance(targetSelected.Coordinates) > this.TowerRange)
+            if (targetSelected != null && GeometryUtils.CalculateDistance(this.Coordinates, targetSelected.Coordinates) > this.TowerRange)
             {
                 this.Target = null;
                 return;
@@ -126,7 +116,7 @@
             this.Target = targetSelected;
         }
 
-        public void CalculateRotationAngle()
+        private void CalculateRotationAngle()
         {
             if (this.Target == null)
             {
@@ -142,14 +132,14 @@
 
             if (this.lastAngle < -2.0 && angle > 2.0)
             {
-                this.playerAngle += Math.PI * 2.0;
+                this.towerAngle += Math.PI * 2.0;
             }
             else if (this.lastAngle > 2.0 && angle < -2.0)
             {
-                this.playerAngle -= Math.PI * 2.0;
+                this.towerAngle -= Math.PI * 2.0;
             }
             this.lastAngle = angle;
-            this.playerAngle = angle * RotationBlendFactor + this.playerAngle * (1 - RotationBlendFactor);
+            this.towerAngle = angle * RotationBlendFactor + this.towerAngle * (1 - RotationBlendFactor);
         }
     }
 }

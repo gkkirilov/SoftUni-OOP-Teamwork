@@ -1,16 +1,7 @@
 ﻿namespace TowerDefenseGame.Core
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Windows.Controls;
-    using System.Windows.Media;
-    using System.Windows.Shapes;
     using TowerDefenseGame.Controllers;
-    using TowerDefenseGame.Core;
-    using TowerDefenseGame.Geometry;
     using TowerDefenseGame.Interfaces;
-    using TowerDefenseGame.Models;
-    using TowerDefenseGame.Models.Enemies;
 
     public class Engine : IEngine
     {
@@ -33,9 +24,9 @@
 
         public void Render()
         {
-            EnemyController.Render();
             TowerController.Render();
             GameFieldController.Render();
+            EnemyController.Render();
             ProjectileController.Render();        
         }
     }
