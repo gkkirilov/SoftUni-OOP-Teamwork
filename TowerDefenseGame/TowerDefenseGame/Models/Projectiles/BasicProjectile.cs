@@ -15,7 +15,7 @@ namespace TowerDefenseGame.Models.Projectiles
 
         public BasicProjectile(double x, double y, Enemy target)
             : base(x, y, BasicProjectile.ProjectileSpeed, target, new ImageBrush(new CroppedBitmap(new BitmapImage(
-             new Uri(@"..\..\Resources\ProjectilesStyleOne.png", UriKind.Relative)), new Int32Rect(973, 897, 79, 52))), BasicProjectile.ProjectileDamage, new BasicDebuff())
+             new Uri(@"..\..\Resources\ProjectilesStyleOne.png", UriKind.Relative)), new Int32Rect(1293, 1317, 33, 29))), BasicProjectile.ProjectileDamage, new BasicDebuff())
         {
         }
     }
