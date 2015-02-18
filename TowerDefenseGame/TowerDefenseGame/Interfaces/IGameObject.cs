@@ -2,7 +2,6 @@
 {
     using System.Windows.Shapes;
     using TowerDefenseGame.Geometry;
-    using TowerDefenseGame.Models;
 
     public interface IGameObject
     {

@@ -2,9 +2,7 @@
 {
     using System;
     using System.Linq;
-    using System.Windows;
     using System.Windows.Media;
-    using System.Windows.Media.Imaging;
     using TowerDefenseGame.Controllers;
     using TowerDefenseGame.Core;
     using TowerDefenseGame.Models.Enemies;
@@ -18,7 +16,7 @@
         private Enemy target;
         private double playerAngle = 0;
         private double lastAngle;
-        private double rotationBlendFactor = 0.05;
+        private const double RotationBlendFactor = 0.05;
 
         // private string TowerEffect; - We shall implement this when we make the Effects class
         protected Tower(double x, double y, int width, int height, int towerSpeed, int towerRange, Brush fillBrush)
@@ -72,7 +70,10 @@
 
         public override void Update()
         {
-            if (this.Target == null || !this.Target.Exists || this.Target.IsDying || this.Coordinates.CalculateDistance(this.Target.Coordinates) > this.TowerRange)
+            if (this.Target == null ||
+                !this.Target.Exists ||
+                this.Target.IsDying ||
+                this.Coordinates.CalculateDistance(this.Target.Coordinates) > this.TowerRange)
             {
                 this.GetTarget();
             }
@@ -91,7 +92,17 @@
             }
 
             this.CalculateRotationAngle();
-            RotateTransform rotateTransform = new RotateTransform(90.0 - (this.playerAngle * 180 / Math.PI), Constants.FieldSegmentSize / 2, Constants.FieldSegmentSize / 2);
+            RotateModel();
+        }
+
+        private void RotateModel()
+        {
+            RotateTransform rotateTransform =
+                new RotateTransform(
+                    90.0 - (this.playerAngle * 180 / Math.PI),
+                    Constants.FieldSegmentSize / 2,
+                    Constants.FieldSegmentSize / 2);
+
             this.Model.RenderTransform = rotateTransform;
         }
 
@@ -120,11 +131,11 @@
             {
                 return;
             }
-            double deltaX = (this.Coordinates.X + Constants.FieldSegmentSize / 2) -
-                (this.Target.Coordinates.X + Constants.FieldSegmentSize / 2);
+            double deltaX = (this.Coordinates.X + (float)Constants.FieldSegmentSize / 2) -
+                (this.Target.Coordinates.X + (float)Constants.FieldSegmentSize / 2);
 
-            double deltaY = (this.Coordinates.Y + Constants.FieldSegmentSize / 2) -
-                (this.Target.Coordinates.Y + Constants.FieldSegmentSize / 2);
+            double deltaY = (this.Coordinates.Y + (float)Constants.FieldSegmentSize / 2) -
+                (this.Target.Coordinates.Y + (float)Constants.FieldSegmentSize / 2);
 
             double angle = Math.Atan2(deltaX, deltaY);
 
@@ -137,7 +148,7 @@
                 this.playerAngle -= Math.PI * 2.0;
             }
             this.lastAngle = angle;
-            this.playerAngle = angle * this.rotationBlendFactor + this.playerAngle * (1 - this.rotationBlendFactor);
+            this.playerAngle = angle * RotationBlendFactor + this.playerAngle * (1 - RotationBlendFactor);
         }
     }
 }

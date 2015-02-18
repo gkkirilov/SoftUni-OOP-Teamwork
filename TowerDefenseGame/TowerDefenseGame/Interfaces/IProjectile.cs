@@ -1,5 +1,4 @@
-﻿using TowerDefenseGame.Models.Enemies;
-namespace TowerDefenseGame.Interfaces
+﻿namespace TowerDefenseGame.Interfaces
 {
     public interface IProjectile : IGameObject
     {

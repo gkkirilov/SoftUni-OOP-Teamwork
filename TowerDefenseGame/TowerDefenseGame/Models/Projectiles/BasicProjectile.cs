@@ -1,11 +1,6 @@
-﻿using TowerDefenseGame.Models.Effects.Debuffs;
-
-namespace TowerDefenseGame.Models.Projectiles
+﻿namespace TowerDefenseGame.Models.Projectiles
 {
-    using System;
     using System.Windows.Media;
-    using TowerDefenseGame.Controllers;
-    using TowerDefenseGame.Interfaces;
     using TowerDefenseGame.Models.Effects.Debuffs;
     using TowerDefenseGame.Models.Enemies;
 

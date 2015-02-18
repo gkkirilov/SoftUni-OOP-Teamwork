@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TowerDefenseGame.Models.Effects.Debuffs
+﻿namespace TowerDefenseGame.Models.Effects.Debuffs
 {
     public class BasicDebuff : Debuff
     {

@@ -1,13 +1,10 @@
 ﻿namespace TowerDefenseGame.Models
 {
     using System;
-    using System.IO;
     using System.Windows.Media;
-    using System.Windows.Media.Imaging;
     using System.Windows.Shapes;
     using TowerDefenseGame.Geometry;
     using TowerDefenseGame.Interfaces;
-    using TowerDefenseGame.Models.Enemies;
 
     public abstract class GameObject : IGameObject
     {
@@ -52,6 +49,11 @@
 
             set
             {
+                if (value == null)
+                {
+                    throw new ArgumentNullException("The Point cannot be assigned a value of null");
+                }
+
                 this.coordinates = value;
             }
         }

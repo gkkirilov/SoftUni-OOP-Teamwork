@@ -14,7 +14,7 @@
         private int damage;
         private IDebuff inflictionDebuff;
 
-        public Projectile(double x, double y, int speed, IEnemy target, Brush fillType, int damage, IDebuff inflictionDebuff)
+        protected Projectile(double x, double y, int speed, IEnemy target, Brush fillType, int damage, IDebuff inflictionDebuff)
             : base(x, y, Constants.ProjectileSize, Constants.ProjectileSize, fillType)
         {
             this.Target = target;
@@ -49,6 +49,11 @@
 
             private set
             {
+                if (value < 0)
+                {
+                    throw new ArgumentException("The speed cannot be a negative number.");
+                }
+
                 this.speed = value;
             }
         }

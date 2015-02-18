@@ -18,7 +18,6 @@
 
         // Variables used for the animation
         private EnemyState currentState = EnemyState.Left;
-        private BitmapImage enemySpriteSheet;
         private const int DirectionMultiplierY = 65;
         private const int DirectionMultiplierX = 65;
         private int spriteFrameCounter = 6;
@@ -27,11 +26,11 @@
         private bool isDying = false;
 
         protected Enemy(double x, double y, int width, int height, double lifePoints, double speed, BitmapImage enemySpriteSheet)
-            : base(x, y, width, height, Brushes.AliceBlue)
+            : base(x, y, width, height, Brushes.Transparent)
         {
             this.LifePoints = lifePoints;
             this.Speed = speed;
-            this.enemySpriteSheet = enemySpriteSheet;
+            this.EnemySpriteSheet = enemySpriteSheet;
         }
 
         public List<Point> Beacons
@@ -67,6 +66,8 @@
 
         public double LifePoints { get; private set; }
 
+        private BitmapImage EnemySpriteSheet { get; set; }
+
         public IDebuff Debuff 
         {
             get
@@ -85,53 +86,44 @@
 
         public bool IsDying
         {
-            get { return this.isDying; }
+            get
+            {
+                return this.isDying;
+            }
+
+            private set
+            {
+                this.isDying = value;
+            }
         }
 
         public override void Update()
         {
-            this.Debuff.Update();
-
-            if (this.isDying)
-            {
-                ResolveDeath();
-                return;
-            }
-
-            if (this.Debuff.HasElapsed)
-            {
-                this.Debuff = new NullDebuff();
-            }
+            ResolveDebuffState();
 
             this.LifePoints -= this.Debuff.LifePointsEffect;
 
+            if (this.IsDying)
+            {
+                ResolveDeathAnimation();
+                return;
+            }
+
             if (this.Beacons.Count == 0)
             {
+                // Handle Player Base life points reduction
                 this.Exists = false;
                 return;
             }
             else if (this.LifePoints <= 0) 
             {
-                this.isDying = true;
+                this.IsDying = true;
             }
 
             Point.HandleMovement(this.Coordinates, this.Beacons[0], this.Speed - this.Debuff.SpeedEffect);
 
             ResolveState();
-
-            frameCounter++;  
-            if (frameCounter >= 5)
-            {
-                frameCounter = 0;
-                this.Model.Fill = new ImageBrush(new CroppedBitmap(enemySpriteSheet,
-                new System.Windows.Int32Rect(DirectionMultiplierX * spriteFrameCounter, DirectionMultiplierY * (int)currentState, 60, 57)));
-                spriteFrameCounter--;
-            }
-
-            if (spriteFrameCounter <= 0)
-            {
-                spriteFrameCounter = 6;
-            }
+            ResolveMovementAnimation();
 
             if (this.Beacons[0].IsInside(this))
             {
@@ -140,14 +132,24 @@
             }  
         }
 
-        public void SetBeacons(List<Point> beacons)
+        public void SetBeacons(List<Point> newBeacons)
         {
-            this.Beacons = beacons;
+            this.Beacons = newBeacons;
         }
 
         public void TakeDamage(int damage)
         {
             this.LifePoints -= damage;
+        }
+
+        private void ResolveDebuffState()
+        {
+            this.Debuff.Update();
+
+            if (this.Debuff.HasElapsed)
+            {
+                this.Debuff = new NullDebuff();
+            }
         }
 
         private void ResolveState()
@@ -175,7 +177,25 @@
             }
         }
 
-        private void ResolveDeath()
+        private void ResolveMovementAnimation()
+        {
+            frameCounter++;
+            if (frameCounter >= 5 + (this.Debuff.SpeedEffect * 2))
+            {
+                frameCounter = 0;
+                this.Model.Fill = new ImageBrush(new CroppedBitmap(this.EnemySpriteSheet,
+                    new System.Windows.Int32Rect(DirectionMultiplierX * spriteFrameCounter,
+                        DirectionMultiplierY * (int)currentState, 60, 57)));
+                spriteFrameCounter--;
+            }
+
+            if (spriteFrameCounter <= 0)
+            {
+                spriteFrameCounter = 6;
+            }
+        }
+
+        private void ResolveDeathAnimation()
         {
             if (deathSpriteFrameCounter >= 5)
             {
@@ -189,7 +209,7 @@
                 frameCounter = 0;
 
                 this.Model.Fill = new ImageBrush(
-                   new CroppedBitmap(enemySpriteSheet,
+                   new CroppedBitmap(this.EnemySpriteSheet,
                    new System.Windows.Int32Rect(
                        DirectionMultiplierX * deathSpriteFrameCounter,
                        DirectionMultiplierY * (int)currentState, 60, 57)));

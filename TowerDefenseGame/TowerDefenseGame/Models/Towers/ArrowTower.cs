@@ -11,10 +11,21 @@ namespace TowerDefenseGame.Models.Towers
     {
         private const int Speed = 25;
         private const int Range = 150;
+        private static readonly ImageBrush TowerImage = 
+            new ImageBrush(
+                new CroppedBitmap(
+                    new BitmapImage(
+                        new Uri(@"..\..\Resources\towers.png", UriKind.Relative)), new Int32Rect(115, 0, 46, 39)));
 
         public ArrowTower(double x, double y)
-            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, ArrowTower.Speed, ArrowTower.Range, new ImageBrush(new CroppedBitmap(new BitmapImage(
-             new Uri(@"..\..\Common\towers.png", UriKind.Relative)), new Int32Rect(115, 0, 46, 39))))
+            : base(
+                x,
+                y,
+                Constants.FieldSegmentSize,
+                Constants.FieldSegmentSize, 
+                Speed,
+                Range,
+                TowerImage)
         {
         }
     }

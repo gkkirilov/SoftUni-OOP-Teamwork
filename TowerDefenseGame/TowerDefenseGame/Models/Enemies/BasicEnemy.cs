@@ -9,16 +9,17 @@ namespace TowerDefenseGame.Models.Enemies
 
     public class BasicEnemy : Enemy
     {
-        private const int LifePoints = 50;
-        
-        private const int Speed = 1;
+        private const int EnemyLifePoints = 50;
+        private const int EnemySpeed = 1;
+
+        private static readonly BitmapImage EnemySpriteSheet = new BitmapImage(
+            new Uri(@"..\..\Resources\goblinsword.png",
+                    UriKind.Relative));
 
         public BasicEnemy(double x, double y)
             : base(
-                x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, BasicEnemy.LifePoints, BasicEnemy.Speed,
-                (new BitmapImage(
-                    new Uri(@"..\..\Common\goblinsword.png",
-                        UriKind.Relative))))
+                x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, BasicEnemy.EnemyLifePoints, BasicEnemy.EnemySpeed,
+                EnemySpriteSheet)
         {
 
         }

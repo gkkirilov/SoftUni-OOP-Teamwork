@@ -55,8 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Enumerations\EnemyDirection.cs" />
-    <Compile Include="SpriteSheets\EnemySpriteSheets.cs" />
+    <Compile Include="Enumerations\EnemyState.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -130,13 +129,13 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Common\goblinsword.png" />
+    <Resource Include="Resources\goblinsword.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Common\arrowtower.png" />
+    <Resource Include="Resources\arrowtower.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Common\slowtower.png" />
+    <Resource Include="Resources\slowtower.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -40,15 +40,15 @@
             {
                 for (int col = 0; col < Constants.FieldCols; col++)
                 {
-                    if (GameFieldController.GameField[row][col].Model == model)
+                    if (GameFieldController.GameField[row][col].Model.Equals(model))
                     {
-                        if (GameFieldController.GameField[row][col].Occupied == true)
+                        if (GameFieldController.GameField[row][col].IsOccupied)
                         {
                             return;
                         }
                         else
                         {
-                            GameFieldController.GameField[row][col].Occupied = true;
+                            GameFieldController.GameField[row][col].IsOccupied = true;
                         }
                     }
                 }
@@ -65,13 +65,15 @@
                 }
             }
 
-            if (fieldSegment != null && fieldSegment.FieldType == FieldType.Regular)
+            if (fieldSegment == null || fieldSegment.FieldType != FieldType.Regular)
             {
-                double x = Canvas.GetLeft(model);
-                double y = Canvas.GetTop(model);
-
-                TowerController.GenerateTower(x, y);
+                return;
             }
+
+            double x = Canvas.GetLeft(model);
+            double y = Canvas.GetTop(model);
+
+            TowerController.GenerateTower(x, y);
         }
 
         private void SelectionFieldMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

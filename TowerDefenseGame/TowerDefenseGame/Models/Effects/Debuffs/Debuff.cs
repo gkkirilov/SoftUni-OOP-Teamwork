@@ -8,7 +8,7 @@
         private double lifePointsEffect;
         private double speedEffect;
 
-        public Debuff(int duration, double lifePointsEffect, double speedEffect)
+        protected Debuff(int duration, double lifePointsEffect, double speedEffect)
             : base(duration)
         {
             this.LifePointsEffect = lifePointsEffect;
@@ -43,6 +43,7 @@
                 {
                     throw new ArgumentException("The value cannot be negative");
                 }
+
                 this.speedEffect = value;
             }
         }
