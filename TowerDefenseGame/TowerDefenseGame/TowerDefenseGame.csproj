@@ -103,7 +103,6 @@
     <Compile Include="Models\Projectiles\Projectile.cs" />
     <Compile Include="Models\Projectiles\SnowProjectile.cs" />
     <Compile Include="Models\Towers\ArrowTower.cs" />
-    <Compile Include="Models\Towers\IRotatable.cs" />
     <Compile Include="Models\Towers\SlowTower.cs" />
     <Compile Include="Models\Towers\SniperTower.cs" />
     <Compile Include="Models\Towers\FireTower.cs" />

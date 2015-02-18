@@ -120,9 +120,11 @@
                 this.IsDying = true;
             }
 
+            double lastPositionX = this.Coordinates.X;
+            double lastPositionY = this.Coordinates.Y;
             Point.HandleMovement(this.Coordinates, this.Beacons[0], this.Speed - this.Debuff.SpeedEffect);
 
-            ResolveState();
+            ResolveState(lastPositionX, lastPositionY);
             ResolveMovementAnimation();
 
             if (this.Beacons[0].IsInside(this))
@@ -152,28 +154,28 @@
             }
         }
 
-        private void ResolveState()
+        private void ResolveState(double lastPositionX, double lastPositionY)
         {
             if (isDying)
             {
                 currentState = EnemyState.Dying;
             }
-            else if (this.Beacons[0].X < Math.Round(this.Coordinates.X))
-            {
-                currentState = EnemyState.Left;
-            }
-            else if (this.Beacons[0].X > Math.Round(this.Coordinates.X))
+            else if (Math.Abs(lastPositionY - this.Coordinates.Y) < 1 && lastPositionX < this.Coordinates.X)
             {
                 currentState = EnemyState.Right;
             }
-
-            else if (this.Beacons[0].Y < Math.Round(this.Coordinates.Y))
+            else if (Math.Abs(lastPositionY - this.Coordinates.Y) < 1 && lastPositionX > this.Coordinates.X)
             {
-                currentState = EnemyState.Up;
+                currentState = EnemyState.Left;
             }
-            else if (this.Beacons[0].Y > Math.Round(this.Coordinates.Y))
+
+            else if (lastPositionY < this.Coordinates.Y)
             {
                 currentState = EnemyState.Down;
+            }
+            else if (lastPositionY > this.Coordinates.Y)
+            {
+                currentState = EnemyState.Up;
             }
         }
 

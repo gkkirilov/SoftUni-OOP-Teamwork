@@ -92,7 +92,7 @@
                 this.frameCount++;
             }
 
-            this.CalculateRotationAngle();
+            CalculateRotationAngle();
             RotateModel();
         }
 
