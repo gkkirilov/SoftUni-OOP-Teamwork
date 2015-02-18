@@ -7,8 +7,9 @@
     using TowerDefenseGame.Core;
     using TowerDefenseGame.Models.Enemies;
     using TowerDefenseGame.Models.Projectiles;
+    using TowerDefenseGame.Interfaces;
 
-    public abstract class Tower : GameObject
+    public abstract class Tower : GameObject, IRotateable
     {
         private int towerSpeed;
         private int towerRange;
@@ -125,7 +126,7 @@
             this.Target = targetSelected;
         }
 
-        private void CalculateRotationAngle()
+        public void CalculateRotationAngle()
         {
             if (this.Target == null)
             {

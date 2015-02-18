@@ -1,4 +1,8 @@
-﻿namespace TowerDefenseGame.Models.Projectiles
+﻿using System;
+using System.Windows;
+using System.Windows.Media.Imaging;
+
+namespace TowerDefenseGame.Models.Projectiles
 {
     using System.Windows.Media;
     using TowerDefenseGame.Models.Effects.Debuffs;
@@ -10,7 +14,8 @@
         private const int ProjectileDamage = 2;
 
         public BasicProjectile(double x, double y, Enemy target)
-            : base(x, y, BasicProjectile.ProjectileSpeed, target, Brushes.Brown, BasicProjectile.ProjectileDamage, new BasicDebuff())
+            : base(x, y, BasicProjectile.ProjectileSpeed, target, new ImageBrush(new CroppedBitmap(new BitmapImage(
+             new Uri(@"..\..\Common\ProjectilesStyleOne.png", UriKind.Relative)), new Int32Rect(973, 897, 79, 52))), BasicProjectile.ProjectileDamage, new BasicDebuff())
         {
         }
     }
