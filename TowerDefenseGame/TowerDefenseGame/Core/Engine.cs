@@ -11,8 +11,6 @@
             Timers.InitializeTimers(this);
 
             Timers.UpdateTimer.Start();
-            Timers.RenderTimer.Start();
-            EnemyController.GenerateNextWave();
         }
 
         public void Update()
@@ -25,7 +23,6 @@
         public void Render()
         {
             TowerController.Render();
-            GameFieldController.Render();
             EnemyController.Render();
             ProjectileController.Render();        
         }

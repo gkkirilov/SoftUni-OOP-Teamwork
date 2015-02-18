@@ -12,6 +12,8 @@
         private static List<Enemy> enemies = new List<Enemy>();
         private static List<Point> enemyBeacons = new List<Point>();
         private static int waveEnemiesCount = 0;
+        private static bool isGenerating = false;
+        private static int frameCount = 0;
 
         public static List<Enemy> Enemies
         {
@@ -50,16 +52,30 @@
                 if (!EnemyController.Enemies[index].Exists)
                 {
                     AnimationController.Renderer.RemoveModel(EnemyController.Enemies[index]);
-                    EnemyController.Enemies.RemoveAt(index);
+                    Enemies.RemoveAt(index);
                     index--;
                 }
             }
 
+            if (!isGenerating && frameCount >= Constants.WaveDelay)
+            {
+                isGenerating = true;
+            }
+
+            if (isGenerating && frameCount >= Constants.EnemyGenerationDelay)
+            {
+                frameCount = 0;
+                GenerateEnemy(
+                    Constants.EnemyStartCol * Constants.FieldSegmentSize,
+                    Constants.EnemyStartRow * Constants.FieldSegmentSize); 
+            }
+
+            frameCount++;
+
             if (EnemyController.WaveEnemiesCount >= Constants.WaveEnemiesMaxCount)
             {
-                Timers.EnemyGeneratorTimer.Stop();
                 EnemyController.WaveEnemiesCount = 0;
-                EnemyController.GenerateNextWave();
+                isGenerating = false;
             }
         }
 
@@ -71,18 +87,13 @@
             }
         }
 
-        public static void GenerateNextWave()
-        {
-            Timers.WaveDelayTimer.Start();
-        }
-
         private static List<Point> GetEnemyBeacons()
         {
             List<Point> beacons = new List<Point> 
             { 
                 new Point(2 * Constants.FieldSegmentSize, 10 * Constants.FieldSegmentSize),
                 new Point(2 * Constants.FieldSegmentSize, 1 * Constants.FieldSegmentSize),
-                new Point(7 * Constants.FieldSegmentSize, 1 * Constants.FieldSegmentSize),
+                new Point(8 * Constants.FieldSegmentSize, 1 * Constants.FieldSegmentSize),
                 new Point(7 * Constants.FieldSegmentSize, 10 * Constants.FieldSegmentSize),
             };
 

@@ -4,7 +4,7 @@
     {
         private const int DebuffDuration = 200;
         private const double DebuffLifePointsEffect = 0;
-        private const double DebuffSpeedEffect = 0.75;
+        private const double DebuffSpeedEffect = 0.75f;
 
         public BasicDebuff()
             : base(DebuffDuration, DebuffLifePointsEffect, DebuffSpeedEffect)

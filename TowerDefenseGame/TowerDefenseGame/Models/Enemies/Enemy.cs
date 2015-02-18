@@ -183,7 +183,7 @@
         private void ResolveMovementAnimation()
         {
             frameCounter++;
-            if (frameCounter >= 5 + (this.Debuff.SpeedEffect * 2))
+            if (frameCounter >= 2 + (this.Debuff.SpeedEffect * 2))
             {
                 frameCounter = 0;
                 this.Model.Fill = new ImageBrush(new CroppedBitmap(this.EnemySpriteSheet,

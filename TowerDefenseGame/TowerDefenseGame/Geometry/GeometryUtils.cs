@@ -9,6 +9,11 @@
     {
         public static void HandleMovement(Point objectPosition, Point targetPosition, double speed)
         {
+            if (CalculateDistance(objectPosition, targetPosition) < 1)
+            {
+                objectPosition.X = targetPosition.X;
+                objectPosition.Y = targetPosition.Y;
+            }
             double deltaX = targetPosition.X - objectPosition.X;
             double deltaY = targetPosition.Y - objectPosition.Y;
             double angle = Math.Atan2(deltaY, deltaX);

@@ -21,8 +21,8 @@
         public MainWindow()
         {
             this.InitializeComponent();
-            this.engine = new Engine();
             AnimationController.ConfigureRenderer(this.MainCanvas);
+            this.engine = new Engine();
             GameFieldController.SetGameFieldEvents(this);
         }
 

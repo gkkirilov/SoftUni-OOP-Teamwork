@@ -20,7 +20,7 @@
         // Variables used for the calculation of the tower rotation
         private double towerAngle = 0;
         private double lastAngle;
-        private const double RotationBlendFactor = 0.05;
+        private const double RotationBlendFactor = 0.2f;
 
         protected Tower(double x, double y, int width, int height, int towerSpeed, int towerRange, Brush fillBrush)
             : base(x, y, width, height, fillBrush)
@@ -122,11 +122,11 @@
             {
                 return;
             }
-            double deltaX = (this.Coordinates.X + (float)Constants.FieldSegmentSize / 2) -
-                (this.Target.Coordinates.X + (float)Constants.FieldSegmentSize / 2);
+            double deltaX = (this.Coordinates.X + (double)Constants.FieldSegmentSize / 2) -
+                (this.Target.Coordinates.X + (double)Constants.FieldSegmentSize / 2);
 
-            double deltaY = (this.Coordinates.Y + (float)Constants.FieldSegmentSize / 2) -
-                (this.Target.Coordinates.Y + (float)Constants.FieldSegmentSize / 2);
+            double deltaY = (this.Coordinates.Y + (double)Constants.FieldSegmentSize / 2) -
+                (this.Target.Coordinates.Y + (double)Constants.FieldSegmentSize / 2);
 
             double angle = Math.Atan2(deltaX, deltaY);
 

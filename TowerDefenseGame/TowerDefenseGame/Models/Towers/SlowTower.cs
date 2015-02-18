@@ -9,7 +9,7 @@ namespace TowerDefenseGame.Models.Towers
 
     public class SlowTower : Tower
     {
-        private const int Speed = 50;
+        private const int Speed = 20;
         private const int Range = 250;
 
         private static readonly ImageBrush TowerImage =

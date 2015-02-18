@@ -31,14 +31,13 @@
                 {
                     GameFieldController.GameField[row][col] = 
                         new FieldSegment(Constants.FieldSegmentSize * col, Constants.FieldSegmentSize * row);
-
-                    // Engine.GameField[row][col].MouseDown += MainWindow_MouseDown;
                 }
             }
 
             GameFieldController.GameField[10][2].Model.Fill = Brushes.Brown;
             GameFieldController.GameField[1][2].Model.Fill = Brushes.Brown;
             GameFieldController.GameField[1][7].Model.Fill = Brushes.Brown;
+            Render();
         }
 
         public static void Render()

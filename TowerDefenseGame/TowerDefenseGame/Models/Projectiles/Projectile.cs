@@ -15,11 +15,13 @@
         private IDebuff inflictionDebuff;
         private double projectileAngle = 0;
         private double lastAngle;
-        private const double RotationBlendFactor = 0.2;
+        private const double RotationBlendFactor = 0.2f;
 
         protected Projectile(double x, double y, int speed, IEnemy target, Brush fillType, int damage, IDebuff inflictionDebuff)
             : base(x, y, Constants.ProjectileSize, Constants.ProjectileSize, fillType)
         {
+            CalculateRotationAngle();
+            GeometryUtils.RotateModel(this.Model, this.projectileAngle);
             this.Target = target;
             this.Speed = speed;
             this.Damage = damage;
@@ -122,11 +124,11 @@
             {
                 return;
             }
-            double deltaX = (this.Coordinates.X + (float)Constants.FieldSegmentSize / 2) -
-                (this.Target.Coordinates.X + (float)Constants.FieldSegmentSize / 2);
+            double deltaX = (this.Coordinates.X + (double)Constants.FieldSegmentSize / 2) -
+                (this.Target.Coordinates.X + (double)Constants.FieldSegmentSize / 2);
 
-            double deltaY = (this.Coordinates.Y + (float)Constants.FieldSegmentSize / 2) -
-                (this.Target.Coordinates.Y + (float)Constants.FieldSegmentSize / 2);
+            double deltaY = (this.Coordinates.Y + (double)Constants.FieldSegmentSize / 2) -
+                (this.Target.Coordinates.Y + (double)Constants.FieldSegmentSize / 2);
 
             double angle = Math.Atan2(deltaX, deltaY);
 
@@ -139,7 +141,7 @@
                 this.projectileAngle -= Math.PI * 2.0;
             }
             this.lastAngle = angle;
-            this.projectileAngle = angle * RotationBlendFactor + this.projectileAngle * (1 - RotationBlendFactor);
+            this.projectileAngle = angle;
         }
     }
 }

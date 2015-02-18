@@ -10,7 +10,7 @@ namespace TowerDefenseGame.Models.Projectiles
 
     public class BasicProjectile : Projectile
     {
-        private const int ProjectileSpeed = 2;
+        private const int ProjectileSpeed = 6;
         private const int ProjectileDamage = 2;
 
         public BasicProjectile(double x, double y, Enemy target)
