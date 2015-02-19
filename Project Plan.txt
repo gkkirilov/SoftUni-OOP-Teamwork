@@ -42,4 +42,6 @@ add the ability to upgrade a tower
 
 StyleCop the entire project
 
+Add sound to the game // Delayed for now
+
 Add Buff Classes for User to be able to acquire /// Delayed for now
