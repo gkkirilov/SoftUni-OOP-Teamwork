@@ -33,7 +33,7 @@ Add event handlers to towers that exist
 Add the ability to destroy a tower.
 add the ability to upgrade a tower
 
-Remove the bullets when the target doesn't exist anymore.
+Remove the bullets when the target doesn't exist anymore. /// Preslav - Done
 
 Fix Abstract dependencies /// Preslav - Done
 

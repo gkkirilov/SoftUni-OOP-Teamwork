@@ -16,6 +16,6 @@
         // The time intervals for the different timers in milliseconds.
         public const int EnemyGenerationDelay = 20;
         public const int UpdateDelay = 75;
-        public const int WaveDelay = 300;
+        public const int WaveDelay = 50;
     }
 }

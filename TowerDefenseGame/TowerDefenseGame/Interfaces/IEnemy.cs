@@ -5,7 +5,6 @@
 
     public interface IEnemy : IGameObject
     {
-        List<Point> Beacons { get; }
 
         double Speed { get; }
       
@@ -13,7 +12,6 @@
         IDebuff Debuff { get; set; }
         bool IsDying { get; }
 
-        void SetBeacons(List<Point> beacons);
         void TakeDamage(int damage);
     }
 }

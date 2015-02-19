@@ -10,7 +10,7 @@
         int Width { get; }
         
         int Height { get; }
-        
+
         Rectangle Model { get; }
         bool Exists { get; }
 

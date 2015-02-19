@@ -8,19 +8,21 @@
     using TowerDefenseGame.Geometry;
     using TowerDefenseGame.Interfaces;
     using TowerDefenseGame.Models.Effects.Debuffs;
+    using TowerDefenseGame.Controllers;
+    using TowerDefenseGame.Resources;
 
     public abstract class Enemy : GameObject, IEnemy
     {
         private double speed;
         private double lifePoints;
-        private List<Point> beacons = new List<Point>();
         private IDebuff debuff = new NullDebuff();
+        private int beaconCounter = 0;
 
         // Variables used for the animation
         private EnemyState currentState = EnemyState.Left;
         private const int DirectionMultiplierY = 65;
         private const int DirectionMultiplierX = 65;
-        private int spriteFrameCounter = 6;
+        private int spriteFrameCounter = 5;
         private int frameCounter = 0;
         private int deathSpriteFrameCounter = 0;
         private bool isDying = false;
@@ -31,19 +33,6 @@
             this.LifePoints = lifePoints;
             this.Speed = speed;
             this.EnemySpriteSheet = enemySpriteSheet;
-        }
-
-        public List<Point> Beacons
-        {
-            get
-            {
-                return this.beacons;
-            }
-
-            private set
-            {
-                this.beacons = value;
-            }
         }
 
         public double Speed
@@ -109,7 +98,7 @@
                 return;
             }
 
-            if (this.Beacons.Count == 0)
+            if (EnemyController.EnemyBeacons.Length <= this.beaconCounter)
             {
                 // TODO: Handle Player Base life points reduction
                 this.Exists = false;
@@ -123,21 +112,16 @@
             double lastPositionX = this.Coordinates.X;
             double lastPositionY = this.Coordinates.Y;
 
-            GeometryUtils.HandleMovement(this.Coordinates, this.Beacons[0], this.Speed - this.Debuff.SpeedEffect);
+            GeometryUtils.HandleMovement(this.Coordinates, EnemyController.EnemyBeacons[beaconCounter], this.Speed - this.Debuff.SpeedEffect);
 
             ResolveState(lastPositionX, lastPositionY);
             ResolveMovementAnimation();
 
-            if (this.Beacons[0].IsInside(this))
+            if (EnemyController.EnemyBeacons[beaconCounter].IsInside(this))
             {
-                this.Beacons.RemoveAt(0);
+                beaconCounter++;
                 this.Update();
             }  
-        }
-
-        public void SetBeacons(List<Point> newBeacons)
-        {
-            this.Beacons = newBeacons;
         }
 
         public void TakeDamage(int damage)
@@ -183,18 +167,17 @@
         private void ResolveMovementAnimation()
         {
             frameCounter++;
-            if (frameCounter >= 2 + (this.Debuff.SpeedEffect * 2))
+            if (frameCounter >= 1 + (this.Debuff.SpeedEffect * 2))
             {
                 frameCounter = 0;
-                this.Model.Fill = new ImageBrush(new CroppedBitmap(this.EnemySpriteSheet,
-                    new System.Windows.Int32Rect(DirectionMultiplierX * spriteFrameCounter,
-                        DirectionMultiplierY * (int)currentState, 60, 57)));
+                this.Model.Fill = new ImageBrush(SpritesManager.GoblinSprites[(int)this.currentState][this.spriteFrameCounter]);
+
                 spriteFrameCounter--;
             }
 
             if (spriteFrameCounter <= 0)
             {
-                spriteFrameCounter = 6;
+                spriteFrameCounter = 5;
             }
         }
 

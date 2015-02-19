@@ -15,6 +15,14 @@
         private static bool isGenerating = false;
         private static int frameCount = 0;
 
+        public static readonly Point[] EnemyBeacons = new Point[] 
+            { 
+                new Point(2 * Constants.FieldSegmentSize, 10 * Constants.FieldSegmentSize),
+                new Point(2 * Constants.FieldSegmentSize, 1 * Constants.FieldSegmentSize),
+                new Point(8 * Constants.FieldSegmentSize, 1 * Constants.FieldSegmentSize),
+                new Point(7 * Constants.FieldSegmentSize, 10 * Constants.FieldSegmentSize),
+            };
+
         public static List<Enemy> Enemies
         {
             get
@@ -40,7 +48,6 @@
         {
             EnemyController.WaveEnemiesCount++;
             EnemyController.Enemies.Add(new BasicEnemy(x, y)); // TODO: Generate enemies based on type
-            EnemyController.Enemies[EnemyController.Enemies.Count - 1].SetBeacons(EnemyController.GetEnemyBeacons());
         }
 
         public static void Update() 
@@ -85,19 +92,6 @@
             {
                 AnimationController.Renderer.Render(enemy);
             }
-        }
-
-        private static List<Point> GetEnemyBeacons()
-        {
-            List<Point> beacons = new List<Point> 
-            { 
-                new Point(2 * Constants.FieldSegmentSize, 10 * Constants.FieldSegmentSize),
-                new Point(2 * Constants.FieldSegmentSize, 1 * Constants.FieldSegmentSize),
-                new Point(8 * Constants.FieldSegmentSize, 1 * Constants.FieldSegmentSize),
-                new Point(7 * Constants.FieldSegmentSize, 10 * Constants.FieldSegmentSize),
-            };
-
-            return beacons;
         }
     }
 }
