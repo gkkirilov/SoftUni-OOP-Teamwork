@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using TowerDefenseGame.Core;
     using TowerDefenseGame.Geometry;
-    using TowerDefenseGame.Interfaces;
     using TowerDefenseGame.Models.Enemies;
 
     public static class EnemyController

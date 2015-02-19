@@ -17,9 +17,7 @@ namespace TowerDefenseGame.Models.Enemies
     {
         private double speed;
         private double lifePoints;
-        private IDebuff debuff = new NullDebuff();
         private int beaconCounter = 0;
-        private List<Point> beacons = new List<Point>();
         private IDebuff debuff = new NullDebuff();
         private int bounty;
 
