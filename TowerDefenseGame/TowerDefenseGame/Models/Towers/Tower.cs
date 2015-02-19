@@ -16,19 +16,33 @@
         private int towerRange;
         private int frameCount = 0;
         private Enemy target;
+        public int price;
 
         // Variables used for the calculation of the tower rotation
         private double towerAngle = 0;
         private double lastAngle;
         private const double RotationBlendFactor = 0.2f;
 
-        protected Tower(double x, double y, int width, int height, int towerSpeed, int towerRange, Brush fillBrush)
+        protected Tower(double x, double y, int width, int height, int towerSpeed, int towerRange, Brush fillBrush,int price)
             : base(x, y, width, height, fillBrush)
         {
             this.TowerSpeed = towerSpeed;
             this.TowerRange = towerRange;
+            this.Price = price;
         }
 
+        public int Price
+        {
+            get { return this.price; }
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentException("Price cannot be negative or zero");
+                }
+                this.price = value;
+            }
+        }
         public int TowerSpeed
         {
             get

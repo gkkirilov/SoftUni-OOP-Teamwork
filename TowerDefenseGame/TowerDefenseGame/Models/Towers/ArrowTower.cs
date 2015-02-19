@@ -11,6 +11,7 @@ namespace TowerDefenseGame.Models.Towers
     {
         private const int Speed = 25;
         private const int Range = 150;
+        public const int Price = 25;
         private static readonly ImageBrush TowerImage = 
             new ImageBrush(
                 new CroppedBitmap(
@@ -25,7 +26,8 @@ namespace TowerDefenseGame.Models.Towers
                 Constants.FieldSegmentSize, 
                 Speed,
                 Range,
-                TowerImage)
+                TowerImage,
+                Price)
         {
         }
     }

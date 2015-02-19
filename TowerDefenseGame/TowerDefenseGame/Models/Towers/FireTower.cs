@@ -1,4 +1,6 @@
-﻿namespace TowerDefenseGame.Models.Towers
+﻿using System.ComponentModel.Design.Serialization;
+
+namespace TowerDefenseGame.Models.Towers
 {
     using System.Windows.Media;
     using TowerDefenseGame.Core;
@@ -7,9 +9,10 @@
     {
         private const int Speed = 50;
         private const int Range = 200;
+        public const int Price = 30;
 
         public FireTower(double x, double y)
-            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, FireTower.Speed, FireTower.Range, Brushes.Purple)
+            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, FireTower.Speed, FireTower.Range, Brushes.Purple,Price)
         {
         }
     }

@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Core\Statistics.cs" />
     <Compile Include="Enumerations\EnemyState.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -141,6 +142,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\ProjectilesStyleOne.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\field.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

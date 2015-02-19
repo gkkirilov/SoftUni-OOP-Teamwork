@@ -1,3 +1,5 @@
+using System.Windows.Controls;
+
 namespace TowerDefenseGame.Interfaces
 {
     public interface IRenderer
@@ -7,5 +9,7 @@ namespace TowerDefenseGame.Interfaces
         void RemoveModel(IGameObject gameObject);
 
         void Clear();
+
+        void DrawText(TextBlock text, int x, int y);
     }
 }

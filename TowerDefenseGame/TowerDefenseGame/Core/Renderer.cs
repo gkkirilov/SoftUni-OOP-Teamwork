@@ -1,4 +1,6 @@
-﻿namespace TowerDefenseGame.Core
+﻿using TowerDefenseGame.Controllers;
+
+namespace TowerDefenseGame.Core
 {
     using System;
     using System.Collections.Generic;
@@ -48,6 +50,18 @@
             {
                 this.Container.Children.Add(gameObject.Model);   
             }
+        }
+
+        public void DrawText(TextBlock text,int x, int y)
+        {
+            Canvas.SetLeft(text, x);
+            Canvas.SetTop(text, y);
+
+            if (!this.Container.Children.Contains(text))
+            {
+                this.Container.Children.Add(text);
+            }
+
         }
     }
 }

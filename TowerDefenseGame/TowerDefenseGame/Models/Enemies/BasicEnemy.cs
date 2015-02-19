@@ -11,6 +11,8 @@ namespace TowerDefenseGame.Models.Enemies
     {
         private const int EnemyLifePoints = 50;
         private const int EnemySpeed = 3;
+        private const int bounty = 10;
+
 
         private static readonly BitmapImage EnemySpriteSheet = new BitmapImage(
             new Uri(@"..\..\Resources\goblinsword.png",
@@ -19,7 +21,7 @@ namespace TowerDefenseGame.Models.Enemies
         public BasicEnemy(double x, double y)
             : base(
                 x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, BasicEnemy.EnemyLifePoints, BasicEnemy.EnemySpeed,
-                EnemySpriteSheet)
+                EnemySpriteSheet, bounty)
         {
 
         }

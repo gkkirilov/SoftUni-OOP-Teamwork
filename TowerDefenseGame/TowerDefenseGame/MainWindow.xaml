@@ -3,6 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="800" Width="1115" ResizeMode="NoResize">
     <Canvas Name="MainCanvas">
+        <Rectangle Height="598" 
+                   Width="900"
+                   Stroke="Blue"
+                   Name="SlowTowerSelection1"
+                   StrokeThickness="0" 
+                   Canvas.Top="1" 
+                   RenderTransformOrigin="-1.614,0.596"
+                   MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/field.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
         <Rectangle Fill="Black" Height="173" Stroke="Black" Canvas.Top="599" Width="1109"/>
         <Rectangle Fill="Yellow" 
                    Stroke="Blue"
@@ -46,5 +58,7 @@
                    Width="74" 
                    RenderTransformOrigin="-1.614,0.596"
                    MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" />
+
+
     </Canvas>
 </Window>
