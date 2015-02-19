@@ -102,7 +102,7 @@
                 // TODO: Change the projectile according to the tower type
                 if (Math.Abs(this.lastAngle - this.towerAngle) < 0.5)
                 {
-                    ProjectileController.Projectiles.Add(new BasicProjectile(this.Coordinates.X, this.Coordinates.Y, this.Target));   
+                    ProjectileController.Projectiles.Add(new FireProjectile(this.Coordinates.X, this.Coordinates.Y, this.Target));   
                 }
             }
             else
