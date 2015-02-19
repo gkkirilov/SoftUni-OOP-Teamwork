@@ -9,7 +9,7 @@
     {
         public static void HandleMovement(Point objectPosition, Point targetPosition, double speed)
         {
-            if (CalculateDistance(objectPosition, targetPosition) < 1)
+            if (CalculateDistance(objectPosition, targetPosition) < speed)
             {
                 objectPosition.X = targetPosition.X;
                 objectPosition.Y = targetPosition.Y;

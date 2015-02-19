@@ -11,7 +11,7 @@
     {
 
         public FieldSegment(double x, double y)
-            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, Brushes.AliceBlue)
+            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, Brushes.Transparent)
         {
             this.Model.Stroke = Brushes.DarkBlue;
         }

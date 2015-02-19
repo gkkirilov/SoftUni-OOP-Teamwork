@@ -85,8 +85,8 @@
 
             double x = Canvas.GetLeft(model);
             double y = Canvas.GetTop(model);
-
             TowerController.GenerateTower(x, y);
+
         }
 
         private void SelectionFieldMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

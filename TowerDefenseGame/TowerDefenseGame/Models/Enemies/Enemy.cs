@@ -1,4 +1,6 @@
-﻿namespace TowerDefenseGame.Models.Enemies
+﻿using TowerDefenseGame.Controllers;
+
+namespace TowerDefenseGame.Models.Enemies
 {
     using System;
     using System.Collections.Generic;
@@ -17,6 +19,9 @@
         private double lifePoints;
         private IDebuff debuff = new NullDebuff();
         private int beaconCounter = 0;
+        private List<Point> beacons = new List<Point>();
+        private IDebuff debuff = new NullDebuff();
+        private int bounty;
 
         // Variables used for the animation
         private EnemyState currentState = EnemyState.Left;
@@ -27,12 +32,13 @@
         private int deathSpriteFrameCounter = 0;
         private bool isDying = false;
 
-        protected Enemy(double x, double y, int width, int height, double lifePoints, double speed, BitmapImage enemySpriteSheet)
+        protected Enemy(double x, double y, int width, int height, double lifePoints, double speed, BitmapImage enemySpriteSheet, int bounty)
             : base(x, y, width, height, Brushes.Transparent)
         {
             this.LifePoints = lifePoints;
             this.Speed = speed;
             this.EnemySpriteSheet = enemySpriteSheet;
+            this.bounty = bounty;
         }
 
         public double Speed
@@ -186,6 +192,7 @@
             if (deathSpriteFrameCounter >= 5)
             {
                 this.Exists = false;
+                PlayerInterfaceController.Money += this.bounty; 
                 return;
             }
 
