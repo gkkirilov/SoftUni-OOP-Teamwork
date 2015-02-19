@@ -34,9 +34,6 @@
                 }
             }
 
-            GameFieldController.GameField[10][2].Model.Fill = Brushes.Brown;
-            GameFieldController.GameField[1][2].Model.Fill = Brushes.Brown;
-            GameFieldController.GameField[1][7].Model.Fill = Brushes.Brown;
             Render();
         }
 

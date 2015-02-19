@@ -18,7 +18,6 @@ namespace TowerDefenseGame.Models.Enemies
         private double speed;
         private double lifePoints;
         private int beaconCounter = 0;
-        private IDebuff debuff = new NullDebuff();
         private int bounty;
 
         // Variables used for the animation
@@ -29,6 +28,7 @@ namespace TowerDefenseGame.Models.Enemies
         private int frameCounter = 0;
         private int deathSpriteFrameCounter = 0;
         private bool isDying = false;
+        private IDebuff debuff = new NullDebuff();
 
         protected Enemy(double x, double y, int width, int height, double lifePoints, double speed, BitmapImage enemySpriteSheet, int bounty)
             : base(x, y, width, height, Brushes.Transparent)

@@ -26,17 +26,6 @@
             AnimationController.ConfigureRenderer(this.MainCanvas);
             this.engine = new Engine();
             GameFieldController.SetGameFieldEvents(this);
-
-            string testString = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor";
-
-            TextBlock textBlock = new TextBlock();
-            textBlock.Text = testString;
-            
-            Canvas.SetTop(textBlock, 50);
-            Canvas.SetLeft(textBlock, 50);
-            this.MainCanvas.Children.Add(textBlock);
-
-
         }
 
         public void GameFieldMouseLeftButtonDown(object sender, MouseEventArgs e)

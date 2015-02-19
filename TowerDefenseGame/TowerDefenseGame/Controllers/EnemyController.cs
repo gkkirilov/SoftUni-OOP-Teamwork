@@ -16,10 +16,14 @@
 
         public static readonly Point[] EnemyBeacons = new Point[] 
             { 
-                new Point(2 * Constants.FieldSegmentSize, 10 * Constants.FieldSegmentSize),
-                new Point(2 * Constants.FieldSegmentSize, 1 * Constants.FieldSegmentSize),
-                new Point(8 * Constants.FieldSegmentSize, 1 * Constants.FieldSegmentSize),
-                new Point(7 * Constants.FieldSegmentSize, 10 * Constants.FieldSegmentSize),
+                new Point(2 * Constants.FieldSegmentSize, 16 * Constants.FieldSegmentSize),
+                new Point(2 * Constants.FieldSegmentSize, 11 * Constants.FieldSegmentSize),
+                new Point(28 * Constants.FieldSegmentSize, 11 * Constants.FieldSegmentSize),
+                new Point(27 * Constants.FieldSegmentSize, 8 * Constants.FieldSegmentSize),
+                new Point(2 * Constants.FieldSegmentSize, 8 * Constants.FieldSegmentSize),
+                new Point(2 * Constants.FieldSegmentSize, 5 * Constants.FieldSegmentSize),
+                new Point(28 * Constants.FieldSegmentSize, 5 * Constants.FieldSegmentSize),
+                new Point(27 * Constants.FieldSegmentSize, 3 * Constants.FieldSegmentSize),
             };
 
         public static List<Enemy> Enemies
