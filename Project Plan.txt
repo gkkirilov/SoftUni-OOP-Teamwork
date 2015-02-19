@@ -1,8 +1,11 @@
 TODO:
 
+Main Engine logic 			/// Preslav - Done
+Main Abstract models		/// Preslav - Done
+Static classes used as controllers 	/// Preslav - Done
+
 Towers - Abstract class		  ///
 Tower logic				 	  ///  Georgi - Done
-
 
 Projectiles - Abstract Class 	///
 Projectile Logic			 	/// Preslav - Done
@@ -15,8 +18,8 @@ UI:
 Images/Sprites 				/// Dani - Partially done
 Animations					/// Dani - Partially done
 
-Money logic			/// Vesko
-Price properties for towers/enemies	/// Vesko
+Money logic			/// Vesko - Done
+Price properties for towers/enemies	/// Vesko - Done
 wave enemies counter /// Vesko
 Statistics interface /// Vesko
 player interface optimisation /// Vesko
@@ -24,18 +27,18 @@ player interface optimisation /// Vesko
 Projectile Derived Classes /// Georgi
 Enemy derived classes	/// Georgi
 Tower Derived classes 	/// Georgi - Done
-Debuff Derived classes
+Debuff Derived classes  /// Georgi
 
 Effects classes to be applied to projectiles	///
 debuff effects property on enemies				/// Preslav - Done
 
-Add event handlers to towers that exist
-Add the ability to destroy a tower.
-add the ability to upgrade a tower
-
 Remove the bullets when the target doesn't exist anymore. /// Preslav - Done
 
 Fix Abstract dependencies /// Preslav - Done
+
+Add event handlers to towers that exist
+Add the ability to destroy a tower.
+add the ability to upgrade a tower
 
 StyleCop the entire project
 
