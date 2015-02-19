@@ -22,8 +22,17 @@
             Timers.UpdateTimer.Interval = TimeSpan.FromMilliseconds(Constants.UpdateDelay);
             Timers.UpdateTimer.Tick += (obj, args) =>
             {
-                engine.Update();
-                engine.Render();
+                if (PlayerInterfaceController.PlayerLife >= 1)
+                {
+                    engine.Update();
+                    engine.Render();
+                }
+                else
+                {
+                    // TODO: GameOver
+                    Console.WriteLine("gameOver");
+                }
+               
             };
         }
     }

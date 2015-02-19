@@ -28,10 +28,10 @@
         {
             this.TowerSpeed = towerSpeed;
             this.TowerRange = towerRange;
-            this.Price = price;
+            this.TowerPrice = price;
         }
 
-        public int Price
+        public int TowerPrice
         {
             get { return this.price; }
             set

@@ -104,7 +104,7 @@ namespace TowerDefenseGame.Models.Enemies
 
             if (EnemyController.EnemyBeacons.Length <= this.beaconCounter)
             {
-                // TODO: Handle Player Base life points reduction
+                PlayerInterfaceController.PlayerLife -= 1;
                 this.Exists = false;
                 return;
             }

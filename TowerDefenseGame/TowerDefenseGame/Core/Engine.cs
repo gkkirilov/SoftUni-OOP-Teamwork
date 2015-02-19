@@ -1,4 +1,6 @@
-﻿namespace TowerDefenseGame.Core
+﻿using System;
+
+namespace TowerDefenseGame.Core
 {
     using TowerDefenseGame.Controllers;
     using TowerDefenseGame.Interfaces;
@@ -11,6 +13,7 @@
             Timers.InitializeTimers(this);
             Timers.UpdateTimer.Start();
             PlayerInterfaceController.Money = Constants.StartingMoney;
+            PlayerInterfaceController.PlayerLife = Constants.PlayerLife;
         }
 
         public void Update()
