@@ -40,11 +40,13 @@ using System.Windows.Controls;
             this.Speed = speed;
             this.enemySprites = enemySprites;
             this.bounty = bounty;
+
             healthPointsBar.Maximum = lifePoints;
             healthPointsBar.Minimum = 0;
             healthPointsBar.Height = 5;
             healthPointsBar.Width = width;
-            healthPointsBar.Foreground = Brushes.Red;
+            healthPointsBar.Background = Brushes.Red;
+            healthPointsBar.Foreground = Brushes.Green;
             healthPointsBar.BeginAnimation(ProgressBar.ValueProperty, null);
         }
 

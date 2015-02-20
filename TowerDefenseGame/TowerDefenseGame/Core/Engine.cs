@@ -11,9 +11,8 @@ namespace TowerDefenseGame.Core
         {
             GameFieldController.Initialize();
             Timers.InitializeTimers(this);
-            Timers.UpdateTimer.Start();
             PlayerInterfaceController.Money = Constants.StartingMoney;
-            PlayerInterfaceController.PlayerLife = Constants.PlayerLife;
+            PlayerInterfaceController.PlayerLife = Constants.PlayerStartingLife;
         }
 
         public void Update()

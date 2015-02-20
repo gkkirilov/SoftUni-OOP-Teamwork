@@ -10,11 +10,8 @@
     public static class EnemyController
     {
         private static List<IEnemy> enemies = new List<IEnemy>();
-        private static List<Point> enemyBeacons = new List<Point>();
         private static int waveEnemiesCount = 0;
         private static int waveCount = 0;
-        private static bool isGenerating = false;
-        private static int frameCount = 0;
         private static int enemyTypeCounter = 0;
 
         public static readonly Point[] EnemyBeacons = new Point[] 
@@ -43,9 +40,36 @@
             {
                 return waveCount;
             }
+
+            set
+            {
+                if (waveCount < 0)
+                {
+                    throw new ArgumentException("The count of the wave cannot be negative");
+                }
+
+                waveCount = value;
+            }
         }
 
-        private static int WaveEnemiesCount
+        public static int EnemyTypeCounter 
+        {
+            get
+            {
+                return enemyTypeCounter;
+            }
+            set
+            {
+                if (enemyTypeCounter < 0 || enemyTypeCounter > 3)
+                {
+                    enemyTypeCounter = 0;
+                    return;
+                }
+                enemyTypeCounter = value;
+            }
+        }
+
+        public static int WaveEnemiesCount
         {
             get
             {
@@ -66,40 +90,11 @@
 
                 if (!EnemyController.Enemies[index].Exists)
                 {
-                    // AnimationController.Renderer.RemoveHealthBar(EnemyController.Enemies[index]);
+                    AnimationController.Renderer.RemoveHealthBar(EnemyController.Enemies[index]);
                     AnimationController.Renderer.RemoveModel(EnemyController.Enemies[index]);
                     Enemies.RemoveAt(index);
                     index--;
                 }
-            }
-
-            if (!isGenerating && frameCount >= Constants.WaveDelay)
-            {
-                //Timers.TimeToWave.Stop();
-                //Timers.TimeToWave.Start();
-                isGenerating = true;
-                waveCount++;
-                if (waveCount % 4 == 0)
-                {
-                    Enemy.Upgrade();
-                }
-            }
-
-            if (isGenerating && frameCount >= Constants.EnemyGenerationDelay)
-            {
-                frameCount = 0;
-                GenerateEnemy(
-                    Constants.EnemyStartCol * Constants.FieldSegmentSize,
-                    Constants.EnemyStartRow * Constants.FieldSegmentSize); 
-            }
-
-            frameCount++;
-
-            if (EnemyController.WaveEnemiesCount >= Constants.WaveEnemiesMaxCount)
-            {
-                EnemyController.WaveEnemiesCount = 0;
-                isGenerating = false;
-                enemyTypeCounter++;
             }
         }
 
@@ -132,7 +127,7 @@
             foreach (var enemy in EnemyController.Enemies)
             {
                 AnimationController.Renderer.Render(enemy);
-                // AnimationController.Renderer.RenderHealthBar(enemy);
+                AnimationController.Renderer.RenderHealthBar(enemy);
             }
         }
     }

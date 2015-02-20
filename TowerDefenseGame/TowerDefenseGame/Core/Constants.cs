@@ -14,11 +14,11 @@
         public const int WaveEnemiesMaxCount = 3;
 
         // The time intervals for the different timers in milliseconds.   ((20 * 75) * 3) + (50 * 75)
-        public const int EnemyGenerationDelay = 20;
+        public const int EnemyGenerationDelay = 1500;
         public const int UpdateDelay = 75;
-        public const int WaveDelay = 50;
+        public const int WaveDelay = 5000;
 
         public const int StartingMoney = 500;
-        public const int PlayerLife = 10;
+        public const int PlayerStartingLife = 10;
     }
 }

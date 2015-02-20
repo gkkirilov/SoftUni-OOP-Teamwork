@@ -23,8 +23,9 @@
 
         public static double CalculateDistance(Point currentPoint, Point target)
         {
-            double distance = Math.Sqrt(Math.Pow(currentPoint.X - target.X, 2) +
-                Math.Pow(currentPoint.Y - target.Y, 2));
+            double distance = Math.Sqrt(Math.Pow(target.X - currentPoint.X, 2) +
+                Math.Pow(target.Y - currentPoint.Y, 2));
+
             return distance;
         }
 
@@ -33,8 +34,8 @@
             RotateTransform rotateTransform =
                 new RotateTransform(
                     90.0 - (angleInRadians * 180 / Math.PI),
-                    Constants.FieldSegmentSize / 2,
-                    Constants.FieldSegmentSize / 2);
+                    (double)Constants.FieldSegmentSize / 2,
+                    (double)Constants.FieldSegmentSize / 2);
 
             model.RenderTransform = rotateTransform;
         }

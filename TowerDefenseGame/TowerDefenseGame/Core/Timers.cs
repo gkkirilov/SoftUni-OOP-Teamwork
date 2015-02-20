@@ -8,13 +8,15 @@
     public static class Timers
     {
         private static DispatcherTimer updateTimer = new DispatcherTimer();
-        private static DispatcherTimer timeToWave = new DispatcherTimer();
-        //public static int temporaryTime = (((20 * 75) * 3) + (50 * 75)) / 1000;
-        public static DispatcherTimer TimeToWave
+        private static DispatcherTimer renderTimer = new DispatcherTimer();
+        private static DispatcherTimer enemyGenerator = new DispatcherTimer();
+        private static DispatcherTimer waveDelayTimer = new DispatcherTimer();
+
+        public static DispatcherTimer EnemyGenerator
         {
             get
             {
-                return Timers.timeToWave;
+                return enemyGenerator;
             }
         }
 
@@ -22,18 +24,47 @@
         {
             get
             {
-                return Timers.updateTimer;
+                return updateTimer;
+            }
+        }
+
+        public static DispatcherTimer RenderTimer
+        {
+            get
+            {
+                return renderTimer;
+            }
+        }
+
+        public static DispatcherTimer WaveDelayTimer
+        {
+            get
+            {
+                return waveDelayTimer;
             }
         }
 
         public static void InitializeTimers(IEngine engine)
         {
-            Timers.UpdateTimer.Interval = TimeSpan.FromMilliseconds(Constants.UpdateDelay);
-            Timers.UpdateTimer.Tick += (obj, args) =>
+            UpdateTimer.Interval = TimeSpan.FromMilliseconds(Constants.UpdateDelay);
+            UpdateTimer.Tick += (obj, args) =>
             {
                 if (PlayerInterfaceController.PlayerLife >= 1)
                 {
                     engine.Update();
+                }
+                else
+                {
+                    // TODO: GameOver
+                    Console.WriteLine("gameOver");
+                }
+            };
+
+            RenderTimer.Interval = TimeSpan.FromMilliseconds(Constants.UpdateDelay);
+            RenderTimer.Tick += (obj, args) =>
+            {
+                if (PlayerInterfaceController.PlayerLife >= 1)
+                {
                     engine.Render();
                 }
                 else
@@ -41,18 +72,35 @@
                     // TODO: GameOver
                     Console.WriteLine("gameOver");
                 }
+            };
+            RenderTimer.Start();
+            UpdateTimer.Start();
 
+            EnemyGenerator.Interval = TimeSpan.FromMilliseconds(Constants.EnemyGenerationDelay);
+            EnemyGenerator.Tick += (obj, args) =>
+            {
+                EnemyController.GenerateEnemy(
+                    Constants.EnemyStartCol * Constants.FieldSegmentSize,
+                    Constants.EnemyStartRow * Constants.FieldSegmentSize);
+
+                if (EnemyController.WaveEnemiesCount >= Constants.WaveEnemiesMaxCount)
+                {
+                    EnemyController.WaveEnemiesCount = 0;
+                    EnemyGenerator.Stop();
+                    WaveDelayTimer.Start();
+                }
             };
 
-            //Timers.TimeToWave.Interval = TimeSpan.FromMilliseconds(1000);
-            //Timers.TimeToWave.Tick += (obj, args) =>
-            //{
-            //    temporaryTime--;
-            //    if (temporaryTime <= 0)
-            //    {
-            //        temporaryTime = (((20 * 75)) + (50 * 75)) / 1000;
-            //    }
-            //};
+            WaveDelayTimer.Interval = TimeSpan.FromMilliseconds(Constants.WaveDelay);
+            WaveDelayTimer.Tick += (obj, args) =>
+            {
+                EnemyGenerator.Start();
+                WaveDelayTimer.Stop();
+                EnemyController.WaveCount++;
+                EnemyController.EnemyTypeCounter++;
+            };
+
+            WaveDelayTimer.Start();
         }
     }
 }

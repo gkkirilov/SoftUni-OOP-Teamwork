@@ -234,14 +234,15 @@ namespace TowerDefenseGame.Models.Towers
 
             double angle = Math.Atan2(deltaX, deltaY);
 
-            if (this.lastAngle < -2.0 && angle > 2.0)
+            if (this.lastAngle < -1.5 && angle > 1.5)
             {
                 this.towerAngle += Math.PI * 2.0;
             }
-            else if (this.lastAngle > 2.0 && angle < -2.0)
+            else if (this.lastAngle > 1.5 && angle < -1.5)
             {
                 this.towerAngle -= Math.PI * 2.0;
             }
+
             this.lastAngle = angle;
             this.towerAngle = angle * RotationBlendFactor + this.towerAngle * (1 - RotationBlendFactor);
         }    
