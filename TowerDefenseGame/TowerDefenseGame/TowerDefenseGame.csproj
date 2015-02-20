@@ -140,42 +140,21 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\goblinsword.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\arrowtower.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\slowtower.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\ProjectilesStyleOne.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\field.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\coin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\heart.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\upgrade.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\remove.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\towerImageFrame.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\SniperTower.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\FireTower.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="Resources\Images\arrowtower.png" />
+    <Resource Include="Resources\Images\coin.png" />
+    <Resource Include="Resources\Images\Death.png" />
+    <Resource Include="Resources\Images\field.jpg" />
+    <Resource Include="Resources\Images\FireTower.png" />
+    <Resource Include="Resources\Images\goblinsword.png" />
+    <Resource Include="Resources\Images\heart.png" />
+    <Resource Include="Resources\Images\ProjectilesStyleOne.png" />
+    <Resource Include="Resources\Images\remove.png" />
+    <Resource Include="Resources\Images\Skeleton.png" />
+    <Resource Include="Resources\Images\slowtower.png" />
+    <Resource Include="Resources\Images\SniperTower.png" />
+    <Resource Include="Resources\Images\towerImageFrame.png" />
+    <Resource Include="Resources\Images\upgrade.png" />
+    <Resource Include="Resources\Images\Zombie.png" />
     <Content Include="Resources\music.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

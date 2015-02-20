@@ -15,7 +15,7 @@ namespace TowerDefenseGame.Models.Projectiles
 
         public SnowProjectile(double x, double y, IEnemy target, int damage)
             : base(x, y, SnowProjectile.ProjectileSpeed, target, new ImageBrush(new CroppedBitmap(new BitmapImage(
-             new Uri(@"..\..\Resources\ProjectilesStyleOne.png", UriKind.Relative)), new Int32Rect(973, 897, 79, 52))), damage, new BasicDebuff())
+             new Uri(@"..\..\Resources\Images\ProjectilesStyleOne.png", UriKind.Relative)), new Int32Rect(973, 897, 79, 52))), damage, new BasicDebuff())
         {
         }
     }

@@ -19,7 +19,7 @@ namespace TowerDefenseGame.Models.Projectiles
 
         public SniperProjectile(double x, double y, IEnemy target, int damage)
             : base(x, y, SniperProjectile.ProjectileSpeed, target, new ImageBrush(new CroppedBitmap(new BitmapImage(
-             new Uri(@"..\..\Resources\ProjectilesStyleOne.png", UriKind.Relative)), new Int32Rect(1027, 1233, 26, 31))), damage, new BasicDebuff())
+             new Uri(@"..\..\Resources\Images\ProjectilesStyleOne.png", UriKind.Relative)), new Int32Rect(1027, 1233, 26, 31))), damage, new BasicDebuff())
         {
         }
     }
