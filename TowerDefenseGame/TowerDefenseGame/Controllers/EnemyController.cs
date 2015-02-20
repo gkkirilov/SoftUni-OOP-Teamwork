@@ -69,6 +69,8 @@
 
             if (!isGenerating && frameCount >= Constants.WaveDelay)
             {
+                //Timers.TimeToWave.Stop();
+                //Timers.TimeToWave.Start();
                 isGenerating = true;
             }
 

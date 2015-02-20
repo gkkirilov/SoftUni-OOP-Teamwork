@@ -1,4 +1,6 @@
 ﻿
+using System.Windows;
+
 namespace TowerDefenseGame.Core
 {
     using System;
@@ -12,6 +14,7 @@ namespace TowerDefenseGame.Core
         public static TextBlock Money { get; set; }
 
         public static TextBlock PlayerLife { get; set; }
+
         static Statistics()
         {
             Money = new TextBlock();
@@ -19,20 +22,22 @@ namespace TowerDefenseGame.Core
         }
         public static void Render()
         {
-            AnimationController.Renderer.DrawText(Money, 915, 7);
-            AnimationController.Renderer.DrawText(PlayerLife, 1055, 7);
+            AnimationController.Renderer.DrawText(Money, 950, 9);
+            AnimationController.Renderer.DrawText(PlayerLife, 1055, 9);
         }
 
         public static void SetMoney(string text, Brush color)
         {
             Money.Foreground = color;
             Money.Text = text;
+            Money.FontSize = 25;
         }
 
         public static void SetLife(string text, Brush color)
         {
             PlayerLife.Foreground = color;
             PlayerLife.Text = text;
+            PlayerLife.FontSize = 25;
         }
 
         public static void Update()

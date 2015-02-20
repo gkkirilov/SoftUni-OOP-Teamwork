@@ -3,16 +3,29 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="800" Width="1115" ResizeMode="NoResize">
     <Canvas Name="MainCanvas">
-        <Rectangle Height="598" 
-                   Width="900"
-                   Stroke="Blue"
-                   Name="SlowTowerSelection1"
-                   StrokeThickness="0" 
-                   Canvas.Top="1" 
+        <Rectangle Height="33" 
+                   Width="34"
+                   Canvas.Top="10" 
                    RenderTransformOrigin="-1.614,0.596"
-                   MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown">
+                   MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" Canvas.Left="1019">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/heart.png" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Height="598" 
+                   Width="900" 
+                   RenderTransformOrigin="-1.614,0.596"
+                   MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" Canvas.Top="1">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Resources/field.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Height="33" 
+                   Width="33"
+                   Canvas.Top="10" 
+                   MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" Canvas.Left="911">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/coin.png" />
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Fill="Black" Height="173" Stroke="Black" Canvas.Top="599" Width="1109"/>
