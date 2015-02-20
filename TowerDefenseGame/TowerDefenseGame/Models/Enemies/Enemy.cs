@@ -174,7 +174,7 @@ namespace TowerDefenseGame.Models.Enemies
             if (frameCounter >= 1 + (this.Debuff.SpeedEffect * 2))
             {
                 frameCounter = 0;
-                this.Model.Fill = new ImageBrush(SpritesManager.GoblinSprites[(int)this.currentState][this.spriteFrameCounter]);
+                this.Model.Fill = new ImageBrush(SpritesManager.ZombieSprites[(int)this.currentState][this.spriteFrameCounter]);
 
                 spriteFrameCounter--;
             }
