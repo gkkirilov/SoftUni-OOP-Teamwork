@@ -15,6 +15,7 @@
         private static int waveCount = 0;
         private static bool isGenerating = false;
         private static int frameCount = 0;
+        private static int enemyTypeCounter = 0;
 
         public static readonly Point[] EnemyBeacons = new Point[] 
             { 
@@ -65,7 +66,7 @@
 
                 if (!EnemyController.Enemies[index].Exists)
                 {
-                   //  AnimationController.Renderer.RemoveHealthBar(EnemyController.Enemies[index]);
+                    // AnimationController.Renderer.RemoveHealthBar(EnemyController.Enemies[index]);
                     AnimationController.Renderer.RemoveModel(EnemyController.Enemies[index]);
                     Enemies.RemoveAt(index);
                     index--;
@@ -98,13 +99,32 @@
             {
                 EnemyController.WaveEnemiesCount = 0;
                 isGenerating = false;
+                enemyTypeCounter++;
             }
         }
 
         public static void GenerateEnemy(int x, int y)
         {
             EnemyController.WaveEnemiesCount++;
-            EnemyController.Enemies.Add(new BasicEnemy(x, y)); // TODO: Generate enemies based on type
+            switch (enemyTypeCounter)
+            {
+                case 0:
+                    EnemyController.Enemies.Add(new Goblin(x, y));
+                    break;
+                case 1:
+                    EnemyController.Enemies.Add(new Zombie(x, y));
+                    break;
+                case 2:
+                    EnemyController.Enemies.Add(new GrimReaper(x, y));
+                    break;
+                case 3:
+                    EnemyController.Enemies.Add(new Skeleton(x, y));
+                    break;
+                default:
+                    enemyTypeCounter = 0;
+                    EnemyController.Enemies.Add(new Goblin(x, y));
+                    break;
+            }
         }
 
         public static void Render()

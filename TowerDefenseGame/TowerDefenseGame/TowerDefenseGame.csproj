@@ -104,7 +104,7 @@
     <Compile Include="Models\Effects\Debuffs\Debuff.cs" />
     <Compile Include="Models\Effects\Effect.cs" />
     <Compile Include="Models\Effects\Debuffs\NullDebuff.cs" />
-    <Compile Include="Models\Enemies\BasicEnemy.cs" />
+    <Compile Include="Models\Enemies\Skeleton.cs" />
     <Compile Include="Models\Enemies\Enemy.cs" />
     <Compile Include="Models\FieldSegment.cs" />
     <Compile Include="Models\GameObject.cs" />
