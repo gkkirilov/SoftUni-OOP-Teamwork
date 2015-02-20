@@ -143,5 +143,55 @@
                     break;
             }
         }
+
+        private void RemoveClickedOnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender is Rectangle))
+            {
+                return;
+            }
+
+            Rectangle selectionField = (Rectangle)sender;
+            selectionField.Stroke = Brushes.IndianRed;
+            selectionField.StrokeThickness = 3;
+            PlayerInterfaceController.DestroySelectedTower();
+            
+        }
+
+        private void RemoveClicekdOnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender is Rectangle))
+            {
+                return;
+            }
+
+            Rectangle selectionField = (Rectangle)sender;
+            selectionField.Stroke = Brushes.Transparent;
+        }
+
+        private void UpdateClickedOnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender is Rectangle))
+            {
+                return;
+            }
+
+            Rectangle selectionField = (Rectangle)sender;
+            selectionField.Stroke = Brushes.IndianRed;
+            selectionField.StrokeThickness = 3;
+            PlayerInterfaceController.UpgradeSelectedTower();
+        }
+
+        private void UpdateClickedClicekdOnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender is Rectangle))
+            {
+                return;
+            }
+
+            Rectangle selectionField = (Rectangle)sender;
+            selectionField.Stroke = Brushes.Transparent;
+            PlayerInterfaceController.UpgradeSelectedTower();
+        }
     }
 }

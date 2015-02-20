@@ -14,7 +14,9 @@
                    Width="90"
                    Canvas.Top="560" 
                    RenderTransformOrigin="-1.614,0.596"
-                   Canvas.Left="905">
+                   Canvas.Left="905"
+                   MouseDown="RemoveClickedOnMouseDown"
+                   MouseLeftButtonUp="RemoveClicekdOnMouseLeftButtonUp">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Resources/remove.png"/>
             </Rectangle.Fill>
@@ -23,7 +25,9 @@
                    Width="90"
                    Canvas.Top="527" 
                    RenderTransformOrigin="-1.614,0.596"
-                   Canvas.Left="905">
+                   Canvas.Left="905"
+                   MouseDown="UpdateClickedOnMouseDown"
+                   MouseLeftButtonUp="UpdateClickedClicekdOnMouseLeftButtonUp">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Resources/upgrade.png"/>
             </Rectangle.Fill>
