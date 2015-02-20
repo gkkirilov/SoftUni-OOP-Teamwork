@@ -1,4 +1,6 @@
-﻿namespace TowerDefenseGame.Controllers
+﻿using TowerDefenseGame.Enumerations;
+
+namespace TowerDefenseGame.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -7,12 +9,25 @@
     public static class ProjectileController
     {
         private static List<Projectile> projectiles = new List<Projectile>();
+        private static ProjectileSelection projectileSelection=ProjectileSelection.SniperProjectile;
 
         public static List<Projectile> Projectiles
         {
             get
             {
                 return ProjectileController.projectiles;
+            }
+        }
+
+        public static ProjectileSelection ProjectileSelection
+        {
+            get
+            {
+                return ProjectileController.projectileSelection;
+            }
+            set
+            {
+                ProjectileController.projectileSelection = value;
             }
         }
 

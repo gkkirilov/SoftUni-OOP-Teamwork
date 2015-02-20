@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using TowerDefenseGame.Enumerations;
 using TowerDefenseGame.Resources;
 
 namespace TowerDefenseGame.Models.Towers
@@ -17,6 +18,7 @@ namespace TowerDefenseGame.Models.Towers
 
         private static readonly ImageBrush TowerImage = SpritesManager.ArrowTower;
 
+        private static ProjectileSelection projectileSelection = ProjectileSelection.ArrowProjectile;
         public ArrowTower(double x, double y)
             : base(
                 x,
