@@ -21,7 +21,7 @@ Animations					/// Dani - Done
 Money logic			/// Vesko - Done
 Price properties for towers/enemies	/// Vesko - Done
 wave enemies counter /// Vesko
-Statistics interface /// Vesko
+Statistics interface /// Vesko - Done
 player interface optimisation /// Vesko
 
 Effects classes to be applied to projectiles	///
@@ -35,23 +35,24 @@ Add event handlers to towers that exist //
 Add the ability to destroy a tower. 	// Preslav - Done
 add the ability to upgrade a tower 		//
 
-Create Tower interface // Done
-Add Upgrade/Delete Logic // Done
+Create Tower interface // Preslav - Done
+Add Upgrade/Delete Logic // Preslav - Done
 
-Refactor some classes/namespaces/methods // Done
+Refactor some classes/namespaces/methods // Preslav - Done
 
-Make enemy upgrade logic // Done
-Make different enemies by wave // Done
+Make enemy upgrade logic // Preslav - Done
+Make different enemies by wave // Preslav - Done
 
-Add background sound. // Done
-Make the window unresizable. // Done
+Add background sound. // Georgi - Done
+Make the window unresizable. // Georgi - Done
 
-Make enemy life progress bars.					// Preslav
+Make enemy life progress bars.					// Preslav - Done
 Add Derived Projectile/Enemy/Debuff classes 	// Georgi
 Make the Segments stationed on the path occupied.	// Georgi
 
-Remove Effects class					// Preslav
+Remove Effects class					// Preslav - Done
 Make game over event					// Vesko ?
+Extract projectile sprites from the spritesheet // ?
 
 Add Selected tower information window.	// Vesko
 Add Credits								// ?
