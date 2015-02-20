@@ -2,6 +2,7 @@
 using System.ComponentModel.Design.Serialization;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using TowerDefenseGame.Enumerations;
 using TowerDefenseGame.Resources;
 
 namespace TowerDefenseGame.Models.Towers
@@ -17,6 +18,11 @@ namespace TowerDefenseGame.Models.Towers
         private const int TowerDamage = 5;
 
         private static readonly ImageBrush TowerImage = SpritesManager.FireTower;
+        private const int Speed = 50;
+        private const int Range = 200;
+        public const int Price = 30;
+
+        private static ProjectileSelection projectileSelection = ProjectileSelection.FireProjectile;
         public FireTower(double x, double y)
             : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, TowerSpeed, TowerRange, TowerDamage, TowerImage, TowerPrice)
         {
