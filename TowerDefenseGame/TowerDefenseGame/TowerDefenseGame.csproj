@@ -166,6 +166,12 @@
   <ItemGroup>
     <Resource Include="Resources\towerImageFrame.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SniperTower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FireTower.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

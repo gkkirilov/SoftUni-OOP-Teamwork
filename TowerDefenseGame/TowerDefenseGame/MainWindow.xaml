@@ -58,8 +58,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Fill="Black" Height="173" Stroke="Black" Canvas.Top="599" Width="1109"/>
-        <Rectangle Fill="Yellow" 
-                   Stroke="Blue"
+        <Rectangle Stroke="Blue"
                    Name="SniperTowerSelection"
                    StrokeThickness="3"
                    Height="69" 
@@ -67,20 +66,26 @@
                    Canvas.Top="660" 
                    Width="74" 
                    RenderTransformOrigin="-1.614,0.596"
-                   MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" />
+                   MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" >
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/SniperTower.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
 
-        <Rectangle Fill="Purple"
-                   Name="FireTowerSelection"
+        <Rectangle Name="FireTowerSelection"
                    StrokeThickness="0"
                    Height="69" 
                    Canvas.Left="220" 
                    Stroke="Black" 
                    Canvas.Top="660" 
                    Width="69"
-                   MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" />
+                   MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" >
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/FireTower.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
 
-        <Rectangle Fill="LawnGreen" 
-                   Stroke="Blue"
+        <Rectangle Stroke="Blue"
                    Name="ArrowTowerSelection"
                    StrokeThickness="0"
                    Height="69" 
@@ -88,10 +93,13 @@
                    Canvas.Top="660" 
                    Width="74" 
                    RenderTransformOrigin="-1.614,0.596"
-                   MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" />
+                   MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" >
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/arrowtower.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
 
-        <Rectangle Fill="DeepSkyBlue" 
-                   Stroke="Blue"
+        <Rectangle Stroke="Blue"
                    Name="SlowTowerSelection"
                    StrokeThickness="0"
                    Height="69" 
@@ -99,7 +107,11 @@
                    Canvas.Top="660" 
                    Width="74" 
                    RenderTransformOrigin="-1.614,0.596"
-                   MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" />
+                   MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" >
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/slowtower.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
         <Rectangle Height="28" 
         	Width="29"
         	Canvas.Top="527" 
