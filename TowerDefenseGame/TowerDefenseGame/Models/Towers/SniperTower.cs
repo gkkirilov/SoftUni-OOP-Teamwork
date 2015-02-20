@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using TowerDefenseGame.Resources;
 
 namespace TowerDefenseGame.Models.Towers
 {

@@ -8,6 +8,15 @@
     public static class Timers
     {
         private static DispatcherTimer updateTimer = new DispatcherTimer();
+        private static DispatcherTimer timeToWave = new DispatcherTimer();
+        //public static int temporaryTime = (((20 * 75) * 3) + (50 * 75)) / 1000;
+        public static DispatcherTimer TimeToWave
+        {
+            get
+            {
+                return Timers.timeToWave;
+            }
+        }
 
         public static DispatcherTimer UpdateTimer
         {
@@ -32,8 +41,18 @@
                     // TODO: GameOver
                     Console.WriteLine("gameOver");
                 }
-               
+
             };
+
+            //Timers.TimeToWave.Interval = TimeSpan.FromMilliseconds(1000);
+            //Timers.TimeToWave.Tick += (obj, args) =>
+            //{
+            //    temporaryTime--;
+            //    if (temporaryTime <= 0)
+            //    {
+            //        temporaryTime = (((20 * 75)) + (50 * 75)) / 1000;
+            //    }
+            //};
         }
     }
 }

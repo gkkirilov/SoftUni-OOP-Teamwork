@@ -13,6 +13,8 @@
 
         public static int PlayerLife { get; set; }
 
+        public static int TowerInfo { get; set; }
+
         public static int Money 
         {
             get

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using TowerDefenseGame.Resources;
 
 namespace TowerDefenseGame.Models.Towers
 {
@@ -14,7 +15,6 @@ namespace TowerDefenseGame.Models.Towers
         private const int TowerDamage = 5;
         public const int TowerPrice = 25;
 
-
         private static readonly ImageBrush TowerImage = 
             new ImageBrush(
                 new CroppedBitmap(
@@ -26,7 +26,7 @@ namespace TowerDefenseGame.Models.Towers
                 x,
                 y,
                 Constants.FieldSegmentSize,
-                Constants.FieldSegmentSize, 
+                Constants.FieldSegmentSize,
                 TowerSpeed,
                 TowerRange,
                 TowerDamage,
