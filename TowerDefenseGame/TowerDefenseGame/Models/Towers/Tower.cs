@@ -19,6 +19,7 @@ namespace TowerDefenseGame.Models.Towers
         private int level = 1;
         private IEnemy target;
         public int price;
+        private ProjectileSelection projectileType;
 
         private int frameCount = 0;
 
@@ -27,13 +28,24 @@ namespace TowerDefenseGame.Models.Towers
         private double lastAngle;
         private const double RotationBlendFactor = 0.2f;
 
-        protected Tower(double x, double y, int width, int height, int towerSpeed, int towerRange, int damage, Brush fillBrush, int price)
-            : base(x, y, width, height, fillBrush)
+        protected Tower(
+            double x,
+            double y,
+            int width,
+            int height,
+            int towerSpeed,
+            int towerRange,
+            int damage,
+            Brush fillBrush,
+            int price,
+            ProjectileSelection projectileType)
+                : base(x, y, width, height, fillBrush)
         {
             this.Speed = towerSpeed;
             this.Range = towerRange;
             this.Price = price;
             this.Damage = damage;
+            this.projectileType = projectileType;
         }
 
         public int Price
@@ -140,7 +152,7 @@ namespace TowerDefenseGame.Models.Towers
                 
                 // TODO: Change the projectile according to the tower type
                 if (Math.Abs(this.lastAngle - this.towerAngle) < 1)
-                    switch (ProjectileController.ProjectileSelection)
+                    switch (this.projectileType)
                     {
                         case ProjectileSelection.ArrowProjectile:
                             ProjectileController.Projectiles.Add(

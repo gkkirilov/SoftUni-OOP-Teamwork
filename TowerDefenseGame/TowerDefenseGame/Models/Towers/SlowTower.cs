@@ -17,7 +17,7 @@ namespace TowerDefenseGame.Models.Towers
         public const int TowerPrice = 35;
 
         private static readonly ImageBrush TowerImage = SpritesManager.SlowTower;
-        private static ProjectileSelection projectileSelection = ProjectileSelection.SnowProjectile;
+        private static ProjectileSelection ProjectileType = ProjectileSelection.SnowProjectile;
     
 
         public SlowTower(double x, double y)
@@ -30,7 +30,8 @@ namespace TowerDefenseGame.Models.Towers
                 TowerRange,
                 TowerDamage,
                 TowerImage,
-                TowerPrice)
+                TowerPrice,
+                ProjectileType)
         {
         }
     }

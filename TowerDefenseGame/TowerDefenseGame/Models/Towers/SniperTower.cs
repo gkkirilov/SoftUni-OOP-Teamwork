@@ -21,10 +21,10 @@ namespace TowerDefenseGame.Models.Towers
 
         private static readonly ImageBrush TowerImage = SpritesManager.SniperTower;
 
-        private static ProjectileSelection projectileSelection = ProjectileSelection.SniperProjectile;
+        private static ProjectileSelection ProjectileType = ProjectileSelection.SniperProjectile;
 
         public SniperTower(double x, double y)
-            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, TowerSpeed, TowerRange, TowerDamage, TowerImage, TowerPrice)
+            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, TowerSpeed, TowerRange, TowerDamage, TowerImage, TowerPrice, ProjectileType)
         {
         }
     }

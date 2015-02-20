@@ -22,9 +22,10 @@ namespace TowerDefenseGame.Models.Towers
         private const int Range = 200;
         public const int Price = 30;
 
-        private static ProjectileSelection projectileSelection = ProjectileSelection.FireProjectile;
+        private static ProjectileSelection ProjectileType = ProjectileSelection.FireProjectile;
+
         public FireTower(double x, double y)
-            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, TowerSpeed, TowerRange, TowerDamage, TowerImage, TowerPrice)
+            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, TowerSpeed, TowerRange, TowerDamage, TowerImage, TowerPrice, ProjectileType)
         {
         }
     }

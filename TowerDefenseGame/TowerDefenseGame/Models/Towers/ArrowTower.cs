@@ -18,7 +18,7 @@ namespace TowerDefenseGame.Models.Towers
 
         private static readonly ImageBrush TowerImage = SpritesManager.ArrowTower;
 
-        private static ProjectileSelection projectileSelection = ProjectileSelection.ArrowProjectile;
+        private static ProjectileSelection ProjectileType = ProjectileSelection.ArrowProjectile;
         public ArrowTower(double x, double y)
             : base(
                 x,
@@ -29,7 +29,8 @@ namespace TowerDefenseGame.Models.Towers
                 TowerRange,
                 TowerDamage,
                 TowerImage,
-                TowerPrice)
+                TowerPrice,
+                ProjectileType)
         {
         }
     }
