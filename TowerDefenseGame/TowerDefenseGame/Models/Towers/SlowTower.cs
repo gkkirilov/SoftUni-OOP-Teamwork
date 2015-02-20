@@ -17,9 +17,9 @@ namespace TowerDefenseGame.Models.Towers
             new ImageBrush(
                 new CroppedBitmap(
                     new BitmapImage(
-                        new Uri(@"..\..\Resources\towers.png", UriKind.Relative)
+                        new Uri(@"..\..\Resources\SlowTower.png", UriKind.Relative)
                         ),
-                    new Int32Rect(108, 62, 55, 40)));
+                    new Int32Rect(0, 0, 54, 38)));
 
         public SlowTower(double x, double y)
             : base(

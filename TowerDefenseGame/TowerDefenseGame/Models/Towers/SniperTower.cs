@@ -16,9 +16,9 @@ namespace TowerDefenseGame.Models.Towers
             new ImageBrush(
                 new CroppedBitmap(
                     new BitmapImage(
-                        new Uri(@"..\..\Resources\towers.png", UriKind.Relative)
+                        new Uri(@"..\..\Resources\SniperTower.png", UriKind.Relative)
                         ),
-                    new Int32Rect(115, 0, 46, 39)));
+                    new Int32Rect(0, 0, 51, 36)));
 
         public SniperTower(double x, double y)
             : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, SniperTower.Speed, SniperTower.Range, TowerImage, Price)

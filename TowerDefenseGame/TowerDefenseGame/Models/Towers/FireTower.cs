@@ -17,9 +17,9 @@ namespace TowerDefenseGame.Models.Towers
             new ImageBrush(
                 new CroppedBitmap(
                     new BitmapImage(
-                        new Uri(@"..\..\Resources\towers.png", UriKind.Relative)
+                        new Uri(@"..\..\Resources\FireTower.png", UriKind.Relative)
                         ),
-                    new Int32Rect(117, 130, 43, 33)));
+                    new Int32Rect(0, 0, 45, 27)));
         public FireTower(double x, double y)
             : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, FireTower.Speed, FireTower.Range, TowerImage, Price)
         {

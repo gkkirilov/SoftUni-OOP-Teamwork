@@ -16,7 +16,7 @@ namespace TowerDefenseGame.Models.Towers
             new ImageBrush(
                 new CroppedBitmap(
                     new BitmapImage(
-                        new Uri(@"..\..\Resources\towers.png", UriKind.Relative)), new Int32Rect(58, 100, 37, 29 )));
+                        new Uri(@"..\..\Resources\arrowtower.png", UriKind.Relative)), new Int32Rect(0, 0, 35, 29 )));
 
         public ArrowTower(double x, double y)
             : base(
