@@ -15,7 +15,7 @@ namespace TowerDefenseGame.Models.Enemies
         private const int bounty = 10;
 
 
-        private static readonly CroppedBitmap[][] EnemySprites = SpritesManager.GoblinSprites;
+        private static readonly CroppedBitmap[][] EnemySprites = SpritesManager.OgreSprites;
 
         public BasicEnemy(double x, double y)
             : base(
