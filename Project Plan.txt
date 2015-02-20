@@ -12,22 +12,17 @@ Projectile Logic			 	/// Preslav - Done
 Projectile - Enemy Collision 	///
 
 Player Interface:		
-Event handlers			/// Preslav
+Event handlers			/// Preslav - Done
 
 UI:
-Images/Sprites 				/// Dani - Partially done
-Animations					/// Dani - Partially done
+Images/Sprites 				/// Dani - Done
+Animations					/// Dani - Done
 
 Money logic			/// Vesko - Done
 Price properties for towers/enemies	/// Vesko - Done
 wave enemies counter /// Vesko
 Statistics interface /// Vesko
 player interface optimisation /// Vesko
-
-Projectile Derived Classes /// Georgi
-Enemy derived classes	/// Georgi
-Tower Derived classes 	/// Georgi - Done
-Debuff Derived classes  /// Georgi
 
 Effects classes to be applied to projectiles	///
 debuff effects property on enemies				/// Preslav - Done
@@ -36,12 +31,28 @@ Remove the bullets when the target doesn't exist anymore. /// Preslav - Done
 
 Fix Abstract dependencies /// Preslav - Done
 
-Add event handlers to towers that exist
-Add the ability to destroy a tower.
-add the ability to upgrade a tower
+Add event handlers to towers that exist //
+Add the ability to destroy a tower. 	// Preslav - Done
+add the ability to upgrade a tower 		//
 
-StyleCop the entire project
+Create Tower interface // Done
+Add Upgrade/Delete Logic // Done
 
-Add sound to the game // Delayed for now
+Refactor some classes/namespaces/methods // Done
 
-Add Buff Classes for User to be able to acquire /// Delayed for now
+Make enemy upgrade logic // Done
+Make different enemies by wave // Done
+
+Add background sound. // Done
+Make the window unresizable. // Done
+
+Make enemy life progress bars.					// Preslav
+Add Derived Projectile/Enemy/Debuff classes 	// Georgi
+Make the Segments stationed on the path occupied.	// Georgi
+
+Remove Effects class					// Preslav
+Make game over event					// Vesko ?
+
+Add Selected tower information window.	// Vesko
+Add Credits								// ?
+StyleCop the entire project				// Preslav
