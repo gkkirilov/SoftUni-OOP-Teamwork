@@ -13,6 +13,9 @@ namespace TowerDefenseGame.Resources
         private static BitmapImage goblinSpriteSheet = new BitmapImage(
             new Uri(@"..\..\Resources\goblinsword.png",
                 UriKind.Relative));
+        private static BitmapImage skeletonSpriteSheet= new BitmapImage(
+           new Uri(@"..\..\Resources\Skeleton.png",
+               UriKind.Relative));
         public static readonly ImageBrush ArrowTower =
             new ImageBrush(
                     new BitmapImage(
@@ -34,6 +37,7 @@ namespace TowerDefenseGame.Resources
                   new Uri(@"..\..\Resources\SniperTower.png", UriKind.Relative)));
 
         public static readonly CroppedBitmap[][] GoblinSprites = new CroppedBitmap[5][];
+        public static readonly CroppedBitmap[][] SkeletonSprites = new CroppedBitmap[5][];
 
         static SpritesManager()
         {
@@ -48,11 +52,16 @@ namespace TowerDefenseGame.Resources
             for (int row = 0; row < SpriteSheetRows; row++)
             {
                 GoblinSprites[row] = new CroppedBitmap[SpriteSheetCols];
+                SkeletonSprites[row] = new CroppedBitmap[SpriteSheetCols];
 
                 for (int col = 0; col < SpriteSheetCols; col++)
                 {
                     GoblinSprites[row][col] = new CroppedBitmap(
                         goblinSpriteSheet,
+                        new Int32Rect(directionMultiplierX * col,
+                        directionMultiplierY * row, 60, 57));
+                    SkeletonSprites[row][col] = new CroppedBitmap(
+                        skeletonSpriteSheet,
                         new Int32Rect(directionMultiplierX * col,
                         directionMultiplierY * row, 60, 57));
                 }
