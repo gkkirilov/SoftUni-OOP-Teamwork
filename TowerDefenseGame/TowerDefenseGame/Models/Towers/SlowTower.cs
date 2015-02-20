@@ -15,7 +15,7 @@ namespace TowerDefenseGame.Models.Towers
         private const int TowerDamage = 5;
         public const int TowerPrice = 35;
 
-    
+        private static readonly ImageBrush TowerImage = SpritesManager.SlowTower;
 
         public SlowTower(double x, double y)
             : base(

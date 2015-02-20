@@ -16,13 +16,7 @@ namespace TowerDefenseGame.Models.Towers
         public const int TowerPrice = 30;
         private const int TowerDamage = 5;
 
-        private static readonly ImageBrush TowerImage =
-            new ImageBrush(
-                new CroppedBitmap(
-                    new BitmapImage(
-                        new Uri(@"..\..\Resources\towers.png", UriKind.Relative)
-                        ),
-                    new Int32Rect(117, 130, 43, 33)));
+        private static readonly ImageBrush TowerImage = SpritesManager.FireTower;
         public FireTower(double x, double y)
             : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, TowerSpeed, TowerRange, TowerDamage, TowerImage, TowerPrice)
         {

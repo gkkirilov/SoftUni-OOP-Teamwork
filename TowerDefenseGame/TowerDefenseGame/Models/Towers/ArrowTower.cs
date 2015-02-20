@@ -15,11 +15,7 @@ namespace TowerDefenseGame.Models.Towers
         private const int TowerDamage = 5;
         public const int TowerPrice = 25;
 
-        private static readonly ImageBrush TowerImage = 
-            new ImageBrush(
-                new CroppedBitmap(
-                    new BitmapImage(
-                        new Uri(@"..\..\Resources\towers.png", UriKind.Relative)), new Int32Rect(58, 100, 37, 29 )));
+        private static readonly ImageBrush TowerImage = SpritesManager.ArrowTower;
 
         public ArrowTower(double x, double y)
             : base(
