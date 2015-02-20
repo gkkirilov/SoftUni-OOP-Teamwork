@@ -3,11 +3,36 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="800" Width="1115" ResizeMode="NoResize">
     <Canvas Name="MainCanvas">
+        <Rectangle Height="83" 
+                   Width="90"
+                   Canvas.Top="439" Canvas.Left="905">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/towerImageFrame.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Height="28" 
+                   Width="90"
+                   Canvas.Top="560" 
+                   RenderTransformOrigin="-1.614,0.596"
+                   Canvas.Left="905">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/remove.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Height="28" 
+                   Width="90"
+                   Canvas.Top="527" 
+                   RenderTransformOrigin="-1.614,0.596"
+                   Canvas.Left="905">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/upgrade.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
         <Rectangle Height="33" 
                    Width="34"
                    Canvas.Top="10" 
                    RenderTransformOrigin="-1.614,0.596"
-                   MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" Canvas.Left="1019">
+                   Canvas.Left="1020">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Resources/heart.png" />
             </Rectangle.Fill>
@@ -15,7 +40,7 @@
         <Rectangle Height="598" 
                    Width="900" 
                    RenderTransformOrigin="-1.614,0.596"
-                   MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" Canvas.Top="1">
+                   Canvas.Top="1">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Resources/field.jpg" />
             </Rectangle.Fill>
@@ -23,7 +48,7 @@
         <Rectangle Height="33" 
                    Width="33"
                    Canvas.Top="10" 
-                   MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" Canvas.Left="911">
+                   Canvas.Left="911">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Resources/coin.png" />
             </Rectangle.Fill>
@@ -71,6 +96,14 @@
                    Width="74" 
                    RenderTransformOrigin="-1.614,0.596"
                    MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" />
+        <Rectangle Height="28" 
+        	Width="29"
+        	Canvas.Top="527" 
+        	Canvas.Left="1000">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/coin.png" />
+            </Rectangle.Fill>
+        </Rectangle>
 
 
     </Canvas>

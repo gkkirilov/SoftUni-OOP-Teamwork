@@ -13,7 +13,7 @@
         public const int EnemyStartRow = 16;
         public const int WaveEnemiesMaxCount = 3;
 
-        // The time intervals for the different timers in milliseconds.
+        // The time intervals for the different timers in milliseconds.   ((20 * 75) * 3) + (50 * 75)
         public const int EnemyGenerationDelay = 20;
         public const int UpdateDelay = 75;
         public const int WaveDelay = 50;
