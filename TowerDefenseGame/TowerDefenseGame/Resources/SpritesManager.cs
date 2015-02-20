@@ -56,10 +56,10 @@ namespace TowerDefenseGame.Resources
 
                 for (int col = 0; col < SpriteSheetCols; col++)
                 {
-                    GoblinSprites[row][col] = new CroppedBitmap(
-                        goblinSpriteSheet,
-                        new Int32Rect(directionMultiplierX * col,
-                        directionMultiplierY * row, 60, 57));
+                    //GoblinSprites[row][col] = new CroppedBitmap(
+                    //    goblinSpriteSheet,
+                    //    new Int32Rect(directionMultiplierX * col,
+                    //    directionMultiplierY * row, 60, 57));
                     SkeletonSprites[row][col] = new CroppedBitmap(
                         skeletonSpriteSheet,
                         new Int32Rect(directionMultiplierX * col,

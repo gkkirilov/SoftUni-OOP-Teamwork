@@ -15,7 +15,7 @@ namespace TowerDefenseGame.Models.Enemies
 
 
         private static readonly BitmapImage EnemySpriteSheet = new BitmapImage(
-            new Uri(@"..\..\Resources\goblinsword.png",
+            new Uri(@"..\..\Resources\Skeleton.png",
                     UriKind.Relative));
 
         public BasicEnemy(double x, double y)
