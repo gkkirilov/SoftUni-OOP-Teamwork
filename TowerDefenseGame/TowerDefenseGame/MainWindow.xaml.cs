@@ -1,4 +1,7 @@
-﻿namespace TowerDefenseGame
+﻿using System;
+using System.Media;
+
+namespace TowerDefenseGame
 {
     using System.Globalization;
     using System.Linq;
@@ -27,6 +30,8 @@
             AnimationController.ConfigureRenderer(this.MainCanvas);
             this.engine = new Engine();
             GameFieldController.SetGameFieldEvents(this);
+            SoundPlayer snd = new SoundPlayer(@"..\..\Resources\music.wav");
+            snd.PlayLooping();
         }
 
         public void GameFieldMouseLeftButtonDown(object sender, MouseEventArgs e)
