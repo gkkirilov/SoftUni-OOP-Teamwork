@@ -1,4 +1,7 @@
-﻿namespace TowerDefenseGame
+﻿using System;
+using System.Media;
+
+namespace TowerDefenseGame
 {
     using System.Globalization;
     using System.Linq;
@@ -25,6 +28,8 @@
             AnimationController.ConfigureRenderer(this.MainCanvas);
             this.engine = new Engine();
             GameFieldController.SetGameFieldEvents(this);
+            SoundPlayer snd = new SoundPlayer(@"..\..\Resources\music.wav");
+            snd.PlayLooping();
         }
 
         public void GameFieldMouseLeftButtonDown(object sender, MouseEventArgs e)
@@ -86,6 +91,7 @@
             ((Rectangle)sender).RadiusX = 15;
             ((Rectangle)sender).RadiusY = 15;
 
+
             for (int index = 0; index < TowerController.Towers.Count; index++)
             {
                 if (TowerController.Towers[index].Model == (Rectangle)sender)
@@ -95,8 +101,15 @@
                     {
                         PlayerInterfaceController.TowerSelected.Model.StrokeThickness = 0;
                     }
-
                     PlayerInterfaceController.TowerSelected = TowerController.Towers[index];
+
+                    this.towerImageFrame.Fill = TowerController.Towers[index].Model.Fill;
+                    this.towerImageFrame.Stroke = (SolidColorBrush)(new BrushConverter().ConvertFrom("#e07400"));
+                    this.towerImageFrame.RadiusY = 5;
+                    this.towerImageFrame.RadiusX = 5;
+                    this.towerImageFrame.StrokeThickness = 5;
+                    //PlayerInterfaceController.TowerInfo = TowerController.Towers[index];
+
                     return;
                 }
             }
@@ -142,6 +155,59 @@
                 default:
                     break;
             }
+        }
+
+        private void RemoveClickedOnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender is Rectangle))
+            {
+                return;
+            }
+
+            Rectangle RemoveButton = (Rectangle)sender;
+            RemoveButton.Stroke = Brushes.Sienna;
+            RemoveButton.StrokeThickness = 3;
+            RemoveButton.RadiusX = 3;
+            RemoveButton.RadiusY = 3;
+            PlayerInterfaceController.DestroySelectedTower();
+            
+        }
+
+        private void RemoveClicekdOnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender is Rectangle))
+            {
+                return;
+            }
+
+            Rectangle RemoveButton = (Rectangle)sender;
+            RemoveButton.Stroke = Brushes.Transparent;
+        }
+
+        private void UpdateClickedOnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender is Rectangle))
+            {
+                return;
+            }
+
+            Rectangle UpgradeButton = (Rectangle)sender;
+            UpgradeButton.Stroke = Brushes.Sienna;
+            UpgradeButton.StrokeThickness = 3;
+            UpgradeButton.RadiusX = 3;
+            UpgradeButton.RadiusY = 3;
+            PlayerInterfaceController.UpgradeSelectedTower();
+        }
+
+        private void UpdateClickedClicekdOnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender is Rectangle))
+            {
+                return;
+            }
+
+            Rectangle UpgradeButton = (Rectangle)sender;
+            UpgradeButton.Stroke = Brushes.Transparent;
         }
     }
 }

@@ -1,10 +1,9 @@
-﻿using TowerDefenseGame.Enumerations;
-
-namespace TowerDefenseGame.Controllers
+﻿namespace TowerDefenseGame.Controllers
 {
     using System;
     using System.Collections.Generic;
     using Interfaces;
+    using TowerDefenseGame.Enumerations;
     using TowerDefenseGame.Models.Projectiles;
 
     public static class ProjectileController
