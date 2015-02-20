@@ -63,7 +63,6 @@ namespace TowerDefenseGame.Resources
                 GoblinSprites[row] = new CroppedBitmap[SpriteSheetCols];
                 SkeletonSprites[row] = new CroppedBitmap[SpriteSheetCols];
                 ZombieSprites[row] = new CroppedBitmap[SpriteSheetCols];
-                OgreSprites[row] = new CroppedBitmap[SpriteSheetCols];
 
                 for (int col = 0; col < SpriteSheetCols; col++)
                 {
