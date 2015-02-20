@@ -59,6 +59,9 @@
     <Compile Include="Enumerations\EnemyState.cs" />
     <Compile Include="Interfaces\ITower.cs" />
     <Compile Include="Enumerations\ProjectileSelection.cs" />
+    <Compile Include="Models\Enemies\Goblin.cs" />
+    <Compile Include="Models\Enemies\GrimReaper.cs" />
+    <Compile Include="Models\Enemies\Zombie.cs" />
     <Compile Include="Models\Projectiles\ArrowProjectile.cs" />
     <Compile Include="Models\Projectiles\FireProjectile.cs" />
     <Compile Include="Resources\SpritesManager.cs" />
