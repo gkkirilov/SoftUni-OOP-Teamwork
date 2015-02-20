@@ -11,7 +11,7 @@
                    Name="towerImageFrame">
             <Rectangle.Fill>
                 <ImageBrush
-                    ImageSource="Resources/towerImageFrame.png"/>
+                    ImageSource="Resources/Images/towerImageFrame.png"/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Height="28" 
@@ -22,7 +22,7 @@
                    MouseDown="RemoveClickedOnMouseDown"
                    MouseLeftButtonUp="RemoveClicekdOnMouseLeftButtonUp">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/remove.png"/>
+                <ImageBrush ImageSource="Resources/Images/remove.png"/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Height="28" 
@@ -33,7 +33,7 @@
                    MouseDown="UpdateClickedOnMouseDown"
                    MouseLeftButtonUp="UpdateClickedClicekdOnMouseLeftButtonUp">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/upgrade.png"/>
+                <ImageBrush ImageSource="Resources/Images/upgrade.png"/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Height="33" 
@@ -42,7 +42,7 @@
                    RenderTransformOrigin="-1.614,0.596"
                    Canvas.Left="1020">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/heart.png" />
+                <ImageBrush ImageSource="Resources/Images/heart.png" />
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Height="598" 
@@ -50,7 +50,7 @@
                    RenderTransformOrigin="-1.614,0.596"
                    Canvas.Top="1">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/field.jpg" />
+                <ImageBrush ImageSource="Resources/Images/field.jpg" />
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Height="33" 
@@ -58,7 +58,7 @@
                    Canvas.Top="10" 
                    Canvas.Left="911">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/coin.png" />
+                <ImageBrush ImageSource="Resources/Images/coin.png" />
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Fill="Black" Height="173" Stroke="Black" Canvas.Top="599" Width="1109"/>
@@ -72,7 +72,7 @@
                    RenderTransformOrigin="-1.614,0.596"
                    MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" >
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/SniperTower.png"/>
+                <ImageBrush ImageSource="Resources/Images/SniperTower.png"/>
             </Rectangle.Fill>
         </Rectangle>
 
@@ -85,7 +85,7 @@
                    Width="69"
                    MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" >
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/FireTower.png"/>
+                <ImageBrush ImageSource="Resources/Images/FireTower.png"/>
             </Rectangle.Fill>
         </Rectangle>
 
@@ -99,7 +99,7 @@
                    RenderTransformOrigin="-1.614,0.596"
                    MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" >
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/arrowtower.png"/>
+                <ImageBrush ImageSource="Resources/Images/arrowtower.png"/>
             </Rectangle.Fill>
         </Rectangle>
 
@@ -113,7 +113,7 @@
                    RenderTransformOrigin="-1.614,0.596"
                    MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" >
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/slowtower.png"/>
+                <ImageBrush ImageSource="Resources/Images/slowtower.png"/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Height="28" 
@@ -121,7 +121,7 @@
         	Canvas.Top="527" 
         	Canvas.Left="1000">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/coin.png" />
+                <ImageBrush ImageSource="Resources/Images/coin.png" />
             </Rectangle.Fill>
         </Rectangle>
 

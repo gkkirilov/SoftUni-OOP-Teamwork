@@ -11,41 +11,41 @@ namespace TowerDefenseGame.Resources
         private const int SpriteSheetCols = 7;
 
         private static BitmapImage goblinSpriteSheet = new BitmapImage(
-            new Uri(@"..\..\Resources\goblinsword.png",
+            new Uri(@"..\..\Resources\Images\goblinsword.png",
                 UriKind.Relative));
 
         private static BitmapImage skeletonSpriteSheet = new BitmapImage(
-           new Uri(@"..\..\Resources\Skeleton.png",
+           new Uri(@"..\..\Resources\Images\Skeleton.png",
                UriKind.Relative));
 
         private static BitmapImage zombieSpriteSheet = new BitmapImage(
-           new Uri(@"..\..\Resources\Zombie.png",
+           new Uri(@"..\..\Resources\Images\Zombie.png",
                UriKind.Relative));
 
         private static BitmapImage DeathSpriteSheet = new BitmapImage(
-           new Uri(@"..\..\Resources\Death.png",
+           new Uri(@"..\..\Resources\Images\Death.png",
                UriKind.Relative));
 
 
         public static readonly ImageBrush ArrowTower =
             new ImageBrush(
                     new BitmapImage(
-                        new Uri(@"..\..\Resources\arrowtower.png", UriKind.Relative)));
+                        new Uri(@"..\..\Resources\Images\arrowtower.png", UriKind.Relative)));
 
         public static readonly ImageBrush FireTower =
            new ImageBrush(
                    new BitmapImage(
-                       new Uri(@"..\..\Resources\FireTower.png", UriKind.Relative)));
+                       new Uri(@"..\..\Resources\Images\FireTower.png", UriKind.Relative)));
 
         public static readonly ImageBrush SlowTower =
         new ImageBrush(
                 new BitmapImage(
-                    new Uri(@"..\..\Resources\SlowTower.png", UriKind.Relative)));
+                    new Uri(@"..\..\Resources\Images\SlowTower.png", UriKind.Relative)));
 
         public static readonly ImageBrush SniperTower =
       new ImageBrush(
               new BitmapImage(
-                  new Uri(@"..\..\Resources\SniperTower.png", UriKind.Relative)));
+                  new Uri(@"..\..\Resources\Images\SniperTower.png", UriKind.Relative)));
 
         public static readonly CroppedBitmap[][] GoblinSprites = new CroppedBitmap[5][];
         public static readonly CroppedBitmap[][] SkeletonSprites = new CroppedBitmap[5][];
