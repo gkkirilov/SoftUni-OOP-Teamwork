@@ -58,6 +58,8 @@
     <Compile Include="Core\Statistics.cs" />
     <Compile Include="Enumerations\EnemyState.cs" />
     <Compile Include="Interfaces\ITower.cs" />
+    <Compile Include="Enumerations\ProjectileSelection.cs" />
+    <Compile Include="Models\Projectiles\ArrowProjectile.cs" />
     <Compile Include="Models\Projectiles\FireProjectile.cs" />
     <Compile Include="Resources\SpritesManager.cs" />
     <Page Include="MainWindow.xaml">
@@ -103,7 +105,7 @@
     <Compile Include="Models\Enemies\Enemy.cs" />
     <Compile Include="Models\FieldSegment.cs" />
     <Compile Include="Models\GameObject.cs" />
-    <Compile Include="Models\Projectiles\BasicProjectile.cs" />
+    <Compile Include="Models\Projectiles\SniperProjectile.cs" />
     <Compile Include="Models\Projectiles\Projectile.cs" />
     <Compile Include="Models\Projectiles\SnowProjectile.cs" />
     <Compile Include="Models\Towers\ArrowTower.cs" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using TowerDefenseGame.Enumerations;
 using TowerDefenseGame.Resources;
 
 namespace TowerDefenseGame.Models.Towers
@@ -16,6 +17,8 @@ namespace TowerDefenseGame.Models.Towers
         public const int TowerPrice = 35;
 
         private static readonly ImageBrush TowerImage = SpritesManager.SlowTower;
+        private static ProjectileSelection projectileSelection = ProjectileSelection.SnowProjectile;
+    
 
         public SlowTower(double x, double y)
             : base(

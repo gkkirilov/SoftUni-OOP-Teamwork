@@ -1,4 +1,6 @@
-﻿namespace TowerDefenseGame.Models.Towers
+﻿using TowerDefenseGame.Enumerations;
+
+namespace TowerDefenseGame.Models.Towers
 {
     using System;
     using System.Linq;
@@ -132,8 +134,51 @@
             {
                 this.frameCount = 0;
 
+                if (Math.Abs(this.lastAngle - this.towerAngle) < 1)
+                {
+                   
+                
                 // TODO: Change the projectile according to the tower type
                 if (Math.Abs(this.lastAngle - this.towerAngle) < 1)
+                    switch (ProjectileController.ProjectileSelection)
+                    {
+                        case ProjectileSelection.ArrowProjectile:
+                            ProjectileController.Projectiles.Add(
+                                new ArrowProjectile(
+                                    this.Coordinates.X,
+                                    this.Coordinates.Y,
+                                    this.Target,
+                                    this.Damage + this.level));
+                            break;
+                        case ProjectileSelection.FireProjectile:
+                            ProjectileController.Projectiles.Add(
+                                new FireProjectile(
+                                    this.Coordinates.X,
+                                    this.Coordinates.Y,
+                                    this.Target,
+                                    this.Damage + this.level));
+                            break;
+                        case ProjectileSelection.SnowProjectile:
+                            ProjectileController.Projectiles.Add(
+                                new SnowProjectile(
+                                    this.Coordinates.X,
+                                    this.Coordinates.Y,
+                                    this.Target,
+                                    this.Damage + this.level));
+                            break;
+                        case ProjectileSelection.SniperProjectile:
+                            ProjectileController.Projectiles.Add(
+                                new SniperProjectile(
+                                     this.Coordinates.X,
+                                     this.Coordinates.Y,
+                                     this.Target,
+                                     this.Damage + this.level));
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                if (Math.Abs(this.lastAngle - this.towerAngle) < 0.5)
                 {
                     ProjectileController.Projectiles.Add(
                         new SnowProjectile(

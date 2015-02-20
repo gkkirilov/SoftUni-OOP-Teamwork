@@ -1,4 +1,6 @@
-﻿namespace TowerDefenseGame.Controllers
+﻿using TowerDefenseGame.Enumerations;
+
+namespace TowerDefenseGame.Controllers
 {
     using System;
     using System.Collections.Generic;
