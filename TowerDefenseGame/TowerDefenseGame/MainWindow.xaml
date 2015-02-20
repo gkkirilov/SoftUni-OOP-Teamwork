@@ -5,9 +5,12 @@
     <Canvas Name="MainCanvas">
         <Rectangle Height="83" 
                    Width="90"
-                   Canvas.Top="439" Canvas.Left="905">
+                   Canvas.Top="439" 
+                   Canvas.Left="905"
+                   Name="towerImageFrame">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/towerImageFrame.png"/>
+                <ImageBrush
+                    ImageSource="Resources/towerImageFrame.png"/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Height="28" 

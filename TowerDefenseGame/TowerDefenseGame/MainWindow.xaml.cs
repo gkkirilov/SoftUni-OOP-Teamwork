@@ -92,6 +92,7 @@ namespace TowerDefenseGame
             ((Rectangle)sender).RadiusX = 15;
             ((Rectangle)sender).RadiusY = 15;
 
+
             for (int index = 0; index < TowerController.Towers.Count; index++)
             {
                 if (TowerController.Towers[index].Model == (Rectangle)sender)
@@ -100,8 +101,15 @@ namespace TowerDefenseGame
                     {
                         PlayerInterfaceController.TowerSelected.Model.StrokeThickness = 0;
                     }
-
                     PlayerInterfaceController.TowerSelected = TowerController.Towers[index];
+
+                    this.towerImageFrame.Fill = TowerController.Towers[index].Model.Fill;
+                    this.towerImageFrame.Stroke = (SolidColorBrush)(new BrushConverter().ConvertFrom("#e07400"));
+                    this.towerImageFrame.RadiusY = 5;
+                    this.towerImageFrame.RadiusX = 5;
+                    this.towerImageFrame.StrokeThickness = 5;
+                    //PlayerInterfaceController.TowerInfo = TowerController.Towers[index];
+
                     return;
                 }
             }
@@ -156,9 +164,11 @@ namespace TowerDefenseGame
                 return;
             }
 
-            Rectangle selectionField = (Rectangle)sender;
-            selectionField.Stroke = Brushes.IndianRed;
-            selectionField.StrokeThickness = 3;
+            Rectangle RemoveButton = (Rectangle)sender;
+            RemoveButton.Stroke = Brushes.Sienna;
+            RemoveButton.StrokeThickness = 3;
+            RemoveButton.RadiusX = 3;
+            RemoveButton.RadiusY = 3;
             PlayerInterfaceController.DestroySelectedTower();
             
         }
@@ -170,8 +180,8 @@ namespace TowerDefenseGame
                 return;
             }
 
-            Rectangle selectionField = (Rectangle)sender;
-            selectionField.Stroke = Brushes.Transparent;
+            Rectangle RemoveButton = (Rectangle)sender;
+            RemoveButton.Stroke = Brushes.Transparent;
         }
 
         private void UpdateClickedOnMouseDown(object sender, MouseButtonEventArgs e)
@@ -181,9 +191,11 @@ namespace TowerDefenseGame
                 return;
             }
 
-            Rectangle selectionField = (Rectangle)sender;
-            selectionField.Stroke = Brushes.IndianRed;
-            selectionField.StrokeThickness = 3;
+            Rectangle UpgradeButton = (Rectangle)sender;
+            UpgradeButton.Stroke = Brushes.Sienna;
+            UpgradeButton.StrokeThickness = 3;
+            UpgradeButton.RadiusX = 3;
+            UpgradeButton.RadiusY = 3;
             PlayerInterfaceController.UpgradeSelectedTower();
         }
 
@@ -194,9 +206,8 @@ namespace TowerDefenseGame
                 return;
             }
 
-            Rectangle selectionField = (Rectangle)sender;
-            selectionField.Stroke = Brushes.Transparent;
-            PlayerInterfaceController.UpgradeSelectedTower();
+            Rectangle UpgradeButton = (Rectangle)sender;
+            UpgradeButton.Stroke = Brushes.Transparent;
         }
     }
 }

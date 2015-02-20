@@ -7,6 +7,7 @@
         IEnemy Target { get; }
         int Price { get; }
         int Level { get; }
+        int Damage { get; }
         void Upgrade();
     }
 }
