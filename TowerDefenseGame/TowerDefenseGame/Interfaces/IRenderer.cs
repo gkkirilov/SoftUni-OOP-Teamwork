@@ -11,5 +11,8 @@ namespace TowerDefenseGame.Interfaces
         void Clear();
 
         void DrawText(TextBlock text, int x, int y);
+
+        void RenderHealthBar(IEnemy creature);
+        void RemoveHealthBar(IEnemy creature);
     }
 }

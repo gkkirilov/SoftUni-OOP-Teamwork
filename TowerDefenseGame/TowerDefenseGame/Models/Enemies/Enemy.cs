@@ -3,6 +3,7 @@
 namespace TowerDefenseGame.Models.Enemies
 {
     using System;
+    using System.Windows;
     using TowerDefenseGame.Enumerations;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
@@ -10,6 +11,7 @@ namespace TowerDefenseGame.Models.Enemies
     using TowerDefenseGame.Interfaces;
     using TowerDefenseGame.Models.Effects.Debuffs;
     using TowerDefenseGame.Controllers;
+using System.Windows.Controls;
 
     public abstract class Enemy : GameObject, IEnemy
     {
@@ -24,17 +26,32 @@ namespace TowerDefenseGame.Models.Enemies
         private int frameCounter = 0;
         private int deathSpriteFrameCounter = 0;
         private CroppedBitmap[][] enemySprites;
+        private ProgressBar healthPointsBar = new ProgressBar();
 
         private bool isDying;
         private IDebuff debuff = new NullDebuff();
 
+        private static int Level = 1;
+
         protected Enemy(double x, double y, int width, int height, double lifePoints, double speed, CroppedBitmap[][] enemySprites, int bounty)
             : base(x, y, width, height, Brushes.Transparent)
         {
-            this.LifePoints = lifePoints;
+            this.LifePoints = lifePoints + (Level * 5);
             this.Speed = speed;
             this.enemySprites = enemySprites;
             this.bounty = bounty;
+            healthPointsBar.Maximum = lifePoints;
+            healthPointsBar.Minimum = 0;
+            healthPointsBar.Height = 5;
+            healthPointsBar.Width = width;
+            healthPointsBar.Foreground = Brushes.Red;
+            healthPointsBar.BeginAnimation(ProgressBar.ValueProperty, null);
+        }
+
+        void SetGlowVisibility(ProgressBar progressBar, Visibility visibility)
+        {
+            var glow = progressBar.Template.FindName("PART_GlowRect", progressBar) as FrameworkElement;
+            if (glow != null) glow.Visibility = visibility;
         }
 
         public double Speed
@@ -74,6 +91,11 @@ namespace TowerDefenseGame.Models.Enemies
             }
         }
 
+        public ProgressBar HealthBar
+        {
+            get { return this.healthPointsBar; }
+        }
+
         public bool IsDying
         {
             get
@@ -89,6 +111,7 @@ namespace TowerDefenseGame.Models.Enemies
 
         public override void Update()
         {
+            healthPointsBar.Value = this.LifePoints;
             ResolveDebuffState();
 
             this.LifePoints -= this.Debuff.LifePointsEffect;
@@ -204,6 +227,11 @@ namespace TowerDefenseGame.Models.Enemies
 
                 deathSpriteFrameCounter++;   
             }
+        }
+
+        public static void Upgrade()
+        {
+            Level++;
         }
     }
 }

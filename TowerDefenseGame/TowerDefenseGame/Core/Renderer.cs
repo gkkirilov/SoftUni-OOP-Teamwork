@@ -61,7 +61,23 @@ namespace TowerDefenseGame.Core
             {
                 this.Container.Children.Add(text);
             }
+        }
 
+        public void RenderHealthBar(IEnemy creature)
+        {
+            
+            Canvas.SetLeft(creature.HealthBar, creature.Coordinates.X);
+            Canvas.SetTop(creature.HealthBar, creature.Coordinates.Y - 5);
+
+            if (!this.Container.Children.Contains(creature.HealthBar))
+            {
+                this.Container.Children.Add(creature.HealthBar);
+            }
+        }
+
+        public void RemoveHealthBar(IEnemy creature)
+        {
+            this.Container.Children.Remove(creature.HealthBar);
         }
     }
 }

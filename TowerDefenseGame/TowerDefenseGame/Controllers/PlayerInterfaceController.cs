@@ -77,6 +77,7 @@
 
             Money += TowerSelected.Price / 3;
             TowerController.RemoveTower(TowerSelected);
+            TowerSelected = null;
         }
     }
 }

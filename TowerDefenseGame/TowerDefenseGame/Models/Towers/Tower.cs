@@ -148,9 +148,7 @@ namespace TowerDefenseGame.Models.Towers
 
                 if (Math.Abs(this.lastAngle - this.towerAngle) < 1)
                 {
-                   
                 
-                // TODO: Change the projectile according to the tower type
                 if (Math.Abs(this.lastAngle - this.towerAngle) < 1)
                     switch (this.projectileType)
                     {
@@ -189,15 +187,6 @@ namespace TowerDefenseGame.Models.Towers
                         default:
                             break;
                     }
-                }
-                if (Math.Abs(this.lastAngle - this.towerAngle) < 0.5)
-                {
-                    ProjectileController.Projectiles.Add(
-                        new SnowProjectile(
-                            this.Coordinates.X,
-                            this.Coordinates.Y,
-                            this.Target,
-                            this.Damage + this.level));   
                 }
             }
             else

@@ -7,12 +7,10 @@
     using System.Windows.Input;
     using System.Windows.Media;
     using System.Windows.Shapes;
-    using Models.Towers;
     using TowerDefenseGame.Controllers;
     using TowerDefenseGame.Core;
     using TowerDefenseGame.Enumerations;
     using TowerDefenseGame.Models;
-    using TowerDefenseGame.Resources;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -84,6 +82,7 @@
         {
             ((Rectangle) sender).Stroke = Brushes.Red;
             ((Rectangle) sender).StrokeThickness = 2;
+            
             ((Rectangle)sender).RadiusX = 15;
             ((Rectangle)sender).RadiusY = 15;
 
@@ -91,7 +90,8 @@
             {
                 if (TowerController.Towers[index].Model == (Rectangle)sender)
                 {
-                    if (PlayerInterfaceController.TowerSelected != null)
+                    if (PlayerInterfaceController.TowerSelected != null &&
+                        PlayerInterfaceController.TowerSelected != TowerController.Towers[index])
                     {
                         PlayerInterfaceController.TowerSelected.Model.StrokeThickness = 0;
                     }

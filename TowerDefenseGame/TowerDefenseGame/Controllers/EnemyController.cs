@@ -12,6 +12,7 @@
         private static List<IEnemy> enemies = new List<IEnemy>();
         private static List<Point> enemyBeacons = new List<Point>();
         private static int waveEnemiesCount = 0;
+        private static int waveCount = 0;
         private static bool isGenerating = false;
         private static int frameCount = 0;
 
@@ -35,6 +36,14 @@
             }
         }
 
+        public static int WaveCount
+        {
+            get
+            {
+                return waveCount;
+            }
+        }
+
         private static int WaveEnemiesCount
         {
             get
@@ -48,12 +57,6 @@
             }
         }
 
-        public static void GenerateEnemy(int x, int y)
-        {
-            EnemyController.WaveEnemiesCount++;
-            EnemyController.Enemies.Add(new BasicEnemy(x, y)); // TODO: Generate enemies based on type
-        }
-
         public static void Update() 
         {
             for (int index = 0; index < EnemyController.Enemies.Count; index++)
@@ -62,6 +65,7 @@
 
                 if (!EnemyController.Enemies[index].Exists)
                 {
+                   //  AnimationController.Renderer.RemoveHealthBar(EnemyController.Enemies[index]);
                     AnimationController.Renderer.RemoveModel(EnemyController.Enemies[index]);
                     Enemies.RemoveAt(index);
                     index--;
@@ -73,6 +77,11 @@
                 //Timers.TimeToWave.Stop();
                 //Timers.TimeToWave.Start();
                 isGenerating = true;
+                waveCount++;
+                if (waveCount % 4 == 0)
+                {
+                    Enemy.Upgrade();
+                }
             }
 
             if (isGenerating && frameCount >= Constants.EnemyGenerationDelay)
@@ -92,11 +101,18 @@
             }
         }
 
+        public static void GenerateEnemy(int x, int y)
+        {
+            EnemyController.WaveEnemiesCount++;
+            EnemyController.Enemies.Add(new BasicEnemy(x, y)); // TODO: Generate enemies based on type
+        }
+
         public static void Render()
         {
             foreach (var enemy in EnemyController.Enemies)
             {
                 AnimationController.Renderer.Render(enemy);
+                // AnimationController.Renderer.RenderHealthBar(enemy);
             }
         }
     }
