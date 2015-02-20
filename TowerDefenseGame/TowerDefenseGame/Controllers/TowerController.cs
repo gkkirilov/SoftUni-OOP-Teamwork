@@ -1,6 +1,7 @@
 ﻿namespace TowerDefenseGame.Controllers
 {
     using System.Collections.Generic;
+    using Core;
     using Interfaces;
     using TowerDefenseGame.Enumerations;
     using TowerDefenseGame.Models.Towers;
@@ -83,8 +84,20 @@
 
         public static void RemoveTower(ITower towerToRemove)
         {
-            AnimationController.Renderer.RemoveModel(towerToRemove);
-            Towers.Remove(towerToRemove);
+            for (int row = 0; row < Constants.FieldRows; row++)
+            {
+                for (int col = 0; col < Constants.FieldCols; col++)
+                {
+                    if (GameFieldController.GameField[row][col].Coordinates.X == towerToRemove.Coordinates.X &&
+                        GameFieldController.GameField[row][col].Coordinates.Y == towerToRemove.Coordinates.Y)
+                    {
+                        GameFieldController.GameField[row][col].IsOccupied = false;
+                        AnimationController.Renderer.RemoveModel(towerToRemove);
+                        Towers.Remove(towerToRemove);
+                        return;
+                    }
+                }
+            }
         }
     }
 }

@@ -2,13 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
+    using Interfaces;
     using TowerDefenseGame.Core;
     using TowerDefenseGame.Geometry;
     using TowerDefenseGame.Models.Enemies;
 
     public static class EnemyController
     {
-        private static List<Enemy> enemies = new List<Enemy>();
+        private static List<IEnemy> enemies = new List<IEnemy>();
         private static List<Point> enemyBeacons = new List<Point>();
         private static int waveEnemiesCount = 0;
         private static bool isGenerating = false;
@@ -26,7 +27,7 @@
                 new Point(27 * Constants.FieldSegmentSize, 3 * Constants.FieldSegmentSize),
             };
 
-        public static List<Enemy> Enemies
+        public static List<IEnemy> Enemies
         {
             get
             {

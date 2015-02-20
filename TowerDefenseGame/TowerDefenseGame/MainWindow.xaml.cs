@@ -83,7 +83,9 @@
         void TowerMouseButtonDown(object sender, MouseButtonEventArgs e)
         {
             ((Rectangle) sender).Stroke = Brushes.Red;
-                ((Rectangle) sender).StrokeThickness = 2;
+            ((Rectangle) sender).StrokeThickness = 2;
+            ((Rectangle)sender).RadiusX = 15;
+            ((Rectangle)sender).RadiusY = 15;
 
             for (int index = 0; index < TowerController.Towers.Count; index++)
             {
@@ -96,20 +98,6 @@
 
                     PlayerInterfaceController.TowerSelected = TowerController.Towers[index];
                     return;
-
-                    // for (int row = 0; row < Constants.FieldRows; row++)
-                    // {
-                    //     for (int col = 0; col < Constants.FieldCols; col++)
-                    //     {
-                    //         if (GameFieldController.GameField[row][col].Coordinates.X == TowerController.Towers[index].Coordinates.X &&
-                    //             GameFieldController.GameField[row][col].Coordinates.Y == TowerController.Towers[index].Coordinates.Y)
-                    //         {
-                    //             GameFieldController.GameField[row][col].IsOccupied = false;
-                    //             TowerController.RemoveTower(TowerController.Towers[index]);
-                    //             return;
-                    //         }
-                    //     }
-                    // }
                 }
             }
         }

@@ -86,6 +86,7 @@
             {
                 return this.inflictionDebuff;
             }
+
             private set
             {
                 if (value == null)

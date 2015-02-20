@@ -36,8 +36,8 @@ namespace TowerDefenseGame.Resources
               new BitmapImage(
                   new Uri(@"..\..\Resources\SniperTower.png", UriKind.Relative)));
 
-        public static readonly CroppedBitmap[][] GoblinSprites = new CroppedBitmap[5][];
-        public static readonly CroppedBitmap[][] SkeletonSprites = new CroppedBitmap[5][];
+        public static readonly CroppedBitmap[][] GoblinSprites = new CroppedBitmap[SpriteSheetRows][];
+        public static readonly CroppedBitmap[][] SkeletonSprites = new CroppedBitmap[SpriteSheetRows][];
 
         static SpritesManager()
         {
@@ -60,6 +60,7 @@ namespace TowerDefenseGame.Resources
                         goblinSpriteSheet,
                         new Int32Rect(directionMultiplierX * col,
                         directionMultiplierY * row, 60, 57));
+
                     SkeletonSprites[row][col] = new CroppedBitmap(
                         skeletonSpriteSheet,
                         new Int32Rect(directionMultiplierX * col,

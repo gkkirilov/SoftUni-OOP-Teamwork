@@ -5,6 +5,7 @@ using System.Windows.Media.Imaging;
 namespace TowerDefenseGame.Models.Enemies
 {
     using System.Windows.Media;
+    using Resources;
     using TowerDefenseGame.Core;
 
     public class BasicEnemy : Enemy
@@ -14,14 +15,12 @@ namespace TowerDefenseGame.Models.Enemies
         private const int bounty = 10;
 
 
-        private static readonly BitmapImage EnemySpriteSheet = new BitmapImage(
-            new Uri(@"..\..\Resources\Skeleton.png",
-                    UriKind.Relative));
+        private static readonly CroppedBitmap[][] EnemySprites = SpritesManager.GoblinSprites;
 
         public BasicEnemy(double x, double y)
             : base(
                 x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, BasicEnemy.EnemyLifePoints, BasicEnemy.EnemySpeed,
-                EnemySpriteSheet, bounty)
+                EnemySprites, bounty)
         {
 
         }

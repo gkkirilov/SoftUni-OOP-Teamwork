@@ -82,6 +82,7 @@
             {
                 return this.damage;
             }
+
             private set
             {
                 if (value < 0)
@@ -98,14 +99,6 @@
             get
             {
                 return this.level;
-            }
-            private set 
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException("The level of the tower cannot be a negative number");
-                }
-                this.level = value; 
             }
         }
 
@@ -205,8 +198,6 @@
             }
             this.lastAngle = angle;
             this.towerAngle = angle * RotationBlendFactor + this.towerAngle * (1 - RotationBlendFactor);
-        }
-
-
+        }    
     }
 }

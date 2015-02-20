@@ -2,29 +2,30 @@
 {
     using System;
     using System.Collections.Generic;
+    using Interfaces;
     using TowerDefenseGame.Models.Projectiles;
 
     public static class ProjectileController
     {
-        private static List<Projectile> projectiles = new List<Projectile>();
+        private static List<IProjectile> projectiles = new List<IProjectile>();
 
-        public static List<Projectile> Projectiles
+        public static List<IProjectile> Projectiles
         {
             get
             {
-                return ProjectileController.projectiles;
+                return projectiles;
             }
         }
 
         public static void Update()
         {
-            for (int index = 0; index < ProjectileController.Projectiles.Count; index++)
+            for (int index = 0; index < Projectiles.Count; index++)
             {
-                ProjectileController.Projectiles[index].Update();
-                if (!ProjectileController.Projectiles[index].Exists)
+                Projectiles[index].Update();
+                if (!Projectiles[index].Exists)
                 {
-                    AnimationController.Renderer.RemoveModel(ProjectileController.Projectiles[index]);
-                    ProjectileController.Projectiles.RemoveAt(index);
+                    AnimationController.Renderer.RemoveModel(Projectiles[index]);
+                    Projectiles.RemoveAt(index);
                     index--;
                 }
             }
@@ -32,7 +33,7 @@
 
         public static void Render()
         {
-            foreach (Projectile projectile in ProjectileController.Projectiles)
+            foreach (IProjectile projectile in Projectiles)
             {
                 AnimationController.Renderer.Render(projectile);
             }

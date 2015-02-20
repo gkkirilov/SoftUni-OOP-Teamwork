@@ -3,7 +3,6 @@
 namespace TowerDefenseGame.Models.Enemies
 {
     using System;
-    using System.Collections.Generic;
     using TowerDefenseGame.Enumerations;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
@@ -11,7 +10,6 @@ namespace TowerDefenseGame.Models.Enemies
     using TowerDefenseGame.Interfaces;
     using TowerDefenseGame.Models.Effects.Debuffs;
     using TowerDefenseGame.Controllers;
-    using TowerDefenseGame.Resources;
 
     public abstract class Enemy : GameObject, IEnemy
     {
@@ -22,20 +20,20 @@ namespace TowerDefenseGame.Models.Enemies
 
         // Variables used for the animation
         private EnemyState currentState = EnemyState.Left;
-        private const int DirectionMultiplierY = 65;
-        private const int DirectionMultiplierX = 65;
         private int spriteFrameCounter = 5;
         private int frameCounter = 0;
         private int deathSpriteFrameCounter = 0;
-        private bool isDying = false;
+        private CroppedBitmap[][] enemySprites;
+
+        private bool isDying;
         private IDebuff debuff = new NullDebuff();
 
-        protected Enemy(double x, double y, int width, int height, double lifePoints, double speed, BitmapImage enemySpriteSheet, int bounty)
+        protected Enemy(double x, double y, int width, int height, double lifePoints, double speed, CroppedBitmap[][] enemySprites, int bounty)
             : base(x, y, width, height, Brushes.Transparent)
         {
             this.LifePoints = lifePoints;
             this.Speed = speed;
-            this.EnemySpriteSheet = enemySpriteSheet;
+            this.enemySprites = enemySprites;
             this.bounty = bounty;
         }
 
@@ -59,14 +57,13 @@ namespace TowerDefenseGame.Models.Enemies
 
         public double LifePoints { get; private set; }
 
-        private BitmapImage EnemySpriteSheet { get; set; }
-
         public IDebuff Debuff 
         {
             get
             {
                 return this.debuff;
             }
+
             set
             {
                 if (value == null)
@@ -174,7 +171,7 @@ namespace TowerDefenseGame.Models.Enemies
             if (frameCounter >= 1 + (this.Debuff.SpeedEffect * 2))
             {
                 frameCounter = 0;
-                this.Model.Fill = new ImageBrush(SpritesManager.GoblinSprites[(int)this.currentState][this.spriteFrameCounter]);
+                this.Model.Fill = new ImageBrush(this.enemySprites[(int)this.currentState][this.spriteFrameCounter]);
 
                 spriteFrameCounter--;
             }
@@ -199,11 +196,11 @@ namespace TowerDefenseGame.Models.Enemies
             {
                 frameCounter = 0;
 
-                this.Model.Fill = new ImageBrush(
-                   new CroppedBitmap(this.EnemySpriteSheet,
-                   new System.Windows.Int32Rect(
-                       DirectionMultiplierX * deathSpriteFrameCounter,
-                       DirectionMultiplierY * (int)currentState, 60, 57)));
+                this.Model.Fill =
+                    new ImageBrush(
+                        this.enemySprites
+                            [(int)currentState]
+                            [deathSpriteFrameCounter]);
 
                 deathSpriteFrameCounter++;   
             }
