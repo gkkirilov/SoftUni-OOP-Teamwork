@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using TowerDefenseGame.Resources;
 
 namespace TowerDefenseGame.Models.Towers
 {
@@ -13,13 +14,7 @@ namespace TowerDefenseGame.Models.Towers
         private const int Range = 250;
         public const int Price = 35;
 
-        private static readonly ImageBrush TowerImage =
-            new ImageBrush(
-                new CroppedBitmap(
-                    new BitmapImage(
-                        new Uri(@"..\..\Resources\SlowTower.png", UriKind.Relative)
-                        ),
-                    new Int32Rect(0, 0, 54, 38)));
+    
 
         public SlowTower(double x, double y)
             : base(
@@ -29,7 +24,7 @@ namespace TowerDefenseGame.Models.Towers
                 Constants.FieldSegmentSize,
                 Speed,
                 Range,
-                TowerImage,
+                SpritesManager.SlowTower,
                 Price)
         {
         }

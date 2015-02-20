@@ -1,4 +1,5 @@
-﻿using System.Windows.Media.Imaging;
+﻿using System.Windows.Media;
+using System.Windows.Media.Imaging;
 namespace TowerDefenseGame.Resources
 {
     using System;
@@ -12,6 +13,25 @@ namespace TowerDefenseGame.Resources
         private static BitmapImage goblinSpriteSheet = new BitmapImage(
             new Uri(@"..\..\Resources\goblinsword.png",
                 UriKind.Relative));
+        public static readonly ImageBrush ArrowTower =
+            new ImageBrush(
+                    new BitmapImage(
+                        new Uri(@"..\..\Resources\arrowtower.png", UriKind.Relative)));
+
+        public static readonly ImageBrush FireTower =
+           new ImageBrush(
+                   new BitmapImage(
+                       new Uri(@"..\..\Resources\FireTower.png", UriKind.Relative)));
+
+        public static readonly ImageBrush SlowTower =
+        new ImageBrush(
+                new BitmapImage(
+                    new Uri(@"..\..\Resources\SlowTower.png", UriKind.Relative)));
+
+        public static readonly ImageBrush SniperTower =
+      new ImageBrush(
+              new BitmapImage(
+                  new Uri(@"..\..\Resources\SniperTower.png", UriKind.Relative)));
 
         public static readonly CroppedBitmap[][] GoblinSprites = new CroppedBitmap[5][];
 
