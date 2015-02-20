@@ -195,7 +195,7 @@ namespace TowerDefenseGame.Models.Enemies
             }
 
             frameCounter++;
-            if (frameCounter >= 8)
+            if (frameCounter >= 3)
             {
                 frameCounter = 0;
 

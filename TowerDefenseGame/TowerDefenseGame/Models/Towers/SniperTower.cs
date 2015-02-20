@@ -9,9 +9,11 @@ namespace TowerDefenseGame.Models.Towers
 
     public class SniperTower : Tower
     {
-        private const int Speed = 150;
-        private const int Range = 50;
-        public const int Price = 40;
+        private const int TowerSpeed = 150;
+        private const int TowerRange = 300;
+        private const int TowerDamage = 5;
+        public const int TowerPrice = 40;
+
         private static readonly ImageBrush TowerImage =
             new ImageBrush(
                 new CroppedBitmap(
@@ -21,7 +23,7 @@ namespace TowerDefenseGame.Models.Towers
                     new Int32Rect(115, 0, 46, 39)));
 
         public SniperTower(double x, double y)
-            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, SniperTower.Speed, SniperTower.Range, TowerImage, Price)
+            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, TowerSpeed, TowerRange, TowerDamage, TowerImage, TowerPrice)
         {
         }
     }

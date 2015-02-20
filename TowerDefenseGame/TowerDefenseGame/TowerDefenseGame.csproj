@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Core\Statistics.cs" />
     <Compile Include="Enumerations\EnemyState.cs" />
+    <Compile Include="Interfaces\ITower.cs" />
     <Compile Include="Models\Projectiles\FireProjectile.cs" />
     <Compile Include="Resources\SpritesManager.cs" />
     <Page Include="MainWindow.xaml">

@@ -6,35 +6,42 @@
     using Geometry;
     using TowerDefenseGame.Controllers;
     using TowerDefenseGame.Core;
-    using TowerDefenseGame.Models.Enemies;
     using TowerDefenseGame.Models.Projectiles;
     using TowerDefenseGame.Interfaces;
 
-    public abstract class Tower : GameObject
+    public abstract class Tower : GameObject, ITower
     {
         private int towerSpeed;
         private int towerRange;
-        private int frameCount = 0;
-        private Enemy target;
+        private int damage;
+        private int level = 1;
+        private IEnemy target;
         public int price;
+
+        private int frameCount = 0;
 
         // Variables used for the calculation of the tower rotation
         private double towerAngle = 0;
         private double lastAngle;
         private const double RotationBlendFactor = 0.2f;
 
-        protected Tower(double x, double y, int width, int height, int towerSpeed, int towerRange, Brush fillBrush,int price)
+        protected Tower(double x, double y, int width, int height, int towerSpeed, int towerRange, int damage, Brush fillBrush, int price)
             : base(x, y, width, height, fillBrush)
         {
-            this.TowerSpeed = towerSpeed;
-            this.TowerRange = towerRange;
-            this.TowerPrice = price;
+            this.Speed = towerSpeed;
+            this.Range = towerRange;
+            this.Price = price;
+            this.Damage = damage;
         }
 
-        public int TowerPrice
+        public int Price
         {
-            get { return this.price; }
-            set
+            get
+            {
+                return this.price;
+            }
+
+            private set
             {
                 if (value <= 0)
                 {
@@ -43,7 +50,7 @@
                 this.price = value;
             }
         }
-        public int TowerSpeed
+        public int Speed
         {
             get
             {
@@ -56,7 +63,7 @@
             }
         }
 
-        public int TowerRange
+        public int Range
         {
             get
             {
@@ -69,7 +76,40 @@
             }
         }
 
-        public Enemy Target
+        public int Damage
+        {
+            get
+            {
+                return this.damage;
+            }
+            private set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("The damage of the tower cannot be negative");
+                }
+
+                this.damage = value;
+            }
+        }
+
+        public int Level
+        {
+            get
+            {
+                return this.level;
+            }
+            private set 
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("The level of the tower cannot be a negative number");
+                }
+                this.level = value; 
+            }
+        }
+
+        public IEnemy Target
         {
             get
             {
@@ -87,7 +127,7 @@
             if (this.Target == null ||
                 !this.Target.Exists ||
                 this.Target.IsDying ||
-                GeometryUtils.CalculateDistance(this.Coordinates, this.Target.Coordinates) > this.TowerRange)
+                GeometryUtils.CalculateDistance(this.Coordinates, this.Target.Coordinates) > this.Range)
             {
                 this.GetTarget();
             }
@@ -95,20 +135,31 @@
             CalculateRotationAngle();
             GeometryUtils.RotateModel(this.Model, this.towerAngle);
 
-            if (this.Target != null && this.Target.Exists && this.frameCount >= this.TowerSpeed)
+            if (this.Target != null && this.Target.Exists && this.frameCount >= this.Speed)
             {
                 this.frameCount = 0;
 
                 // TODO: Change the projectile according to the tower type
-                if (Math.Abs(this.lastAngle - this.towerAngle) < 0.5)
+                if (Math.Abs(this.lastAngle - this.towerAngle) < 1)
                 {
-                    ProjectileController.Projectiles.Add(new FireProjectile(this.Coordinates.X, this.Coordinates.Y, this.Target));   
+                    ProjectileController.Projectiles.Add(
+                        new SnowProjectile(
+                            this.Coordinates.X,
+                            this.Coordinates.Y,
+                            this.Target,
+                            this.Damage + this.level));   
                 }
             }
             else
             {
                 this.frameCount++;
             }
+        }
+
+        public void Upgrade()
+        {
+            this.level++;
+            this.Price += this.Price / 2;
         }
 
         private void GetTarget()
@@ -122,7 +173,7 @@
                 .OrderBy(e => GeometryUtils.CalculateDistance(this.Coordinates, e.Coordinates))
                 .First();
 
-            if (targetSelected != null && GeometryUtils.CalculateDistance(this.Coordinates, targetSelected.Coordinates) > this.TowerRange)
+            if (targetSelected != null && GeometryUtils.CalculateDistance(this.Coordinates, targetSelected.Coordinates) > this.Range)
             {
                 this.Target = null;
                 return;
@@ -155,5 +206,7 @@
             this.lastAngle = angle;
             this.towerAngle = angle * RotationBlendFactor + this.towerAngle * (1 - RotationBlendFactor);
         }
+
+
     }
 }

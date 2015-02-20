@@ -11,14 +11,15 @@ using TowerDefenseGame.Models.Enemies;
 
 namespace TowerDefenseGame.Models.Projectiles
 {
+    using Interfaces;
+
     class FireProjectile : Projectile
     {
          private const int ProjectileSpeed = 10;
-        private const int ProjectileDamage = 10;
 
-        public FireProjectile(double x, double y, Enemy target)
+        public FireProjectile(double x, double y, IEnemy target, int damage)
             : base(x, y, FireProjectile.ProjectileSpeed, target, new ImageBrush(new CroppedBitmap(new BitmapImage(
-             new Uri(@"..\..\Resources\ProjectilesStyleOne.png", UriKind.Relative)), new Int32Rect(1027, 1233,26, 31))), FireProjectile.ProjectileDamage, new BasicDebuff())
+             new Uri(@"..\..\Resources\ProjectilesStyleOne.png", UriKind.Relative)), new Int32Rect(1027, 1233,26, 31))), damage, new BasicDebuff())
         {
         }
     }

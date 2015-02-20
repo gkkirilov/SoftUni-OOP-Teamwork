@@ -7,6 +7,7 @@
     using System.Windows.Input;
     using System.Windows.Media;
     using System.Windows.Shapes;
+    using Models.Towers;
     using TowerDefenseGame.Controllers;
     using TowerDefenseGame.Core;
     using TowerDefenseGame.Enumerations;
@@ -75,7 +76,42 @@
             double x = Canvas.GetLeft(model);
             double y = Canvas.GetTop(model);
             TowerController.GenerateTower(x, y);
+            TowerController.Towers[TowerController.Towers.Count - 1].Model.MouseLeftButtonDown += TowerMouseButtonDown;
 
+        }
+
+        void TowerMouseButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ((Rectangle) sender).Stroke = Brushes.Red;
+                ((Rectangle) sender).StrokeThickness = 2;
+
+            for (int index = 0; index < TowerController.Towers.Count; index++)
+            {
+                if (TowerController.Towers[index].Model == (Rectangle)sender)
+                {
+                    if (PlayerInterfaceController.TowerSelected != null)
+                    {
+                        PlayerInterfaceController.TowerSelected.Model.StrokeThickness = 0;
+                    }
+
+                    PlayerInterfaceController.TowerSelected = TowerController.Towers[index];
+                    return;
+
+                    // for (int row = 0; row < Constants.FieldRows; row++)
+                    // {
+                    //     for (int col = 0; col < Constants.FieldCols; col++)
+                    //     {
+                    //         if (GameFieldController.GameField[row][col].Coordinates.X == TowerController.Towers[index].Coordinates.X &&
+                    //             GameFieldController.GameField[row][col].Coordinates.Y == TowerController.Towers[index].Coordinates.Y)
+                    //         {
+                    //             GameFieldController.GameField[row][col].IsOccupied = false;
+                    //             TowerController.RemoveTower(TowerController.Towers[index]);
+                    //             return;
+                    //         }
+                    //     }
+                    // }
+                }
+            }
         }
 
         private void SelectionFieldMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -92,25 +128,25 @@
             switch (selectionField.Name)
             {
                 case "SniperTowerSelection":
-                    PlayerInterfaceController.TowerSelected = TowerType.Sniper;
+                    PlayerInterfaceController.TowerTypeSelected = TowerType.Sniper;
                     this.FireTowerSelection.StrokeThickness = 0;
                     this.SlowTowerSelection.StrokeThickness = 0;
                     this.ArrowTowerSelection.StrokeThickness = 0;
                     break;
                 case "FireTowerSelection":
-                    PlayerInterfaceController.TowerSelected = TowerType.Fire;
+                    PlayerInterfaceController.TowerTypeSelected = TowerType.Fire;
                     this.SniperTowerSelection.StrokeThickness = 0;
                     this.SlowTowerSelection.StrokeThickness = 0;
                     this.ArrowTowerSelection.StrokeThickness = 0;
                     break;
                 case "SlowTowerSelection":
-                    PlayerInterfaceController.TowerSelected = TowerType.Slow;
+                    PlayerInterfaceController.TowerTypeSelected = TowerType.Slow;
                     this.SniperTowerSelection.StrokeThickness = 0;
                     this.ArrowTowerSelection.StrokeThickness = 0;
                     this.FireTowerSelection.StrokeThickness = 0;
                     break;
                 case "ArrowTowerSelection":
-                    PlayerInterfaceController.TowerSelected = TowerType.Arrow;
+                    PlayerInterfaceController.TowerTypeSelected = TowerType.Arrow;
                     this.SniperTowerSelection.StrokeThickness = 0;
                     this.FireTowerSelection.StrokeThickness = 0;
                     this.SlowTowerSelection.StrokeThickness = 0;

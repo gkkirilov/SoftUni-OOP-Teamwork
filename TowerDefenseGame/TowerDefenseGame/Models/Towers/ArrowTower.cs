@@ -9,9 +9,12 @@ namespace TowerDefenseGame.Models.Towers
 
     public class ArrowTower : Tower
     {
-        private const int Speed = 25;
-        private const int Range = 150;
-        public const int Price = 25;
+        private const int TowerSpeed = 25;
+        private const int TowerRange = 150;
+        private const int TowerDamage = 5;
+        public const int TowerPrice = 25;
+
+
         private static readonly ImageBrush TowerImage = 
             new ImageBrush(
                 new CroppedBitmap(
@@ -24,10 +27,11 @@ namespace TowerDefenseGame.Models.Towers
                 y,
                 Constants.FieldSegmentSize,
                 Constants.FieldSegmentSize, 
-                Speed,
-                Range,
+                TowerSpeed,
+                TowerRange,
+                TowerDamage,
                 TowerImage,
-                Price)
+                TowerPrice)
         {
         }
     }

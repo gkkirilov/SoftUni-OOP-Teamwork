@@ -1,15 +1,16 @@
 ﻿namespace TowerDefenseGame.Controllers
 {
     using System.Collections.Generic;
+    using Interfaces;
     using TowerDefenseGame.Enumerations;
     using TowerDefenseGame.Models.Towers;
 
     public static class TowerController
     {
-        private static List<Tower> towers = new List<Tower>();
+        private static List<ITower> towers = new List<ITower>();
         private static int towerCount = 0;
 
-        public static List<Tower> Towers
+        public static List<ITower> Towers
         {
             get
             {
@@ -19,45 +20,44 @@
 
         public static void GenerateTower(double x, double y)
         {
-            switch (PlayerInterfaceController.TowerSelected)
+            switch (PlayerInterfaceController.TowerTypeSelected)
             {
                 case TowerType.Arrow:
-                    if (PlayerInterfaceController.Money < ArrowTower.Price)
+                    if (PlayerInterfaceController.Money < ArrowTower.TowerPrice)
                     {
-                        break;
+                        return;
                     }
-                    PlayerInterfaceController.Money -= ArrowTower.Price;
+                    PlayerInterfaceController.Money -= ArrowTower.TowerPrice;
                     TowerController.Towers.Add(new ArrowTower(x, y));
                     break;
                 case TowerType.Fire:
-                    if (PlayerInterfaceController.Money < FireTower.Price)
+                    if (PlayerInterfaceController.Money < FireTower.TowerPrice)
                     {
-                        break;
+                        return;
                     }
-                    PlayerInterfaceController.Money -= FireTower.Price;
+                    PlayerInterfaceController.Money -= FireTower.TowerPrice;
                     TowerController.Towers.Add(new FireTower(x, y));
                     break;
                 case TowerType.Slow:
-                    if (PlayerInterfaceController.Money < SlowTower.Price)
+                    if (PlayerInterfaceController.Money < SlowTower.TowerPrice)
                     {
-                        break;
+                        return;
                     }
-                    PlayerInterfaceController.Money -= SlowTower.Price;
+                    PlayerInterfaceController.Money -= SlowTower.TowerPrice;
                     TowerController.Towers.Add(new SlowTower(x, y));
                     break;
                 case TowerType.Sniper:
-                    if (PlayerInterfaceController.Money < SniperTower.Price)
+                    if (PlayerInterfaceController.Money < SniperTower.TowerPrice)
                     {
-                        break;
+                        return;
                     }
-                    PlayerInterfaceController.Money -= SniperTower.Price;
+                    PlayerInterfaceController.Money -= SniperTower.TowerPrice;
                     TowerController.Towers.Add(new SniperTower(x, y));
                     break;
                 default:
                     break;
             }
             TowerController.towerCount++;
-
         }
 
         public static void Update()
@@ -79,6 +79,12 @@
             {
                 AnimationController.Renderer.Render(tower);
             }
+        }
+
+        public static void RemoveTower(ITower towerToRemove)
+        {
+            AnimationController.Renderer.RemoveModel(towerToRemove);
+            Towers.Remove(towerToRemove);
         }
     }
 }

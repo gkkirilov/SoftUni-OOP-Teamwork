@@ -15,7 +15,6 @@
         private IDebuff inflictionDebuff;
         private double projectileAngle = 0;
         private double lastAngle;
-        private const double RotationBlendFactor = 0.2f;
 
         protected Projectile(double x, double y, int speed, IEnemy target, Brush fillType, int damage, IDebuff inflictionDebuff)
             : base(x, y, Constants.ProjectileSize, Constants.ProjectileSize, fillType)

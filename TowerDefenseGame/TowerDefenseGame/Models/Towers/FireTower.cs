@@ -10,9 +10,11 @@ namespace TowerDefenseGame.Models.Towers
 
     public class FireTower : Tower
     {
-        private const int Speed = 50;
-        private const int Range = 200;
-        public const int Price = 30;
+        private const int TowerSpeed = 50;
+        private const int TowerRange = 200;
+        public const int TowerPrice = 30;
+        private const int TowerDamage = 5;
+
         private static readonly ImageBrush TowerImage =
             new ImageBrush(
                 new CroppedBitmap(
@@ -21,7 +23,7 @@ namespace TowerDefenseGame.Models.Towers
                         ),
                     new Int32Rect(117, 130, 43, 33)));
         public FireTower(double x, double y)
-            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, FireTower.Speed, FireTower.Range, TowerImage, Price)
+            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, TowerSpeed, TowerRange, TowerDamage, TowerImage, TowerPrice)
         {
         }
     }
