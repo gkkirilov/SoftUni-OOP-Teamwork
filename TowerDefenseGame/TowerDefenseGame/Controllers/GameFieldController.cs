@@ -1,7 +1,7 @@
 ﻿namespace TowerDefenseGame.Controllers
 {
-    using TowerDefenseGame.Core;
-    using TowerDefenseGame.Models;
+    using Models;
+    using Utilities;
 
     public static class GameFieldController
     {

@@ -55,10 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Core\Statistics.cs" />
+    <Compile Include="Utilities\Statistics.cs" />
     <Compile Include="Enumerations\EnemyState.cs" />
     <Compile Include="Interfaces\ITower.cs" />
     <Compile Include="Enumerations\ProjectileSelection.cs" />
+    <Compile Include="Models\Debuffs\FreezeDebuff.cs" />
+    <Compile Include="Models\Debuffs\IgniteDebuff.cs" />
     <Compile Include="Models\Enemies\Goblin.cs" />
     <Compile Include="Models\Enemies\GrimReaper.cs" />
     <Compile Include="Models\Enemies\Zombie.cs" />
@@ -80,9 +82,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Core\Constants.cs" />
+    <Compile Include="Utilities\Constants.cs" />
     <Compile Include="Core\Engine.cs" />
-    <Compile Include="Core\Timers.cs" />
+    <Compile Include="Utilities\Timers.cs" />
     <Compile Include="Enumerations\FieldType.cs" />
     <Compile Include="Enumerations\TowerType.cs" />
     <Compile Include="Geometry\GeometryUtils.cs" />
@@ -99,7 +101,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Debuffs\BasicDebuff.cs" />
     <Compile Include="Models\Debuffs\Debuff.cs" />
     <Compile Include="Models\Debuffs\NullDebuff.cs" />
     <Compile Include="Models\Enemies\Skeleton.cs" />
@@ -108,9 +109,9 @@
     <Compile Include="Models\GameObject.cs" />
     <Compile Include="Models\Projectiles\SniperProjectile.cs" />
     <Compile Include="Models\Projectiles\Projectile.cs" />
-    <Compile Include="Models\Projectiles\SnowProjectile.cs" />
+    <Compile Include="Models\Projectiles\FreezeProjectile.cs" />
     <Compile Include="Models\Towers\ArrowTower.cs" />
-    <Compile Include="Models\Towers\SlowTower.cs" />
+    <Compile Include="Models\Towers\FreezeTower.cs" />
     <Compile Include="Models\Towers\SniperTower.cs" />
     <Compile Include="Models\Towers\FireTower.cs" />
     <Compile Include="Models\Towers\Tower.cs" />
@@ -148,7 +149,7 @@
     <Resource Include="Resources\Images\ProjectilesStyleOne.png" />
     <Resource Include="Resources\Images\remove.png" />
     <Resource Include="Resources\Images\Skeleton.png" />
-    <Resource Include="Resources\Images\slowtower.png" />
+    <Resource Include="Resources\Images\FreezeTower.png" />
     <Resource Include="Resources\Images\SniperTower.png" />
     <Resource Include="Resources\Images\towerImageFrame.png" />
     <Resource Include="Resources\Images\upgrade.png" />

@@ -10,19 +10,19 @@ namespace TowerDefenseGame.Resources
         private const int SpriteSheetRows = 5;
         private const int SpriteSheetCols = 7;
 
-        private static BitmapImage goblinSpriteSheet = new BitmapImage(
+        private static readonly BitmapImage goblinSpriteSheet = new BitmapImage(
             new Uri(@"..\..\Resources\Images\goblinsword.png",
                 UriKind.Relative));
 
-        private static BitmapImage skeletonSpriteSheet = new BitmapImage(
+        private static readonly BitmapImage skeletonSpriteSheet = new BitmapImage(
            new Uri(@"..\..\Resources\Images\Skeleton.png",
                UriKind.Relative));
 
-        private static BitmapImage zombieSpriteSheet = new BitmapImage(
+        private static readonly BitmapImage zombieSpriteSheet = new BitmapImage(
            new Uri(@"..\..\Resources\Images\Zombie.png",
                UriKind.Relative));
 
-        private static BitmapImage DeathSpriteSheet = new BitmapImage(
+        private static readonly BitmapImage DeathSpriteSheet = new BitmapImage(
            new Uri(@"..\..\Resources\Images\Death.png",
                UriKind.Relative));
 
@@ -37,10 +37,10 @@ namespace TowerDefenseGame.Resources
                    new BitmapImage(
                        new Uri(@"..\..\Resources\Images\FireTower.png", UriKind.Relative)));
 
-        public static readonly ImageBrush SlowTower =
+        public static readonly ImageBrush FreezeTower =
         new ImageBrush(
                 new BitmapImage(
-                    new Uri(@"..\..\Resources\Images\SlowTower.png", UriKind.Relative)));
+                    new Uri(@"..\..\Resources\Images\FreezeTower.png", UriKind.Relative)));
 
         public static readonly ImageBrush SniperTower =
       new ImageBrush(
@@ -50,7 +50,7 @@ namespace TowerDefenseGame.Resources
         public static readonly CroppedBitmap[][] GoblinSprites = new CroppedBitmap[5][];
         public static readonly CroppedBitmap[][] SkeletonSprites = new CroppedBitmap[5][];
         public static readonly CroppedBitmap[][] ZombieSprites = new CroppedBitmap[5][];
-        public static readonly CroppedBitmap[][] DeathSprites = new CroppedBitmap[5][];
+        public static readonly CroppedBitmap[][] GrimReaperSprites = new CroppedBitmap[5][];
 
         static SpritesManager()
         {
@@ -67,7 +67,7 @@ namespace TowerDefenseGame.Resources
                 GoblinSprites[row] = new CroppedBitmap[SpriteSheetCols];
                 SkeletonSprites[row] = new CroppedBitmap[SpriteSheetCols];
                 ZombieSprites[row] = new CroppedBitmap[SpriteSheetCols];
-                DeathSprites[row] = new CroppedBitmap[SpriteSheetCols];
+                GrimReaperSprites[row] = new CroppedBitmap[SpriteSheetCols];
 
                 for (int col = 0; col < SpriteSheetCols; col++)
                 {
@@ -86,7 +86,7 @@ namespace TowerDefenseGame.Resources
                         new Int32Rect(directionMultiplierX * col,
                         directionMultiplierY * row, 60, 57));
 
-                    DeathSprites[row][col] = new CroppedBitmap(
+                    GrimReaperSprites[row][col] = new CroppedBitmap(
                        DeathSpriteSheet,
                        new Int32Rect(directionMultiplierX * col,
                        directionMultiplierY * row, 60, 57));

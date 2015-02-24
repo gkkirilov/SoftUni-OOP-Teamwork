@@ -1,14 +1,9 @@
-﻿using System;
-using System.ComponentModel.Design.Serialization;
-using System.Windows;
-using System.Windows.Media.Imaging;
-using TowerDefenseGame.Enumerations;
-using TowerDefenseGame.Resources;
-
-namespace TowerDefenseGame.Models.Towers
+﻿namespace TowerDefenseGame.Models.Towers
 {
     using System.Windows.Media;
-    using TowerDefenseGame.Core;
+    using Enumerations;
+    using Resources;
+    using Utilities;
 
     public class FireTower : Tower
     {
@@ -18,15 +13,59 @@ namespace TowerDefenseGame.Models.Towers
         private const int TowerDamage = 5;
 
         private static readonly ImageBrush TowerImage = SpritesManager.FireTower;
-        private const int Speed = 50;
-        private const int Range = 200;
-        public const int Price = 30;
 
-        private static ProjectileSelection ProjectileType = ProjectileSelection.FireProjectile;
+        private const ProjectileSelection ProjectileType = ProjectileSelection.FireProjectile;
 
         public FireTower(double x, double y)
-            : base(x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, TowerSpeed, TowerRange, TowerDamage, TowerImage, TowerPrice, ProjectileType)
+            : base(
+            x,
+            y,
+            Constants.FieldSegmentSize,
+            Constants.FieldSegmentSize,
+            TowerSpeed,
+            TowerRange,
+            TowerDamage,
+            TowerImage,
+            TowerPrice,
+            ProjectileType)
         {
+        }
+
+        protected override void SetLevelBonus()
+        {
+            switch (this.Level)
+            {
+                case 1:
+                    this.levelBonus = 0;
+                    break;
+                case 2:
+                    this.levelBonus = 0;
+                    break;
+                case 3:
+                    this.levelBonus = 0;
+                    break;
+                case 4:
+                    this.levelBonus = 0;
+                    break;
+                case 5:
+                    this.levelBonus = 0;
+                    break;
+                case 6:
+                    this.levelBonus = 0;
+                    break;
+                case 7:
+                    this.levelBonus = 0;
+                    break;
+                case 8:
+                    this.levelBonus = 0;
+                    break;
+                case 9:
+                    this.levelBonus = 0;
+                    break;
+                case 10:
+                    this.levelBonus = 0;
+                    break;
+            }
         }
     }
 }

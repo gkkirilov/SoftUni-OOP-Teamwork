@@ -1,17 +1,15 @@
-﻿using TowerDefenseGame.Controllers;
-
-namespace TowerDefenseGame.Models.Enemies
+﻿namespace TowerDefenseGame.Models.Enemies
 {
     using System;
     using System.Windows;
-    using TowerDefenseGame.Enumerations;
+    using Enumerations;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
-    using TowerDefenseGame.Geometry;
-    using TowerDefenseGame.Interfaces;
-    using TowerDefenseGame.Models.Effects.Debuffs;
-    using TowerDefenseGame.Controllers;
-using System.Windows.Controls;
+    using Geometry;
+    using Interfaces;
+    using Controllers;
+    using System.Windows.Controls;
+    using Debuffs;
 
     public abstract class Enemy : GameObject, IEnemy
     {
@@ -113,10 +111,10 @@ using System.Windows.Controls;
 
         public override void Update()
         {
+            this.LifePoints -= this.Debuff.LifePointsEffect;
+
             healthPointsBar.Value = this.LifePoints;
             ResolveDebuffState();
-
-            this.LifePoints -= this.Debuff.LifePointsEffect;
 
             if (this.IsDying)
             {

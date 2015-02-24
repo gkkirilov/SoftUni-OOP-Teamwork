@@ -1,19 +1,17 @@
-﻿using System;
-using System.Media;
-
-namespace TowerDefenseGame
+﻿namespace TowerDefenseGame
 {
-    using System.Globalization;
+    using System.Media;
     using System.Linq;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Media;
     using System.Windows.Shapes;
-    using TowerDefenseGame.Controllers;
-    using TowerDefenseGame.Core;
-    using TowerDefenseGame.Enumerations;
-    using TowerDefenseGame.Models;
+    using Controllers;
+    using Core;
+    using Enumerations;
+    using Models;
+    using Utilities;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -131,17 +129,17 @@ namespace TowerDefenseGame
                 case "SniperTowerSelection":
                     PlayerInterfaceController.TowerTypeSelected = TowerType.Sniper;
                     this.FireTowerSelection.StrokeThickness = 0;
-                    this.SlowTowerSelection.StrokeThickness = 0;
+                    this.FreezeTowerSelection.StrokeThickness = 0;
                     this.ArrowTowerSelection.StrokeThickness = 0;
                     break;
                 case "FireTowerSelection":
                     PlayerInterfaceController.TowerTypeSelected = TowerType.Fire;
                     this.SniperTowerSelection.StrokeThickness = 0;
-                    this.SlowTowerSelection.StrokeThickness = 0;
+                    this.FreezeTowerSelection.StrokeThickness = 0;
                     this.ArrowTowerSelection.StrokeThickness = 0;
                     break;
-                case "SlowTowerSelection":
-                    PlayerInterfaceController.TowerTypeSelected = TowerType.Slow;
+                case "FreezeTowerSelection":
+                    PlayerInterfaceController.TowerTypeSelected = TowerType.Freeze;
                     this.SniperTowerSelection.StrokeThickness = 0;
                     this.ArrowTowerSelection.StrokeThickness = 0;
                     this.FireTowerSelection.StrokeThickness = 0;
@@ -150,7 +148,7 @@ namespace TowerDefenseGame
                     PlayerInterfaceController.TowerTypeSelected = TowerType.Arrow;
                     this.SniperTowerSelection.StrokeThickness = 0;
                     this.FireTowerSelection.StrokeThickness = 0;
-                    this.SlowTowerSelection.StrokeThickness = 0;
+                    this.FreezeTowerSelection.StrokeThickness = 0;
                     break;
                 default:
                     break;
@@ -199,7 +197,7 @@ namespace TowerDefenseGame
             PlayerInterfaceController.UpgradeSelectedTower();
         }
 
-        private void UpdateClickedClicekdOnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void UpdateClickedOnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (!(sender is Rectangle))
             {

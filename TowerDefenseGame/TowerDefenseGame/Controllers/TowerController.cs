@@ -1,10 +1,10 @@
 ﻿namespace TowerDefenseGame.Controllers
 {
     using System.Collections.Generic;
-    using Core;
     using Interfaces;
-    using TowerDefenseGame.Enumerations;
-    using TowerDefenseGame.Models.Towers;
+    using Enumerations;
+    using Models.Towers;
+    using Utilities;
 
     public static class TowerController
     {
@@ -39,13 +39,13 @@
                     PlayerInterfaceController.Money -= FireTower.TowerPrice;
                     TowerController.Towers.Add(new FireTower(x, y));
                     break;
-                case TowerType.Slow:
-                    if (PlayerInterfaceController.Money < SlowTower.TowerPrice)
+                case TowerType.Freeze:
+                    if (PlayerInterfaceController.Money < FreezeTower.TowerPrice)
                     {
                         return;
                     }
-                    PlayerInterfaceController.Money -= SlowTower.TowerPrice;
-                    TowerController.Towers.Add(new SlowTower(x, y));
+                    PlayerInterfaceController.Money -= FreezeTower.TowerPrice;
+                    TowerController.Towers.Add(new FreezeTower(x, y));
                     break;
                 case TowerType.Sniper:
                     if (PlayerInterfaceController.Money < SniperTower.TowerPrice)

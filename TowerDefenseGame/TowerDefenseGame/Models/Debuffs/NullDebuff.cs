@@ -1,4 +1,4 @@
-﻿namespace TowerDefenseGame.Models.Effects.Debuffs
+﻿namespace TowerDefenseGame.Models.Debuffs
 {
     class NullDebuff : Debuff
     {

@@ -2,8 +2,8 @@
 {
     using System;
     using System.Windows.Media;
-    using Core;
     using System.Windows.Shapes;
+    using Utilities;
 
     public static class GeometryUtils
     {

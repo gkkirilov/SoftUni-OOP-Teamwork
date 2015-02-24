@@ -1,15 +1,14 @@
-﻿using TowerDefenseGame.Enumerations;
-
-namespace TowerDefenseGame.Models.Towers
+﻿namespace TowerDefenseGame.Models.Towers
 {
     using System;
     using System.Linq;
     using System.Windows.Media;
     using Geometry;
-    using TowerDefenseGame.Controllers;
-    using TowerDefenseGame.Core;
-    using TowerDefenseGame.Models.Projectiles;
-    using TowerDefenseGame.Interfaces;
+    using Enumerations;
+    using Controllers;
+    using Projectiles;
+    using Interfaces;
+    using Utilities;
 
     public abstract class Tower : GameObject, ITower
     {
@@ -17,9 +16,10 @@ namespace TowerDefenseGame.Models.Towers
         private int towerRange;
         private int damage;
         private int level = 1;
+        protected int levelBonus = 0;
         private IEnemy target;
-        public int price;
-        private ProjectileSelection projectileType;
+        private int price;
+        private readonly ProjectileSelection projectileType;
 
         private int frameCount = 0;
 
@@ -94,7 +94,7 @@ namespace TowerDefenseGame.Models.Towers
         {
             get
             {
-                return this.damage;
+                return this.damage + this.levelBonus;
             }
 
             private set
@@ -142,14 +142,23 @@ namespace TowerDefenseGame.Models.Towers
             CalculateRotationAngle();
             GeometryUtils.RotateModel(this.Model, this.towerAngle);
 
+            FireProjectile();
+        }
+
+        public void Upgrade()
+        {
+            this.level++;
+            this.Price += this.Price / 2;
+        }
+
+        private void FireProjectile()
+        {
             if (this.Target != null && this.Target.Exists && this.frameCount >= this.Speed)
             {
                 this.frameCount = 0;
 
                 if (Math.Abs(this.lastAngle - this.towerAngle) < 1)
                 {
-                
-                if (Math.Abs(this.lastAngle - this.towerAngle) < 1)
                     switch (this.projectileType)
                     {
                         case ProjectileSelection.ArrowProjectile:
@@ -158,7 +167,7 @@ namespace TowerDefenseGame.Models.Towers
                                     this.Coordinates.X,
                                     this.Coordinates.Y,
                                     this.Target,
-                                    this.Damage + this.level));
+                                    this.Damage));
                             break;
                         case ProjectileSelection.FireProjectile:
                             ProjectileController.Projectiles.Add(
@@ -166,25 +175,23 @@ namespace TowerDefenseGame.Models.Towers
                                     this.Coordinates.X,
                                     this.Coordinates.Y,
                                     this.Target,
-                                    this.Damage + this.level));
+                                    this.Damage));
                             break;
-                        case ProjectileSelection.SnowProjectile:
+                        case ProjectileSelection.FreezeProjectile:
                             ProjectileController.Projectiles.Add(
-                                new SnowProjectile(
+                                new FreezeProjectile(
                                     this.Coordinates.X,
                                     this.Coordinates.Y,
                                     this.Target,
-                                    this.Damage + this.level));
+                                    this.Damage));
                             break;
                         case ProjectileSelection.SniperProjectile:
                             ProjectileController.Projectiles.Add(
                                 new SniperProjectile(
-                                     this.Coordinates.X,
-                                     this.Coordinates.Y,
-                                     this.Target,
-                                     this.Damage + this.level));
-                            break;
-                        default:
+                                    this.Coordinates.X,
+                                    this.Coordinates.Y,
+                                    this.Target,
+                                    this.Damage));
                             break;
                     }
                 }
@@ -193,12 +200,6 @@ namespace TowerDefenseGame.Models.Towers
             {
                 this.frameCount++;
             }
-        }
-
-        public void Upgrade()
-        {
-            this.level++;
-            this.Price += this.Price / 2;
         }
 
         private void GetTarget()
@@ -245,6 +246,8 @@ namespace TowerDefenseGame.Models.Towers
 
             this.lastAngle = angle;
             this.towerAngle = angle * RotationBlendFactor + this.towerAngle * (1 - RotationBlendFactor);
-        }    
+        }
+
+        protected abstract void SetLevelBonus();
     }
 }

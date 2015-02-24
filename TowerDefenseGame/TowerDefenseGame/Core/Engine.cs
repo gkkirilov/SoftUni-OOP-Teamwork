@@ -1,9 +1,8 @@
-﻿using System;
-
-namespace TowerDefenseGame.Core
+﻿namespace TowerDefenseGame.Core
 {
-    using TowerDefenseGame.Controllers;
-    using TowerDefenseGame.Interfaces;
+    using Controllers;
+    using Interfaces;
+    using Utilities;
 
     public class Engine : IEngine
     {

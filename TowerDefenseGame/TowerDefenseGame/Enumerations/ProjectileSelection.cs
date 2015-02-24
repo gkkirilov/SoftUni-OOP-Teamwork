@@ -4,7 +4,7 @@
     {
         ArrowProjectile,
         FireProjectile,
-        SnowProjectile,
+        FreezeProjectile,
         SniperProjectile
     }
 }

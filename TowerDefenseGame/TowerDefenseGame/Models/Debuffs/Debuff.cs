@@ -1,4 +1,4 @@
-﻿namespace TowerDefenseGame.Models.Effects.Debuffs
+﻿namespace TowerDefenseGame.Models.Debuffs
 {
     using System;
     using TowerDefenseGame.Interfaces;
@@ -14,6 +14,7 @@
 
         protected Debuff(int duration, double lifePointsEffect, double speedEffect)
         {
+            this.timeToLive = duration;
             this.LifePointsEffect = lifePointsEffect;
             this.SpeedEffect = speedEffect;
         }

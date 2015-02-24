@@ -31,7 +31,7 @@
                    RenderTransformOrigin="-1.614,0.596"
                    Canvas.Left="905"
                    MouseDown="UpdateClickedOnMouseDown"
-                   MouseLeftButtonUp="UpdateClickedClicekdOnMouseLeftButtonUp">
+                   MouseLeftButtonUp="UpdateClickedOnMouseLeftButtonUp">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Resources/Images/upgrade.png"/>
             </Rectangle.Fill>
@@ -104,7 +104,7 @@
         </Rectangle>
 
         <Rectangle Stroke="Blue"
-                   Name="SlowTowerSelection"
+                   Name="FreezeTowerSelection"
                    StrokeThickness="0"
                    Height="69" 
                    Canvas.Left="440" 
@@ -113,7 +113,7 @@
                    RenderTransformOrigin="-1.614,0.596"
                    MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" >
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/Images/slowtower.png"/>
+                <ImageBrush ImageSource="Resources/Images/FreezeTower.png"/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Height="28" 

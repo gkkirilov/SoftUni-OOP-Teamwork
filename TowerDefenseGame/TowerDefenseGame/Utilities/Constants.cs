@@ -1,4 +1,4 @@
-﻿namespace TowerDefenseGame.Core
+﻿namespace TowerDefenseGame.Utilities
 {
     public static class Constants
     {

@@ -1,11 +1,8 @@
 ﻿namespace TowerDefenseGame.Models
 {
-    using System;
     using System.Windows.Media;
-    using TowerDefenseGame.Core;
-    using TowerDefenseGame.Enumerations;
-    using TowerDefenseGame.Interfaces;
-    using TowerDefenseGame.Models.Enemies;
+    using Enumerations;
+    using Utilities;
 
     public class FieldSegment : GameObject
     {

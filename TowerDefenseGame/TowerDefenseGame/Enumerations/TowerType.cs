@@ -4,7 +4,7 @@
     {
         Arrow,
         Fire,
-        Slow,
+        Freeze,
         Sniper
     }
 }

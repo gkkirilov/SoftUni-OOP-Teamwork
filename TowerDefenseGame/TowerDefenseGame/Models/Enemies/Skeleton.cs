@@ -1,26 +1,28 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Media.Imaging;
-
-namespace TowerDefenseGame.Models.Enemies
+﻿namespace TowerDefenseGame.Models.Enemies
 {
-    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
     using Resources;
-    using TowerDefenseGame.Core;
+    using Utilities;
 
     public class Skeleton : Enemy
     {
         private const int EnemyLifePoints = 50;
         private const int EnemySpeed = 3;
-        private const int bounty = 10;
+        private const int Bounty = 10;
 
 
         private static readonly CroppedBitmap[][] EnemySprites = SpritesManager.SkeletonSprites;
 
         public Skeleton(double x, double y)
             : base(
-                x, y, Constants.FieldSegmentSize, Constants.FieldSegmentSize, Skeleton.EnemyLifePoints, Skeleton.EnemySpeed,
-                EnemySprites, bounty)
+                x,
+                y,
+                Constants.FieldSegmentSize,
+                Constants.FieldSegmentSize,
+                EnemyLifePoints,
+                EnemySpeed,
+                EnemySprites,
+                Bounty)
         {
 
         }

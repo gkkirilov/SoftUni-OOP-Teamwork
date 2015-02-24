@@ -2,10 +2,9 @@
 {
     using System;
     using System.Windows.Media;
-    using TowerDefenseGame.Core;
-    using TowerDefenseGame.Geometry;
-    using TowerDefenseGame.Interfaces;
-    using TowerDefenseGame.Models.Enemies;
+    using Geometry;
+    using Interfaces;
+    using Utilities;
 
     public abstract class Projectile : GameObject, IProjectile
     {

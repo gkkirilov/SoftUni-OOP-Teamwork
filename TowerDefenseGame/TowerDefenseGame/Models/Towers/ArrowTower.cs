@@ -1,13 +1,9 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Media.Imaging;
-using TowerDefenseGame.Enumerations;
-using TowerDefenseGame.Resources;
-
-namespace TowerDefenseGame.Models.Towers
+﻿namespace TowerDefenseGame.Models.Towers
 {
+    using Enumerations;
+    using Resources;
     using System.Windows.Media;
-    using TowerDefenseGame.Core;
+    using Utilities;
 
     public class ArrowTower : Tower
     {
@@ -18,7 +14,8 @@ namespace TowerDefenseGame.Models.Towers
 
         private static readonly ImageBrush TowerImage = SpritesManager.ArrowTower;
 
-        private static ProjectileSelection ProjectileType = ProjectileSelection.ArrowProjectile;
+        private const ProjectileSelection ProjectileType = ProjectileSelection.ArrowProjectile;
+
         public ArrowTower(double x, double y)
             : base(
                 x,
@@ -32,6 +29,43 @@ namespace TowerDefenseGame.Models.Towers
                 TowerPrice,
                 ProjectileType)
         {
+        }
+
+        protected override void SetLevelBonus()
+        {
+            switch (this.Level)
+            {
+                case 1:
+                    this.levelBonus = 0;
+                    break;
+                case 2:
+                    this.levelBonus = 0;
+                    break;
+                case 3:
+                    this.levelBonus = 0;
+                    break;
+                case 4:
+                    this.levelBonus = 0;
+                    break;
+                case 5:
+                    this.levelBonus = 0;
+                    break;
+                case 6:
+                    this.levelBonus = 0;
+                    break;
+                case 7:
+                    this.levelBonus = 0;
+                    break;
+                case 8:
+                    this.levelBonus = 0;
+                    break;
+                case 9:
+                    this.levelBonus = 0;
+                    break;
+                case 10:
+                    this.levelBonus = 0;
+                    break;
+            }
         }
     }
 }
