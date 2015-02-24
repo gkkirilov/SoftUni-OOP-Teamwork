@@ -140,5 +140,22 @@
                 <ImageBrush ImageSource="Resources/Images/coin.png" />
             </Rectangle.Fill>
         </Rectangle>
+        <Rectangle Height="33" 
+        	Width="33"
+        	Canvas.Top="53" 
+        	Canvas.Left="911">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/Images/sandtimer1.png" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Height="33" 
+        	Width="34"
+        	Canvas.Top="53" 
+        	RenderTransformOrigin="-1.614,0.596"
+        	Canvas.Left="1020">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/Images/skull.png" />
+            </Rectangle.Fill>
+        </Rectangle>
     </Canvas>
 </Window>

@@ -22,10 +22,10 @@
         public const int PlayerStartingLife = 10;
 
         //Towwer information
-        public const string ArrowTowerInformation = "arooooooooooooo\noooooooooooooooooooow";
-        public const string FireTowerInformation = "fireeeeeeeeeeeeee";
-        public const string FreezeTowerInformation = "freeezeeeeeee";
-        public const string SniperTowerInformation = "snipper";
+        public const string ArrowTowerInformation = "Arrow Tower\nTower Damage: 10\nTower Range: 150\nTower Price: 50";
+        public const string FireTowerInformation = "Fire Tower\nTower Damage: 30\nTower Range: 225\nTower Price: 125";
+        public const string FreezeTowerInformation = "Slow Tower\nTower Damage: 5\nTower Range: 120\nTower Price: 150";
+        public const string SniperTowerInformation = "Sniper Tower\nTower Damage: 70\nTower Range: 300\nTower Price: 400";
         //Towwer information
     }
 }
