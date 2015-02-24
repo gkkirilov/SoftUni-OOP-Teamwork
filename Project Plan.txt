@@ -47,7 +47,7 @@ Add background sound. // Georgi - Done
 Make the window unresizable. // Georgi - Done
 
 Make enemy life progress bars.					// Preslav - Done
-Add Derived Projectile/Enemy/Debuff classes 	// Georgi
+Add Derived Projectile/Enemy/Debuff classes 	// Georgi - Done
 Make the Segments stationed on the path occupied.	// Georgi
 
 Remove Effects class					// Preslav - Done
