@@ -20,5 +20,12 @@
 
         public const int StartingMoney = 500;
         public const int PlayerStartingLife = 10;
+
+        //Towwer information
+        public const string ArrowTowerInformation = "arooooooooooooo\noooooooooooooooooooow";
+        public const string FireTowerInformation = "fireeeeeeeeeeeeee";
+        public const string FreezeTowerInformation = "freeezeeeeeee";
+        public const string SniperTowerInformation = "snipper";
+        //Towwer information
     }
 }

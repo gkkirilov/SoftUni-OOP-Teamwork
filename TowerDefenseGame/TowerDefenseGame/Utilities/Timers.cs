@@ -17,29 +17,13 @@
             UpdateTimer.Interval = TimeSpan.FromMilliseconds(Constants.UpdateDelay);
             UpdateTimer.Tick += (obj, args) =>
             {
-                if (PlayerInterfaceController.PlayerLife >= 1)
-                {
-                    engine.Update();
-                }
-                else
-                {
-                    // TODO: GameOver
-                    Console.WriteLine("gameOver");
-                }
+                engine.Update();
             };
 
             RenderTimer.Interval = TimeSpan.FromMilliseconds(Constants.UpdateDelay);
             RenderTimer.Tick += (obj, args) =>
             {
-                if (PlayerInterfaceController.PlayerLife >= 1)
-                {
-                    engine.Render();
-                }
-                else
-                {
-                    // TODO: GameOver
-                    Console.WriteLine("gameOver");
-                }
+                engine.Render();
             };
             RenderTimer.Start();
             UpdateTimer.Start();
@@ -69,6 +53,14 @@
             };
 
             WaveDelayTimer.Start();
+        }
+
+        public static void StopTimers()
+        {
+            WaveDelayTimer.Stop();
+            EnemyGenerator.Stop();
+            UpdateTimer.Stop();
+            RenderTimer.Stop();
         }
     }
 }

@@ -13,6 +13,7 @@
         public const int TowerPrice = 50;
 
         private static readonly ImageBrush TowerImage = SpritesManager.ArrowTower;
+        private static readonly ImageBrush TowerProfileImage = SpritesManager.ArrowTower;
 
         private const ProjectileSelection ProjectileType = ProjectileSelection.ArrowProjectile;
 
@@ -26,6 +27,7 @@
                 TowerRange,
                 TowerDamage,
                 TowerImage,
+                TowerProfileImage,
                 TowerPrice,
                 ProjectileType)
         {

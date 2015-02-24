@@ -1,4 +1,6 @@
-﻿namespace TowerDefenseGame
+﻿using System.Windows.Forms;
+
+namespace TowerDefenseGame
 {
     using System.Media;
     using System.Linq;
@@ -26,8 +28,6 @@
             AnimationController.ConfigureRenderer(this.MainCanvas);
             this.engine = new Engine();
             GameFieldController.SetGameFieldEvents(this);
-            SoundPlayer snd = new SoundPlayer(@"..\..\Resources\music.wav");
-            snd.PlayLooping();
         }
 
         public void GameFieldMouseLeftButtonDown(object sender, MouseEventArgs e)
@@ -57,7 +57,7 @@
                     }
                 }
             }
-            
+
 
             for (int col = 0; col < Constants.FieldCols; col++)
             {
@@ -83,9 +83,9 @@
 
         void TowerMouseButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ((Rectangle) sender).Stroke = Brushes.Red;
-            ((Rectangle) sender).StrokeThickness = 2;
-            
+            ((Rectangle)sender).Stroke = Brushes.Red;
+            ((Rectangle)sender).StrokeThickness = 2;
+
             ((Rectangle)sender).RadiusX = 15;
             ((Rectangle)sender).RadiusY = 15;
 
@@ -101,12 +101,11 @@
                     }
                     PlayerInterfaceController.TowerSelected = TowerController.Towers[index];
 
-                    this.towerImageFrame.Fill = TowerController.Towers[index].Model.Fill;
+                    this.towerImageFrame.Fill = TowerController.Towers[index].ProfileImage;
                     this.towerImageFrame.Stroke = (SolidColorBrush)(new BrushConverter().ConvertFrom("#e07400"));
                     this.towerImageFrame.RadiusY = 5;
                     this.towerImageFrame.RadiusX = 5;
                     this.towerImageFrame.StrokeThickness = 5;
-                    //PlayerInterfaceController.TowerInfo = TowerController.Towers[index];
 
                     return;
                 }
@@ -168,7 +167,7 @@
             RemoveButton.RadiusX = 3;
             RemoveButton.RadiusY = 3;
             PlayerInterfaceController.DestroySelectedTower();
-            
+
         }
 
         private void RemoveClicekdOnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)

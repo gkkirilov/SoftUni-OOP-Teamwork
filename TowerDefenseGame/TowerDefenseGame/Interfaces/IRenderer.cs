@@ -8,11 +8,10 @@ namespace TowerDefenseGame.Interfaces
 
         void RemoveModel(IGameObject gameObject);
 
-        void Clear();
-
         void DrawText(TextBlock text, int x, int y);
 
         void RenderHealthBar(IEnemy creature);
         void RemoveHealthBar(IEnemy creature);
+        void RenderGameOver();
     }
 }

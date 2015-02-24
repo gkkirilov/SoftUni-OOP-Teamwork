@@ -13,6 +13,7 @@
         public const int TowerPrice = 400;
 
         private static readonly ImageBrush TowerImage = SpritesManager.SniperTower;
+        private static readonly ImageBrush TowerProfileImage = SpritesManager.SniperTower;
 
         private const ProjectileSelection ProjectileType = ProjectileSelection.SniperProjectile;
 
@@ -26,6 +27,7 @@
                 TowerRange,
                 TowerDamage,
                 TowerImage,
+                TowerProfileImage,
                 TowerPrice,
                 ProjectileType)
         {
