@@ -23,6 +23,12 @@ namespace TowerDefenseGame.Utilities
 
         public static TextBlock TowerInformation { get; set; }
 
+        public static TextBlock WaveCounter { get; set; }
+
+        public static TextBlock KilledEnemies { get; set; }
+
+        public static int KilledEnemiesCounter = 0;
+
         static Statistics()
         {
             Money = new TextBlock();
@@ -31,6 +37,8 @@ namespace TowerDefenseGame.Utilities
             UpgradePrice = new TextBlock();
             RemovePrice = new TextBlock();
             TowerInformation = new TextBlock();
+            WaveCounter = new TextBlock();
+            KilledEnemies = new TextBlock(){};
         }
 
         public static void Render()
@@ -40,7 +48,24 @@ namespace TowerDefenseGame.Utilities
             AnimationController.Renderer.DrawText(TowerStats, 1004, 415);
             AnimationController.Renderer.DrawText(UpgradePrice, 1034, 503);
             AnimationController.Renderer.DrawText(RemovePrice, 1034, 540);
-            AnimationController.Renderer.DrawText(TowerInformation, 834, 640);
+            AnimationController.Renderer.DrawText(TowerInformation, 544, 640);
+            AnimationController.Renderer.DrawText(WaveCounter, 948, 52);
+            AnimationController.Renderer.DrawText(KilledEnemies, 1055, 52);
+
+
+        }
+        public static void SetKilledEnemies(string text, Brush color)
+        {
+            KilledEnemies.Foreground = color;
+            KilledEnemies.Text = text;
+            KilledEnemies.FontSize = 25;
+        }
+
+        public static void SetWaveCounter(string text, Brush color)
+        {
+            WaveCounter.Foreground = color;
+            WaveCounter.Text = text;
+            WaveCounter.FontSize = 25;
         }
 
         public static void SetTowerInformation(string text, Brush color)
@@ -91,6 +116,20 @@ namespace TowerDefenseGame.Utilities
         {
             SetMoney(PlayerInterfaceController.Money.ToString(), Brushes.Goldenrod);
             SetLife(PlayerInterfaceController.PlayerLife.ToString(), Brushes.Green);
+            SetWaveCounter(EnemyController.WaveCount.ToString(), Brushes.Black);
+
+            SetKilledEnemies(KilledEnemiesCounter.ToString(), Brushes.Black);
+
+            //for (int index = 0; index < EnemyController.Enemies.Count; index++)
+            //{
+            //    EnemyController.Enemies[index].Update();
+
+            //    if (!EnemyController.Enemies[index].Exists)
+            //    {
+            //        KilledEnemiesCounter++;
+            //    }
+            //}
+
             if (PlayerInterfaceController.TowerSelected != null)
             {
                 StringBuilder info = new StringBuilder();
@@ -105,19 +144,17 @@ namespace TowerDefenseGame.Utilities
                 SetRemovePrice(((PlayerInterfaceController.TowerSelected.Price) / 3).ToString(), Brushes.Black);
             }
 
-            if (PlayerInterfaceController.TowerTypeSelected != null)
+            switch (PlayerInterfaceController.TowerTypeSelected)
             {
-                switch (PlayerInterfaceController.TowerTypeSelected)
-                {
-                    case TowerType.Arrow: SetTowerInformation(Constants.ArrowTowerInformation.ToString(), Brushes.Black);
-                        break;
-                    case TowerType.Fire: SetTowerInformation(Constants.FireTowerInformation.ToString(), Brushes.Black);
-                        break;
-                    case TowerType.Freeze: SetTowerInformation(Constants.FreezeTowerInformation.ToString(), Brushes.Black);
-                        break;
-                    case TowerType.Sniper: SetTowerInformation(Constants.SniperTowerInformation.ToString(), Brushes.Black);
-                        break;
-                }
+                case TowerType.Arrow: SetTowerInformation(Constants.ArrowTowerInformation.ToString(), Brushes.Black);
+                    break;
+                case TowerType.Fire: SetTowerInformation(Constants.FireTowerInformation.ToString(), Brushes.Black);
+                    break;
+                case TowerType.Freeze: SetTowerInformation(Constants.FreezeTowerInformation.ToString(), Brushes.Black);
+                    break;
+                case TowerType.Sniper: SetTowerInformation(Constants.SniperTowerInformation.ToString(), Brushes.Black);
+                    break;
+               
             }
         }
     }

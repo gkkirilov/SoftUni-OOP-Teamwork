@@ -22,7 +22,7 @@
         public const int PlayerStartingLife = 10;
 
         //Towwer information
-        public const string ArrowTowerInformation = "arooooooooooooo\noooooooooooooooooooow";
+        public const string ArrowTowerInformation = "-ArrowTower-\n Tower Range: 150\n Tower Damage: 5\n Tower Price: 25";
         public const string FireTowerInformation = "fireeeeeeeeeeeeee";
         public const string FreezeTowerInformation = "freeezeeeeeee";
         public const string SniperTowerInformation = "snipper";
