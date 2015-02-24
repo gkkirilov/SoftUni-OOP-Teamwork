@@ -12,7 +12,7 @@
         private static List<IEnemy> enemies = new List<IEnemy>();
         private static int waveEnemiesCount = 0;
         private static int waveCount = 0;
-        private static int enemyTypeCounter = 0;
+        private static int enemyTypeCounter = -1;
 
         public static readonly Point[] EnemyBeacons = new Point[] 
             { 
@@ -105,20 +105,20 @@
             switch (enemyTypeCounter)
             {
                 case 0:
-                    EnemyController.Enemies.Add(new Goblin(x, y));
+                    EnemyController.Enemies.Add(new Skeleton(x, y));
                     break;
                 case 1:
                     EnemyController.Enemies.Add(new Zombie(x, y));
                     break;
                 case 2:
-                    EnemyController.Enemies.Add(new GrimReaper(x, y));
+                    EnemyController.Enemies.Add(new Goblin(x, y));
                     break;
                 case 3:
-                    EnemyController.Enemies.Add(new Skeleton(x, y));
+                    EnemyController.Enemies.Add(new GrimReaper(x, y));
                     break;
                 default:
                     enemyTypeCounter = 0;
-                    EnemyController.Enemies.Add(new Goblin(x, y));
+                    EnemyController.Enemies.Add(new Skeleton(x, y));
                     break;
             }
         }
