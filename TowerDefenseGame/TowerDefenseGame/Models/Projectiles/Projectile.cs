@@ -2,6 +2,7 @@
 {
     using System;
     using System.Windows.Media;
+    using Debuffs;
     using Geometry;
     using Interfaces;
     using Utilities;
@@ -109,7 +110,10 @@
             if (this.Intersects(this.Target))
             {
                 this.Target.TakeDamage(this.Damage);
-                this.Target.Debuff = this.InflictionDebuff;
+                if (this.Target.Debuff is NullDebuff)
+                {
+                    this.Target.Debuff = this.InflictionDebuff;
+                }
                 this.Exists = false;
             }
 

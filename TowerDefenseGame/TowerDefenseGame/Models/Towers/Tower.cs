@@ -157,6 +157,7 @@
         {
             this.level++;
             this.Price += this.Price / 2;
+            this.SetLevelBonus();
         }
 
         private void FireProjectile()

@@ -38,7 +38,7 @@
             this.enemySprites = enemySprites;
             this.bounty = bounty;
 
-            healthPointsBar.Maximum = lifePoints;
+            healthPointsBar.Maximum = this.LifePoints;
             healthPointsBar.Minimum = 0;
             healthPointsBar.Height = 5;
             healthPointsBar.Width = width;
@@ -51,7 +51,9 @@
         {
             get
             {
-                return this.speed;
+                var result = this.speed - this.Debuff.SpeedEffect;
+
+                return result < 1 ? 1 : result;
             }
 
             private set
@@ -129,7 +131,7 @@
             double lastPositionX = this.Coordinates.X;
             double lastPositionY = this.Coordinates.Y;
 
-            GeometryUtils.HandleMovement(this.Coordinates, EnemyController.EnemyBeacons[beaconCounter], this.Speed - this.Debuff.SpeedEffect);
+            GeometryUtils.HandleMovement(this.Coordinates, EnemyController.EnemyBeacons[beaconCounter], this.Speed);
 
             ResolveState(lastPositionX, lastPositionY);
             ResolveMovementAnimation();
