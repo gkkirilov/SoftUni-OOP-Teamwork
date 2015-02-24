@@ -8,7 +8,7 @@
     {
         private const int EnemyLifePoints = 200;
         private const int EnemySpeed = 2;
-        private const int Bounty = 35;
+        private const int Bounty = 22;
 
 
         private static readonly CroppedBitmap[][] EnemySprites = SpritesManager.GrimReaperSprites;

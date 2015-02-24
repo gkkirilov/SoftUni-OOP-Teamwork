@@ -7,9 +7,9 @@
 
     public class ArrowTower : Tower
     {
-        private const int TowerSpeed = 20;
-        private const int TowerRange = 150;
-        private const int TowerDamage = 10;
+        private const int TowerSpeed = 10;
+        private const int TowerRange = 100;
+        private const int TowerDamage = 5;
         public const int TowerPrice = 50;
 
         private static readonly ImageBrush TowerImage = SpritesManager.ArrowTower;

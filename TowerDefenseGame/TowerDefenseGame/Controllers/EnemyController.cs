@@ -108,10 +108,10 @@
                     EnemyController.Enemies.Add(new Skeleton(x, y));
                     break;
                 case 1:
-                    EnemyController.Enemies.Add(new Zombie(x, y));
+                    EnemyController.Enemies.Add(new Goblin(x, y));
                     break;
                 case 2:
-                    EnemyController.Enemies.Add(new Goblin(x, y));
+                    EnemyController.Enemies.Add(new Zombie(x, y));
                     break;
                 case 3:
                     EnemyController.Enemies.Add(new GrimReaper(x, y));

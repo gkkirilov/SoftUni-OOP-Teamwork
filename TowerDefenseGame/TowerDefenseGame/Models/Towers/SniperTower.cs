@@ -7,10 +7,10 @@
 
     public class SniperTower : Tower
     {
-        private const int TowerSpeed = 35;
+        private const int TowerSpeed = 100;
         private const int TowerRange = 300;
         private const int TowerDamage = 70;
-        public const int TowerPrice = 400;
+        public const int TowerPrice = 350;
 
         private static readonly ImageBrush TowerImage = SpritesManager.SniperTower;
         private static readonly ImageBrush TowerProfileImage = SpritesManager.SniperTower;
