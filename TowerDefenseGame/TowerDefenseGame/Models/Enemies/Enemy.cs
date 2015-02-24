@@ -34,7 +34,7 @@
         protected Enemy(double x, double y, int width, int height, double lifePoints, double speed, CroppedBitmap[][] enemySprites, int bounty)
             : base(x, y, width, height, Brushes.Transparent)
         {
-            this.LifePoints = lifePoints + (Level * 5);
+            this.LifePoints = lifePoints + (Level * 50);
             this.Speed = speed;
             this.enemySprites = enemySprites;
             this.bounty = bounty;

@@ -6,8 +6,8 @@
 
     public class Skeleton : Enemy
     {
-        private const int EnemyLifePoints = 50;
-        private const int EnemySpeed = 3;
+        private const int EnemyLifePoints = 30;
+        private const int EnemySpeed = 4;
         private const int Bounty = 10;
 
 

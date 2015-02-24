@@ -60,7 +60,7 @@ namespace TowerDefenseGame.Resources
         public static readonly ImageBrush FreezeProjectile =
     new ImageBrush(
             new BitmapImage(
-                new Uri(@"..\..\Resources\Images\FreezeProjectile2.png", UriKind.Relative)));
+                new Uri(@"..\..\Resources\Images\FreezeProjectile.png", UriKind.Relative)));
 
         public static readonly ImageBrush SniperProjectile =
     new ImageBrush(

@@ -7,10 +7,10 @@
 
     public class SniperTower : Tower
     {
-        private const int TowerSpeed = 40;
+        private const int TowerSpeed = 35;
         private const int TowerRange = 300;
-        private const int TowerDamage = 5;
-        public const int TowerPrice = 40;
+        private const int TowerDamage = 70;
+        public const int TowerPrice = 400;
 
         private static readonly ImageBrush TowerImage = SpritesManager.SniperTower;
 
@@ -36,34 +36,34 @@
             switch (this.Level)
             {
                 case 1:
-                    this.levelBonus = 0;
+                    this.levelBonus += 30;
                     break;
                 case 2:
-                    this.levelBonus = 0;
+                    this.levelBonus += 30;
                     break;
                 case 3:
-                    this.levelBonus = 0;
+                    this.levelBonus += 30;
                     break;
                 case 4:
-                    this.levelBonus = 0;
+                    this.levelBonus += 30;
                     break;
                 case 5:
-                    this.levelBonus = 0;
+                    this.levelBonus += 30;
                     break;
                 case 6:
-                    this.levelBonus = 0;
+                    this.levelBonus += 30;
                     break;
                 case 7:
-                    this.levelBonus = 0;
+                    this.levelBonus += 30;
                     break;
                 case 8:
-                    this.levelBonus = 0;
+                    this.levelBonus += 30;
                     break;
                 case 9:
-                    this.levelBonus = 0;
+                    this.levelBonus += 30;
                     break;
                 case 10:
-                    this.levelBonus = 0;
+                    this.levelBonus += 30;
                     break;
             }
         }
