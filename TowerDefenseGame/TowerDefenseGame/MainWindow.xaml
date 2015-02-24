@@ -1,4 +1,3 @@
-
 ﻿<Window x:Class="TowerDefenseGame.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -42,7 +41,7 @@
                 <ImageBrush ImageSource="Resources/Images/coin.png" />
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle Fill="LightGray" Height="173" Stroke="Black" Canvas.Top="599" Width="1109"/>
+        
         <Rectangle Stroke="Blue"
                    Name="SniperTowerSelection"
                    StrokeThickness="3"
