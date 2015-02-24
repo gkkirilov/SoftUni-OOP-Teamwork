@@ -9,7 +9,6 @@
     public static class TowerController
     {
         private static List<ITower> towers = new List<ITower>();
-        private static int towerCount = 0;
 
         public static List<ITower> Towers
         {
@@ -19,56 +18,56 @@
             }
         }
 
-        public static void GenerateTower(double x, double y)
+        public static bool GenerateTower(double x, double y)
         {
             switch (PlayerInterfaceController.TowerTypeSelected)
             {
                 case TowerType.Arrow:
                     if (PlayerInterfaceController.Money < ArrowTower.TowerPrice)
                     {
-                        return;
+                        return false;
                     }
                     PlayerInterfaceController.Money -= ArrowTower.TowerPrice;
-                    TowerController.Towers.Add(new ArrowTower(x, y));
+                    Towers.Add(new ArrowTower(x, y));
                     break;
                 case TowerType.Fire:
                     if (PlayerInterfaceController.Money < FireTower.TowerPrice)
                     {
-                        return;
+                        return false;
                     }
                     PlayerInterfaceController.Money -= FireTower.TowerPrice;
-                    TowerController.Towers.Add(new FireTower(x, y));
+                    Towers.Add(new FireTower(x, y));
                     break;
                 case TowerType.Freeze:
                     if (PlayerInterfaceController.Money < FreezeTower.TowerPrice)
                     {
-                        return;
+                        return false;
                     }
                     PlayerInterfaceController.Money -= FreezeTower.TowerPrice;
-                    TowerController.Towers.Add(new FreezeTower(x, y));
+                    Towers.Add(new FreezeTower(x, y));
                     break;
                 case TowerType.Sniper:
                     if (PlayerInterfaceController.Money < SniperTower.TowerPrice)
                     {
-                        return;
+                        return false;
                     }
                     PlayerInterfaceController.Money -= SniperTower.TowerPrice;
-                    TowerController.Towers.Add(new SniperTower(x, y));
+                    Towers.Add(new SniperTower(x, y));
                     break;
                 default:
-                    break;
+                    return false;
             }
-            TowerController.towerCount++;
+            return true;
         }
 
         public static void Update()
         {
-            for (int index = 0; index < TowerController.Towers.Count; index++)
+            for (int index = 0; index < Towers.Count; index++)
             {
                 TowerController.Towers[index].Update();
-                if (!TowerController.Towers[index].Exists)
+                if (!Towers[index].Exists)
                 {
-                    TowerController.Towers.RemoveAt(index);
+                    Towers.RemoveAt(index);
                     index--;
                 }
             }
@@ -76,7 +75,7 @@
         
         public static void Render()
         {
-            foreach (var tower in TowerController.Towers)
+            foreach (var tower in Towers)
             {
                 AnimationController.Renderer.Render(tower);
             }

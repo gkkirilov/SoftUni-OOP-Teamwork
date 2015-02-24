@@ -94,6 +94,7 @@
                     AnimationController.Renderer.RemoveModel(EnemyController.Enemies[index]);
                     Enemies.RemoveAt(index);
                     index--;
+                    Statistics.KilledEnemiesCounter++;
                 }
             }
         }

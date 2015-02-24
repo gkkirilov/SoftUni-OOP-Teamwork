@@ -40,29 +40,11 @@ namespace TowerDefenseGame
             Rectangle model = (Rectangle)sender;
             FieldSegment fieldSegment = null;
 
-            for (int row = 0; row < Constants.FieldRows; row++)
-            {
-                for (int col = 0; col < Constants.FieldCols; col++)
-                {
-                    if (GameFieldController.GameField[row][col].Model.Equals(model))
-                    {
-                        if (GameFieldController.GameField[row][col].IsOccupied)
-                        {
-                            return;
-                        }
-                        else
-                        {
-                            GameFieldController.GameField[row][col].IsOccupied = true;
-                        }
-                    }
-                }
-            }
-
 
             for (int col = 0; col < Constants.FieldCols; col++)
             {
                 var selection = GameFieldController.GameField.Select(f => f[col]).Where(f => f.Model == model);
-                if (selection.Count() > 0)
+                if (selection.Any())
                 {
                     fieldSegment = selection.First();
                     break;
@@ -76,9 +58,30 @@ namespace TowerDefenseGame
 
             double x = Canvas.GetLeft(model);
             double y = Canvas.GetTop(model);
-            TowerController.GenerateTower(x, y);
-            TowerController.Towers[TowerController.Towers.Count - 1].Model.MouseLeftButtonDown += TowerMouseButtonDown;
+            bool hasGenerated = TowerController.GenerateTower(x, y);
 
+            if (hasGenerated)
+            {
+                TowerController.Towers[TowerController.Towers.Count - 1].Model.MouseLeftButtonDown += TowerMouseButtonDown;
+
+                for (int row = 0; row < Constants.FieldRows; row++)
+                {
+                    for (int col = 0; col < Constants.FieldCols; col++)
+                    {
+                        if (GameFieldController.GameField[row][col].Model.Equals(model))
+                        {
+                            if (GameFieldController.GameField[row][col].IsOccupied)
+                            {
+                                return;
+                            }
+                            else
+                            {
+                                GameFieldController.GameField[row][col].IsOccupied = true;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         void TowerMouseButtonDown(object sender, MouseButtonEventArgs e)

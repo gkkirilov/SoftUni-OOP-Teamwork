@@ -51,9 +51,9 @@ Add Derived Projectile/Enemy/Debuff classes 	// Georgi - Done
 Make the Segments stationed on the path occupied.	// Georgi
 
 Remove Effects class					// Preslav - Done
-Make game over event					// Vesko ?
-Extract projectile sprites from the spritesheet // ?
+Make game over event					// Preslav - Done
+Extract projectile sprites from the spritesheet // Dani - Done
 
-Add Selected tower information window.	// Vesko
+Add Selected tower information window.	// Vesko - Done
 Add Credits								// ?
 StyleCop the entire project				// Preslav
