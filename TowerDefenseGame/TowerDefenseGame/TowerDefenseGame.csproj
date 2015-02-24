@@ -154,6 +154,7 @@
     <Resource Include="Resources\Images\towerImageFrame.png" />
     <Resource Include="Resources\Images\upgrade.png" />
     <Resource Include="Resources\Images\Zombie.png" />
+    <Content Include="Resources\Images\GameOver.png" />
     <Content Include="Resources\music.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

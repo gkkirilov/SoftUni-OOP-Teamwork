@@ -1,18 +1,12 @@
-﻿using TowerDefenseGame.Controllers;
-
-namespace TowerDefenseGame.Core
+﻿namespace TowerDefenseGame.Core
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Media;
+    using System.Windows.Media.Imaging;
+    using Interfaces;
     using System.Windows.Shapes;
-    using TowerDefenseGame.Interfaces;
-    using TowerDefenseGame.Models;
+    using Utilities;
 
     public class Renderer : IRenderer
     {
@@ -29,11 +23,6 @@ namespace TowerDefenseGame.Core
             {
                 this.RenderObject(obj as IGameObject);
             }
-        }
-
-        public void Clear()
-        {
-            this.Container.Children.Clear();
         }
 
         public void RemoveModel(IGameObject gameObject)
@@ -65,7 +54,6 @@ namespace TowerDefenseGame.Core
 
         public void RenderHealthBar(IEnemy creature)
         {
-            
             Canvas.SetLeft(creature.HealthBar, creature.Coordinates.X);
             Canvas.SetTop(creature.HealthBar, creature.Coordinates.Y - 5);
 
@@ -78,6 +66,23 @@ namespace TowerDefenseGame.Core
         public void RemoveHealthBar(IEnemy creature)
         {
             this.Container.Children.Remove(creature.HealthBar);
+        }
+
+        public void RenderGameOver()
+        {
+            Rectangle gameOverRectangle = new Rectangle();
+            gameOverRectangle.Fill = new ImageBrush(new BitmapImage(
+           new Uri(@"..\..\Resources\Images\GameOver.png",
+               UriKind.Relative)));
+            gameOverRectangle.Width = 500;
+            gameOverRectangle.Height = 450;
+            gameOverRectangle.Stroke = Brushes.DarkRed;
+            gameOverRectangle.StrokeThickness = 5;
+
+            Canvas.SetTop(gameOverRectangle, 100);
+            Canvas.SetLeft(gameOverRectangle, 200);
+            this.Container.IsHitTestVisible = false;
+            this.Container.Children.Add(gameOverRectangle);
         }
     }
 }

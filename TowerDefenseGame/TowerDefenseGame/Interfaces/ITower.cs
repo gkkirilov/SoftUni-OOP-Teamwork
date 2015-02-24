@@ -1,5 +1,7 @@
 ﻿namespace TowerDefenseGame.Interfaces
 {
+    using System.Windows.Media;
+
     public interface ITower : IGameObject
     {
         int Speed { get; }
@@ -8,6 +10,9 @@
         int Price { get; }
         int Level { get; }
         int Damage { get; }
+
+        Brush ProfileImage { get; }
+
         void Upgrade();
     }
 }

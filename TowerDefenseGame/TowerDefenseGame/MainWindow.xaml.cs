@@ -26,8 +26,6 @@
             AnimationController.ConfigureRenderer(this.MainCanvas);
             this.engine = new Engine();
             GameFieldController.SetGameFieldEvents(this);
-            SoundPlayer snd = new SoundPlayer(@"..\..\Resources\music.wav");
-            snd.PlayLooping();
         }
 
         public void GameFieldMouseLeftButtonDown(object sender, MouseEventArgs e)
@@ -101,7 +99,7 @@
                     }
                     PlayerInterfaceController.TowerSelected = TowerController.Towers[index];
 
-                    this.towerImageFrame.Fill = TowerController.Towers[index].Model.Fill;
+                    this.towerImageFrame.Fill = TowerController.Towers[index].ProfileImage;
                     this.towerImageFrame.Stroke = (SolidColorBrush)(new BrushConverter().ConvertFrom("#e07400"));
                     this.towerImageFrame.RadiusY = 5;
                     this.towerImageFrame.RadiusX = 5;

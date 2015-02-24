@@ -13,6 +13,8 @@
         public const int TowerPrice = 35;
 
         private static readonly ImageBrush TowerImage = SpritesManager.FreezeTower;
+        private static readonly ImageBrush TowerProfileImage = SpritesManager.FreezeTower;
+
         private const ProjectileSelection ProjectileType = ProjectileSelection.FreezeProjectile;
     
 
@@ -26,6 +28,7 @@
                 TowerRange,
                 TowerDamage,
                 TowerImage,
+                TowerProfileImage,
                 TowerPrice,
                 ProjectileType)
         {

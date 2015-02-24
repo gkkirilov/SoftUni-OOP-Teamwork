@@ -37,6 +37,7 @@
             int towerRange,
             int damage,
             Brush fillBrush,
+            Brush profileImageBrush,
             int price,
             ProjectileSelection projectileType)
                 : base(x, y, width, height, fillBrush)
@@ -46,6 +47,7 @@
             this.Price = price;
             this.Damage = damage;
             this.projectileType = projectileType;
+            this.ProfileImage = profileImageBrush;
         }
 
         public int Price
@@ -127,6 +129,12 @@
             {
                 this.target = value;
             }
+        }
+
+        public Brush ProfileImage
+        {
+            get;
+            private set;
         }
 
         public override void Update()
