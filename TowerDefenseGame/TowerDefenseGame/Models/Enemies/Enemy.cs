@@ -1,7 +1,6 @@
 ﻿namespace TowerDefenseGame.Models.Enemies
 {
     using System;
-    using System.Windows;
     using Enumerations;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
@@ -46,12 +45,6 @@
             healthPointsBar.Background = Brushes.Red;
             healthPointsBar.Foreground = Brushes.Green;
             healthPointsBar.BeginAnimation(ProgressBar.ValueProperty, null);
-        }
-
-        void SetGlowVisibility(ProgressBar progressBar, Visibility visibility)
-        {
-            var glow = progressBar.Template.FindName("PART_GlowRect", progressBar) as FrameworkElement;
-            if (glow != null) glow.Visibility = visibility;
         }
 
         public double Speed
