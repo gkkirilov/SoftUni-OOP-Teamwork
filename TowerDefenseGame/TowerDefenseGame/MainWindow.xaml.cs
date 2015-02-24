@@ -1,4 +1,6 @@
-﻿namespace TowerDefenseGame
+﻿using System.Windows.Forms;
+
+namespace TowerDefenseGame
 {
     using System.Media;
     using System.Linq;
@@ -55,7 +57,7 @@
                     }
                 }
             }
-            
+
 
             for (int col = 0; col < Constants.FieldCols; col++)
             {
@@ -81,9 +83,9 @@
 
         void TowerMouseButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ((Rectangle) sender).Stroke = Brushes.Red;
-            ((Rectangle) sender).StrokeThickness = 2;
-            
+            ((Rectangle)sender).Stroke = Brushes.Red;
+            ((Rectangle)sender).StrokeThickness = 2;
+
             ((Rectangle)sender).RadiusX = 15;
             ((Rectangle)sender).RadiusY = 15;
 
@@ -104,7 +106,6 @@
                     this.towerImageFrame.RadiusY = 5;
                     this.towerImageFrame.RadiusX = 5;
                     this.towerImageFrame.StrokeThickness = 5;
-                    //PlayerInterfaceController.TowerInfo = TowerController.Towers[index];
 
                     return;
                 }
@@ -166,7 +167,7 @@
             RemoveButton.RadiusX = 3;
             RemoveButton.RadiusY = 3;
             PlayerInterfaceController.DestroySelectedTower();
-            
+
         }
 
         private void RemoveClicekdOnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)

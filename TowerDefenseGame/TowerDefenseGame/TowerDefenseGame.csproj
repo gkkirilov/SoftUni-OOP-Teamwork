@@ -146,7 +146,6 @@
     <Resource Include="Resources\Images\FireTower.png" />
     <Resource Include="Resources\Images\goblinsword.png" />
     <Resource Include="Resources\Images\heart.png" />
-    <Resource Include="Resources\Images\ProjectilesStyleOne.png" />
     <Resource Include="Resources\Images\remove.png" />
     <Resource Include="Resources\Images\Skeleton.png" />
     <Resource Include="Resources\Images\FreezeTower.png" />
@@ -155,6 +154,7 @@
     <Resource Include="Resources\Images\upgrade.png" />
     <Resource Include="Resources\Images\Zombie.png" />
     <Content Include="Resources\Images\GameOver.png" />
+    <Resource Include="Resources\Images\bar.png" />
     <Content Include="Resources\music.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

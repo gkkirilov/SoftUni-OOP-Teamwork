@@ -47,6 +47,26 @@ namespace TowerDefenseGame.Resources
               new BitmapImage(
                   new Uri(@"..\..\Resources\Images\SniperTower.png", UriKind.Relative)));
 
+        public static readonly ImageBrush ArrowProjectile =
+      new ImageBrush(
+              new BitmapImage(
+                  new Uri(@"..\..\Resources\Images\Arrow.png", UriKind.Relative)));
+
+        public static readonly ImageBrush FireProjectile =
+     new ImageBrush(
+             new BitmapImage(
+                 new Uri(@"..\..\Resources\Images\FireProjectile.png", UriKind.Relative)));
+
+        public static readonly ImageBrush FreezeProjectile =
+    new ImageBrush(
+            new BitmapImage(
+                new Uri(@"..\..\Resources\Images\FreezeProjectile2.png", UriKind.Relative)));
+
+        public static readonly ImageBrush SniperProjectile =
+    new ImageBrush(
+            new BitmapImage(
+                new Uri(@"..\..\Resources\Images\SniperProjectile.png", UriKind.Relative)));
+
         public static readonly CroppedBitmap[][] GoblinSprites = new CroppedBitmap[5][];
         public static readonly CroppedBitmap[][] SkeletonSprites = new CroppedBitmap[5][];
         public static readonly CroppedBitmap[][] ZombieSprites = new CroppedBitmap[5][];
