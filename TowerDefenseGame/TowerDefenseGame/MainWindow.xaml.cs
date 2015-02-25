@@ -40,6 +40,23 @@ namespace TowerDefenseGame
             Rectangle model = (Rectangle)sender;
             FieldSegment fieldSegment = null;
 
+            for (int row = 0; row < Constants.FieldRows; row++)
+            {
+                for (int col = 0; col < Constants.FieldCols; col++)
+                {
+                    if (GameFieldController.GameField[row][col].Model.Equals(model))
+                    {
+                        if (GameFieldController.GameField[row][col].IsOccupied)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            GameFieldController.GameField[row][col].IsOccupied = true;
+                        }
+                    }
+                }
+            }
 
             for (int col = 0; col < Constants.FieldCols; col++)
             {
