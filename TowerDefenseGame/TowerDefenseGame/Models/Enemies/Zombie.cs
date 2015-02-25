@@ -6,9 +6,9 @@
 
     public class Zombie : Enemy
     {
-        private const int EnemyLifePoints = 120;
+        private const int EnemyLifePoints = 100;
         private const int EnemySpeed = 3;
-        private const int Bounty = 12;
+        private const int Bounty = 14;
 
 
         private static readonly CroppedBitmap[][] EnemySprites = SpritesManager.ZombieSprites;

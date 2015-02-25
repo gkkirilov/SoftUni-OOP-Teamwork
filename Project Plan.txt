@@ -48,11 +48,12 @@ Make the window unresizable. // Georgi - Done
 
 Make enemy life progress bars.					// Preslav - Done
 Add Derived Projectile/Enemy/Debuff classes 	// Georgi - Done
-Make the Segments stationed on the path occupied.	// Georgi
+Make the Segments stationed on the path occupied.	// Georgi - Done
 
 Remove Effects class					// Preslav - Done
 Make game over event					// Preslav - Done
 Extract projectile sprites from the spritesheet // Dani - Done
 
 Add Selected tower information window.	// Vesko - Done
+
 StyleCop the entire project				// Preslav

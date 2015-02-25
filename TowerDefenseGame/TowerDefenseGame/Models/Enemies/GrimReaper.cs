@@ -6,7 +6,7 @@
 
     public class GrimReaper : Enemy
     {
-        private const int EnemyLifePoints = 200;
+        private const int EnemyLifePoints = 160;
         private const int EnemySpeed = 2;
         private const int Bounty = 22;
 

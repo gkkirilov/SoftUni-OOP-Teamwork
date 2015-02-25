@@ -30,7 +30,7 @@ namespace TowerDefenseGame.Controllers
                         new FieldSegment(Constants.FieldSegmentSize * col, Constants.FieldSegmentSize * row);
                 }
             }
-            OccupiedByPath();
+            SetPathOccupation();
             Render();
         }
 
@@ -56,7 +56,7 @@ namespace TowerDefenseGame.Controllers
             }
         }
 
-        public static void OccupiedByPath()
+        public static void SetPathOccupation()
         {
             //base cordinates
             GameFieldController.GameField[3][26].IsOccupied = true;

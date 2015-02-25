@@ -16,7 +16,7 @@
         // The time intervals for the different timers in milliseconds.
         public const int EnemyGenerationDelay = 3000;
         public const int UpdateDelay = 75;
-        public const int WaveDelay = 6000;
+        public const int WaveDelay = 18000;
 
         public const int StartingMoney = 500;
         public const int PlayerStartingLife = 10;

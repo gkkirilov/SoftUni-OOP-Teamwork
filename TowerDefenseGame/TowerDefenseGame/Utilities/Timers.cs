@@ -4,6 +4,7 @@
     using System.Windows.Threading;
     using Controllers;
     using Interfaces;
+    using Models.Enemies;
 
     public static class Timers
     {
@@ -50,6 +51,10 @@
                 WaveDelayTimer.Stop();
                 EnemyController.WaveCount++;
                 EnemyController.EnemyTypeCounter++;
+                if (EnemyController.WaveCount % 4 == 1 && EnemyController.WaveCount != 1)
+                {
+                    Enemy.Upgrade();
+                }
             };
 
             WaveDelayTimer.Start();

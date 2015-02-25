@@ -50,10 +50,6 @@ namespace TowerDefenseGame
                         {
                             return;
                         }
-                        else
-                        {
-                            GameFieldController.GameField[row][col].IsOccupied = true;
-                        }
                     }
                 }
             }
