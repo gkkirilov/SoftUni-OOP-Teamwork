@@ -8,7 +8,7 @@
     {
         private const int EnemyLifePoints = 70;
         private const int EnemySpeed = 3;
-        private const int Bounty = 10;
+        private const int EnemyBounty = 10;
 
 
         private static readonly CroppedBitmap[][] EnemySprites = SpritesManager.GoblinSprites;
@@ -22,9 +22,8 @@
                 EnemyLifePoints,
                 EnemySpeed,
                 EnemySprites,
-                Bounty)
+                EnemyBounty)
         {
-
         }
     }
 }

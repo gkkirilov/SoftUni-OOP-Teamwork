@@ -149,8 +149,6 @@
 
             CalculateRotationAngle();
             GeometryUtils.RotateModel(this.Model, this.towerAngle);
-
-            FireProjectile();
         }
 
         public void Upgrade()
@@ -160,7 +158,7 @@
             this.SetLevelBonus();
         }
 
-        private void FireProjectile()
+        public IProjectile FireProjectile()
         {
             if (this.Target != null && this.Target.Exists && this.frameCount >= this.Speed)
             {
@@ -171,36 +169,32 @@
                     switch (this.projectileType)
                     {
                         case ProjectileSelection.ArrowProjectile:
-                            ProjectileController.Projectiles.Add(
-                                new ArrowProjectile(
+                            return new ArrowProjectile(
                                     this.Coordinates.X,
                                     this.Coordinates.Y,
                                     this.Target,
-                                    this.Damage));
+                                    this.Damage);
                             break;
                         case ProjectileSelection.FireProjectile:
-                            ProjectileController.Projectiles.Add(
-                                new FireProjectile(
+                            return new FireProjectile(
                                     this.Coordinates.X,
                                     this.Coordinates.Y,
                                     this.Target,
-                                    this.Damage));
+                                    this.Damage);
                             break;
                         case ProjectileSelection.FreezeProjectile:
-                            ProjectileController.Projectiles.Add(
-                                new FreezeProjectile(
+                            return new FreezeProjectile(
                                     this.Coordinates.X,
                                     this.Coordinates.Y,
                                     this.Target,
-                                    this.Damage));
+                                    this.Damage);
                             break;
                         case ProjectileSelection.SniperProjectile:
-                            ProjectileController.Projectiles.Add(
-                                new SniperProjectile(
+                            return new SniperProjectile(
                                     this.Coordinates.X,
                                     this.Coordinates.Y,
                                     this.Target,
-                                    this.Damage));
+                                    this.Damage);
                             break;
                     }
                 }
@@ -209,6 +203,8 @@
             {
                 this.frameCount++;
             }
+
+            return null;
         }
 
         private void GetTarget()

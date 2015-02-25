@@ -13,6 +13,8 @@
 
         Brush ProfileImage { get; }
 
+        IProjectile FireProjectile();
+
         void Upgrade();
     }
 }

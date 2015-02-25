@@ -2,7 +2,6 @@
 
 namespace TowerDefenseGame
 {
-    using System.Media;
     using System.Linq;
     using System.Windows;
     using System.Windows.Controls;

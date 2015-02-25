@@ -12,9 +12,13 @@ using TowerDefenseGame.Geometry;
         double LifePoints { get; }
         IDebuff Debuff { get; set; }
 
+        int Bounty { get; }
+
         ProgressBar HealthBar { get; }
 
         bool IsDying { get; }
+
+        bool HasExited { get; }
 
         void TakeDamage(int damage);
     }

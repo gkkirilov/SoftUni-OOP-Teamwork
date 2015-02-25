@@ -8,7 +8,7 @@
     {
         private const int EnemyLifePoints = 30;
         private const int EnemySpeed = 4;
-        private const int Bounty = 6;
+        private const int EnemyBounty = 6;
 
 
         private static readonly CroppedBitmap[][] EnemySprites = SpritesManager.SkeletonSprites;
@@ -22,7 +22,7 @@
                 EnemyLifePoints,
                 EnemySpeed,
                 EnemySprites,
-                Bounty)
+                EnemyBounty)
         {
 
         }

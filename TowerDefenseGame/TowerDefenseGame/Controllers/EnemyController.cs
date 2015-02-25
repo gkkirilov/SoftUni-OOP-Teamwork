@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using Interfaces;
-    using Geometry;
     using Models.Enemies;
     using Utilities;
 
@@ -14,24 +13,11 @@
         private static int waveCount = 0;
         private static int enemyTypeCounter = -1;
 
-        public static readonly Point[] EnemyBeacons = new Point[] 
-            { 
-                new Point(29 * Constants.FieldSegmentSize, 16 * Constants.FieldSegmentSize),
-                new Point(2 * Constants.FieldSegmentSize, 16 * Constants.FieldSegmentSize),
-                new Point(2 * Constants.FieldSegmentSize, 11 * Constants.FieldSegmentSize),
-                new Point(28 * Constants.FieldSegmentSize, 11 * Constants.FieldSegmentSize),
-                new Point(27 * Constants.FieldSegmentSize, 8 * Constants.FieldSegmentSize),
-                new Point(2 * Constants.FieldSegmentSize, 8 * Constants.FieldSegmentSize),
-                new Point(2 * Constants.FieldSegmentSize, 5 * Constants.FieldSegmentSize),
-                new Point(28 * Constants.FieldSegmentSize, 5 * Constants.FieldSegmentSize),
-                new Point(27 * Constants.FieldSegmentSize, 3 * Constants.FieldSegmentSize),
-            };
-
         public static List<IEnemy> Enemies
         {
             get
             {
-                return EnemyController.enemies;
+                return enemies;
             }
         }
 
@@ -48,7 +34,7 @@
                 {
                     throw new ArgumentException("The count of the wave cannot be negative");
                 }
-                Enemy.Upgrade();
+
                 waveCount = value;
             }
         }
@@ -74,63 +60,75 @@
         {
             get
             {
-                return EnemyController.waveEnemiesCount;
+                return waveEnemiesCount;
             }
 
             set
             {
-                EnemyController.waveEnemiesCount = value;
+                waveEnemiesCount = value;
             }
         }
 
         public static void Update() 
         {
-            for (int index = 0; index < EnemyController.Enemies.Count; index++)
+            for (int index = 0; index < Enemies.Count; index++)
             {
-                EnemyController.Enemies[index].Update();
+                Enemies[index].Update();
 
-                if (!EnemyController.Enemies[index].Exists)
+                if (!Enemies[index].Exists)
                 {
-                    AnimationController.Renderer.RemoveHealthBar(EnemyController.Enemies[index]);
-                    AnimationController.Renderer.RemoveModel(EnemyController.Enemies[index]);
-                    Enemies.RemoveAt(index);
+                    PlayerInterfaceController.Money += Enemies[index].Bounty;
+                    RemoveEnemy(index);
                     index--;
                     Statistics.IncrementKilledEnemies();
+                }
+                else if (Enemies[index].HasExited)
+                {
+                    PlayerInterfaceController.PlayerLife--;
+                    RemoveEnemy(index);
+                    index--;
                 }
             }
         }
 
         public static void GenerateEnemy(int x, int y)
         {
-            EnemyController.WaveEnemiesCount++;
+            WaveEnemiesCount++;
             switch (enemyTypeCounter)
             {
                 case 0:
-                    EnemyController.Enemies.Add(new Skeleton(x, y));
+                    Enemies.Add(new Skeleton(x, y));
                     break;
                 case 1:
-                    EnemyController.Enemies.Add(new Goblin(x, y));
+                    Enemies.Add(new Goblin(x, y));
                     break;
                 case 2:
-                    EnemyController.Enemies.Add(new Zombie(x, y));
+                    Enemies.Add(new Zombie(x, y));
                     break;
                 case 3:
-                    EnemyController.Enemies.Add(new GrimReaper(x, y));
+                    Enemies.Add(new GrimReaper(x, y));
                     break;
                 default:
                     enemyTypeCounter = 0;
-                    EnemyController.Enemies.Add(new Skeleton(x, y));
+                    Enemies.Add(new Skeleton(x, y));
                     break;
             }
         }
 
         public static void Render()
         {
-            foreach (var enemy in EnemyController.Enemies)
+            foreach (var enemy in Enemies)
             {
                 AnimationController.Renderer.Render(enemy);
                 AnimationController.Renderer.RenderHealthBar(enemy);
             }
+        }
+
+        private static void RemoveEnemy(int index)
+        {
+            AnimationController.Renderer.RemoveHealthBar(Enemies[index]);
+            AnimationController.Renderer.RemoveModel(Enemies[index]);
+            Enemies.RemoveAt(index);
         }
     }
 }

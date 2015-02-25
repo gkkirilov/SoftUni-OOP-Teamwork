@@ -65,6 +65,11 @@
             for (int index = 0; index < Towers.Count; index++)
             {
                 TowerController.Towers[index].Update();
+                var projectile = Towers[index].FireProjectile();
+                if (projectile != null)
+                {
+                    ProjectileController.Projectiles.Add(projectile);
+                }
                 if (!Towers[index].Exists)
                 {
                     Towers.RemoveAt(index);

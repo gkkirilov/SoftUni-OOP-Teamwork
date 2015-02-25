@@ -9,13 +9,12 @@
     using Controllers;
     using System.Windows.Controls;
     using Debuffs;
+    using Utilities;
 
     public abstract class Enemy : GameObject, IEnemy
     {
         private double speed;
-        private double lifePoints;
         private int beaconCounter = 0;
-        private int bounty;
 
         // Variables used for the animation
         private EnemyState currentState = EnemyState.Left;
@@ -30,13 +29,26 @@
 
         private static int Level = 1;
 
+        public static readonly Point[] EnemyBeacons = new Point[] 
+        { 
+            new Point(29 * Constants.FieldSegmentSize, 16 * Constants.FieldSegmentSize),
+            new Point(2 * Constants.FieldSegmentSize, 16 * Constants.FieldSegmentSize),
+            new Point(2 * Constants.FieldSegmentSize, 11 * Constants.FieldSegmentSize),
+            new Point(28 * Constants.FieldSegmentSize, 11 * Constants.FieldSegmentSize),
+            new Point(27 * Constants.FieldSegmentSize, 8 * Constants.FieldSegmentSize),
+            new Point(2 * Constants.FieldSegmentSize, 8 * Constants.FieldSegmentSize),
+            new Point(2 * Constants.FieldSegmentSize, 5 * Constants.FieldSegmentSize),
+            new Point(28 * Constants.FieldSegmentSize, 5 * Constants.FieldSegmentSize),
+            new Point(27 * Constants.FieldSegmentSize, 3 * Constants.FieldSegmentSize),
+        };
+
         protected Enemy(double x, double y, int width, int height, double lifePoints, double speed, CroppedBitmap[][] enemySprites, int bounty)
             : base(x, y, width, height, Brushes.Transparent)
         {
-            this.LifePoints = lifePoints + (lifePoints * Level / 10);
+            this.LifePoints = lifePoints + (lifePoints * 70 / 100) * Level;
             this.Speed = speed;
             this.enemySprites = enemySprites;
-            this.bounty = bounty + (bounty * ((Level / 2) / 10));
+            this.Bounty = bounty + (bounty * 20 / 100) * Level;
 
             healthPointsBar.Maximum = this.LifePoints;
             healthPointsBar.Minimum = 0;
@@ -68,6 +80,12 @@
         }
 
         public double LifePoints { get; private set; }
+
+        public int Bounty
+        {
+            get;
+            private set;
+        }
 
         public IDebuff Debuff
         {
@@ -104,6 +122,12 @@
             }
         }
 
+        public bool HasExited
+        {
+            get;
+            private set;
+        }
+
         public override void Update()
         {
             this.LifePoints -= this.Debuff.LifePointsEffect;
@@ -117,10 +141,9 @@
                 return;
             }
 
-            if (EnemyController.EnemyBeacons.Length <= this.beaconCounter)
+            if (EnemyBeacons.Length <= this.beaconCounter)
             {
-                PlayerInterfaceController.PlayerLife -= 1;
-                this.Exists = false;
+                this.HasExited = true;
                 return;
             }
             else if (this.LifePoints <= 0)
@@ -131,12 +154,12 @@
             double lastPositionX = this.Coordinates.X;
             double lastPositionY = this.Coordinates.Y;
 
-            GeometryUtils.HandleMovement(this.Coordinates, EnemyController.EnemyBeacons[beaconCounter], this.Speed);
+            GeometryUtils.HandleMovement(this.Coordinates, EnemyBeacons[beaconCounter], this.Speed);
 
             ResolveState(lastPositionX, lastPositionY);
             ResolveMovementAnimation();
 
-            if (EnemyController.EnemyBeacons[beaconCounter].IsInside(this))
+            if (EnemyBeacons[beaconCounter].IsInside(this))
             {
                 beaconCounter++;
                 this.Update();
@@ -146,6 +169,11 @@
         public void TakeDamage(int damage)
         {
             this.LifePoints -= damage;
+        }
+
+        public static void Upgrade()
+        {
+            Level++;
         }
 
         private void ResolveDebuffState()
@@ -205,7 +233,6 @@
             if (deathSpriteFrameCounter >= 5)
             {
                 this.Exists = false;
-                PlayerInterfaceController.Money += this.bounty;
                 return;
             }
 
@@ -222,11 +249,6 @@
 
                 deathSpriteFrameCounter++;
             }
-        }
-
-        public static void Upgrade()
-        {
-            Level += EnemyController.WaveCount;
         }
     }
 }
