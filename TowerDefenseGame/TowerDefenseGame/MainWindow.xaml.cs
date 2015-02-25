@@ -135,7 +135,7 @@ namespace TowerDefenseGame
             }
 
             Rectangle selectionField = (Rectangle)sender;
-            selectionField.Stroke = Brushes.Blue;
+            selectionField.Stroke = Brushes.DarkGoldenrod;
             selectionField.StrokeThickness = 3;
 
             switch (selectionField.Name)

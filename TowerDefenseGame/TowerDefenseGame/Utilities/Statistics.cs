@@ -39,7 +39,8 @@ namespace TowerDefenseGame.Utilities
 
             upgradePrice.FontSize = 17;
             upgradePrice.FontWeight = FontWeights.Bold;
-            towerInformation.Foreground = Brushes.Black;
+            towerInformation.Foreground = Brushes.DarkGoldenrod;
+            towerInformation.FontWeight = FontWeights.Bold;
             towerInformation.FontSize = 17;
 
             removePrice.Foreground = Brushes.Green;

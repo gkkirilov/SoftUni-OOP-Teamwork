@@ -6,9 +6,9 @@
 
     public class GrimReaper : Enemy
     {
-        private const int EnemyLifePoints = 160;
+        private const int EnemyLifePoints = 170;
         private const int EnemySpeed = 2;
-        private const int EnemyBounty = 22;
+        private const int EnemyBounty = 24;
 
 
         private static readonly CroppedBitmap[][] EnemySprites = SpritesManager.GrimReaperSprites;

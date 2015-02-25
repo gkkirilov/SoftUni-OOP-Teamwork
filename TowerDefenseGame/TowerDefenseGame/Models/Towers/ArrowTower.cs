@@ -13,7 +13,7 @@
         public const int TowerPrice = 50;
 
         private static readonly ImageBrush TowerImage = SpritesManager.ArrowTower;
-        private static readonly ImageBrush TowerProfileImage = SpritesManager.ArrowTower;
+        private static readonly ImageBrush TowerProfileImage = SpritesManager.ArrowTowerProfile;
 
         private const ProjectileSelection ProjectileType = ProjectileSelection.ArrowProjectile;
 
@@ -38,34 +38,34 @@
             switch (this.Level)
             {
                 case 1:
-                    this.levelBonus += 4;
+                    this.levelBonus += 3;
                     break;
                 case 2:
-                    this.levelBonus += 5;
+                    this.levelBonus += 4;
                     break;
                 case 3:
-                    this.levelBonus += 7;
+                    this.levelBonus += 5;
                     break;
                 case 4:
-                    this.levelBonus += 10;
+                    this.levelBonus += 6;
                     break;
                 case 5:
-                    this.levelBonus += 14;
+                    this.levelBonus += 7;
                     break;
                 case 6:
-                    this.levelBonus += 20;
+                    this.levelBonus += 8;
                     break;
                 case 7:
-                    this.levelBonus += 25;
+                    this.levelBonus += 9;
                     break;
                 case 8:
-                    this.levelBonus += 33;
+                    this.levelBonus += 10;
                     break;
                 case 9:
-                    this.levelBonus += 40;
+                    this.levelBonus += 11;
                     break;
                 case 10:
-                    this.levelBonus += 40;
+                    this.levelBonus += 12;
                     break;
             }
         }

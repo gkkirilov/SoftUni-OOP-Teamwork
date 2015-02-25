@@ -6,7 +6,7 @@
 
     public class Goblin : Enemy
     {
-        private const int EnemyLifePoints = 70;
+        private const int EnemyLifePoints = 85;
         private const int EnemySpeed = 3;
         private const int EnemyBounty = 10;
 

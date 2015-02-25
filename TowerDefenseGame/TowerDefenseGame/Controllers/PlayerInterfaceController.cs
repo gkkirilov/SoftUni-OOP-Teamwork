@@ -54,7 +54,7 @@
 
         public static void UpgradeSelectedTower()
         {
-            if (TowerSelected == null)
+            if (TowerSelected == null || TowerSelected.Level >= 10)
             {
                 return;
             }

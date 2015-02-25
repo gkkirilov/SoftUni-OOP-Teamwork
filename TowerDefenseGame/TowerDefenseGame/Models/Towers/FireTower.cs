@@ -9,11 +9,11 @@
     {
         private const int TowerSpeed = 50;
         private const int TowerRange = 150;
-        private const int TowerDamage = 25;
+        private const int TowerDamage = 20;
         public const int TowerPrice = 125;
 
         private static readonly ImageBrush TowerImage = SpritesManager.FireTower;
-        private static readonly ImageBrush TowerProfileImage = SpritesManager.FireTower;
+        private static readonly ImageBrush TowerProfileImage = SpritesManager.FireTowerProfile;
 
         private const ProjectileSelection ProjectileType = ProjectileSelection.FireProjectile;
 
@@ -38,34 +38,34 @@
             switch (this.Level)
             {
                 case 1:
-                    this.levelBonus +=12;
+                    this.levelBonus +=7;
                     break;
                 case 2:
-                    this.levelBonus += 19;
+                    this.levelBonus += 9;
                     break;
                 case 3:
-                    this.levelBonus += 29;
+                    this.levelBonus += 11;
                     break;
                 case 4:
-                    this.levelBonus += 40;
+                    this.levelBonus += 13;
                     break;
                 case 5:
-                    this.levelBonus += 52;
+                    this.levelBonus += 15;
                     break;
                 case 6:
-                    this.levelBonus += 62;
+                    this.levelBonus += 17;
                     break;
                 case 7:
-                    this.levelBonus += 72;
+                    this.levelBonus += 19;
                     break;
                 case 8:
-                    this.levelBonus += 82;
+                    this.levelBonus += 21;
                     break;
                 case 9:
-                    this.levelBonus += 92;
+                    this.levelBonus += 23;
                     break;
                 case 10:
-                    this.levelBonus += 12;
+                    this.levelBonus += 25;
                     break;
             }
         }

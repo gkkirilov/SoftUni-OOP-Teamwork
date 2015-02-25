@@ -13,7 +13,7 @@
         public const int TowerPrice = 300;
 
         private static readonly ImageBrush TowerImage = SpritesManager.SniperTower;
-        private static readonly ImageBrush TowerProfileImage = SpritesManager.SniperTower;
+        private static readonly ImageBrush TowerProfileImage = SpritesManager.SniperTowerProfile;
 
         private const ProjectileSelection ProjectileType = ProjectileSelection.SniperProjectile;
 
@@ -38,34 +38,34 @@
             switch (this.Level)
             {
                 case 1:
-                    this.levelBonus += 30;
+                    this.levelBonus += 20;
                     break;
                 case 2:
-                    this.levelBonus += 60;
+                    this.levelBonus += 20;
                     break;
                 case 3:
-                    this.levelBonus += 90;
+                    this.levelBonus += 20;
                     break;
                 case 4:
-                    this.levelBonus += 120;
+                    this.levelBonus += 25;
                     break;
                 case 5:
-                    this.levelBonus += 150;
+                    this.levelBonus += 25;
                     break;
                 case 6:
-                    this.levelBonus += 180;
+                    this.levelBonus += 30;
                     break;
                 case 7:
-                    this.levelBonus += 210;
+                    this.levelBonus += 40;
                     break;
                 case 8:
-                    this.levelBonus += 240;
+                    this.levelBonus += 40;
                     break;
                 case 9:
-                    this.levelBonus += 270;
+                    this.levelBonus += 40;
                     break;
                 case 10:
-                    this.levelBonus += 300;
+                    this.levelBonus += 50;
                     break;
             }
         }

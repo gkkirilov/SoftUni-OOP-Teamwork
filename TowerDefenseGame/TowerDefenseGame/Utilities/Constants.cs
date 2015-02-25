@@ -16,14 +16,14 @@
         // The time intervals for the different timers in milliseconds.
         public const int EnemyGenerationDelay = 3000;
         public const int UpdateDelay = 75;
-        public const int WaveDelay = 18000;
+        public const int WaveDelay = 15000;
 
-        public const int StartingMoney = 500;
+        public const int StartingMoney = 450;
         public const int PlayerStartingLife = 10;
 
         //Tower information
         public const string ArrowTowerInformation = "Arrow Tower\nTower Damage: 5\nTower Range: 100\nTower Speed: Fast\nTower Price: 50";
-        public const string FireTowerInformation = "Fire Tower\nTower Damage: 25\nTower Range: 150\nTower Speed: Regular\nTower Price: 125";
+        public const string FireTowerInformation = "Fire Tower\nTower Damage: 20\nTower Range: 150\nTower Speed: Regular\nTower Price: 125";
         public const string FreezeTowerInformation = "Freeze Tower\nTower Damage: 15\nTower Range: 150\nTower Speed: Regular\nTower Price: 125";
         public const string SniperTowerInformation = "Sniper Tower\nTower Damage: 70\nTower Range: 350\nTower Speed: Slow\nTower Price: 300";
     }

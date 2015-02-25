@@ -1,7 +1,7 @@
 ﻿<Window x:Class="TowerDefenseGame.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="GameWindow" Height="800" Width="1115" ResizeMode="NoResize">
+        Title="Invasion: Total Defense" Height="800" Width="1115" ResizeMode="NoResize">
     <Canvas Name="MainCanvas">
         <Rectangle Height="83" 
                    Width="90"
@@ -21,7 +21,7 @@
                    MouseDown="UpdateClickedOnMouseDown"
                    MouseLeftButtonUp="UpdateClickedOnMouseLeftButtonUp">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/Images/upgrade.png"/>
+                <ImageBrush ImageSource="Resources/Images/UtilityImages/upgrade.png"/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Height="33" 
@@ -30,7 +30,7 @@
                    RenderTransformOrigin="-1.614,0.596"
                    Canvas.Left="1020">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/Images/heart.png" />
+                <ImageBrush ImageSource="Resources/Images/UtilityImages/heart.png" />
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Height="33" 
@@ -38,11 +38,11 @@
                    Canvas.Top="10" 
                    Canvas.Left="911">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/Images/coin.png" />
+                <ImageBrush ImageSource="Resources/Images/UtilityImages/coin.png" />
             </Rectangle.Fill>
         </Rectangle>
         
-        <Rectangle Stroke="Blue"
+        <Rectangle Stroke="DarkGoldenrod"
                    Name="SniperTowerSelection"
                    StrokeThickness="0"
                    Height="69" 
@@ -52,7 +52,7 @@
                    RenderTransformOrigin="-1.614,0.596"
                    MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" >
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/Images/SniperTower.png"/>
+                <ImageBrush ImageSource="Resources/Images/TowerImages/SniperTowerProfile.png"/>
             </Rectangle.Fill>
         </Rectangle>
 
@@ -65,11 +65,11 @@
                    Width="69"
                    MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" >
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/Images/FireTower.png"/>
+                <ImageBrush ImageSource="Resources/Images/TowerImages/FireTowerProfile.png"/>
             </Rectangle.Fill>
         </Rectangle>
 
-        <Rectangle Stroke="Blue"
+        <Rectangle Stroke="DarkGoldenrod"
                    Name="ArrowTowerSelection"
                    StrokeThickness="3"
                    Height="69" 
@@ -79,7 +79,7 @@
                    RenderTransformOrigin="-1.614,0.596"
                    MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" >
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/Images/arrowtower.png"/>
+                <ImageBrush ImageSource="Resources/Images/TowerImages/ArrowTowerProfile.png"/>
             </Rectangle.Fill>
         </Rectangle>
 
@@ -93,7 +93,7 @@
                    RenderTransformOrigin="-1.614,0.596"
                    MouseLeftButtonDown="SelectionFieldMouseLeftButtonDown" >
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/Images/FreezeTower.png"/>
+                <ImageBrush ImageSource="Resources/Images/TowerImages/FreezeTowerProfile.png"/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Height="28" 
@@ -101,7 +101,7 @@
         	Canvas.Top="504" 
         	Canvas.Left="1000">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/Images/coin.png" />
+                <ImageBrush ImageSource="Resources/Images/UtilityImages/coin.png" />
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Height="598" 
@@ -109,7 +109,7 @@
         	RenderTransformOrigin="-1.614,0.596"
         	Canvas.Top="1">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/Images/field.jpg" />
+                <ImageBrush ImageSource="Resources/Images/UtilityImages/field.jpg" />
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Height="83" 
@@ -118,7 +118,7 @@
                    >
             <Rectangle.Fill>
                 <ImageBrush
-        			ImageSource="Resources/Images/bar.png"/>
+        			ImageSource="Resources/Images/UtilityImages/bar.png"/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Height="28" 
@@ -129,7 +129,7 @@
         	MouseDown="RemoveClickedOnMouseDown"
         	MouseLeftButtonUp="RemoveClicekdOnMouseLeftButtonUp">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/Images/remove.png"/>
+                <ImageBrush ImageSource="Resources/Images/UtilityImages/remove.png"/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Height="28" 
@@ -137,7 +137,7 @@
         	Canvas.Top="537" 
         	Canvas.Left="1000">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/Images/coin.png" />
+                <ImageBrush ImageSource="Resources/Images/UtilityImages/coin.png" />
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Height="33" 
@@ -145,7 +145,7 @@
         	Canvas.Top="53" 
         	Canvas.Left="911">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/Images/sandtimer1.png" />
+                <ImageBrush ImageSource="Resources/Images/UtilityImages/sandtimer1.png" />
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Height="33" 
@@ -154,7 +154,7 @@
         	RenderTransformOrigin="-1.614,0.596"
         	Canvas.Left="1020">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Resources/Images/skull.png" />
+                <ImageBrush ImageSource="Resources/Images/UtilityImages/skull.png" />
             </Rectangle.Fill>
         </Rectangle>
     </Canvas>

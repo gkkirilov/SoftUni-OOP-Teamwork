@@ -45,10 +45,10 @@
         protected Enemy(double x, double y, int width, int height, double lifePoints, double speed, CroppedBitmap[][] enemySprites, int bounty)
             : base(x, y, width, height, Brushes.Transparent)
         {
-            this.LifePoints = lifePoints + (lifePoints * 70 / 100) * Level;
+            this.LifePoints = lifePoints + (lifePoints * 80 / 100) * Level;
             this.Speed = speed;
             this.enemySprites = enemySprites;
-            this.Bounty = bounty + (bounty * 20 / 100) * Level;
+            this.Bounty = bounty + Level * 2;
 
             healthPointsBar.Maximum = this.LifePoints;
             healthPointsBar.Minimum = 0;

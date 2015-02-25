@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>gameIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -137,26 +140,36 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Resources\Images\Thumbs.db" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\arrowtower.png" />
-    <Resource Include="Resources\Images\coin.png" />
-    <Resource Include="Resources\Images\Death.png" />
-    <Resource Include="Resources\Images\field.jpg" />
-    <Resource Include="Resources\Images\FireTower.png" />
-    <Resource Include="Resources\Images\goblinsword.png" />
-    <Resource Include="Resources\Images\heart.png" />
-    <Resource Include="Resources\Images\remove.png" />
-    <Resource Include="Resources\Images\Skeleton.png" />
-    <Resource Include="Resources\Images\FreezeTower.png" />
-    <Resource Include="Resources\Images\SniperTower.png" />
+    <Resource Include="gameIcon.ico" />
+    <Resource Include="Resources\Images\ProjectileImages\ArrowProjectile.png" />
+    <Resource Include="Resources\Images\ProjectileImages\FireProjectile.png" />
+    <Resource Include="Resources\Images\ProjectileImages\FreezeProjectile.png" />
+    <Resource Include="Resources\Images\ProjectileImages\SniperProjectile.png" />
+    <Resource Include="Resources\Images\EnemySpriteSheets\GrimReaper.png" />
+    <Resource Include="Resources\Images\EnemySpriteSheets\Goblin.png" />
+    <Resource Include="Resources\Images\EnemySpriteSheets\Skeleton.png" />
+    <Resource Include="Resources\Images\EnemySpriteSheets\Zombie.png" />
+    <Resource Include="Resources\Images\GameOver.png" />
     <Resource Include="Resources\Images\towerImageFrame.png" />
-    <Resource Include="Resources\Images\upgrade.png" />
-    <Resource Include="Resources\Images\Zombie.png" />
-    <Content Include="Resources\Images\GameOver.png" />
-    <Resource Include="Resources\Images\bar.png" />
-    <Resource Include="Resources\Images\sandtimer1.png" />
-    <Resource Include="Resources\Images\skull.png" />
+    <Resource Include="Resources\Images\TowerImages\ArrowTower.png" />
+    <Resource Include="Resources\Images\TowerImages\ArrowTowerProfile.png" />
+    <Resource Include="Resources\Images\TowerImages\FireTower.png" />
+    <Resource Include="Resources\Images\TowerImages\FireTowerProfile.png" />
+    <Resource Include="Resources\Images\TowerImages\FreezeTower.png" />
+    <Resource Include="Resources\Images\TowerImages\FreezeTowerProfile.png" />
+    <Resource Include="Resources\Images\TowerImages\SniperTower.png" />
+    <Resource Include="Resources\Images\TowerImages\SniperTowerProfile.png" />
+    <Resource Include="Resources\Images\UtilityImages\bar.png" />
+    <Resource Include="Resources\Images\UtilityImages\coin.png" />
+    <Resource Include="Resources\Images\UtilityImages\field.jpg" />
+    <Resource Include="Resources\Images\UtilityImages\heart.png" />
+    <Resource Include="Resources\Images\UtilityImages\remove.png" />
+    <Resource Include="Resources\Images\UtilityImages\sandtimer1.png" />
+    <Resource Include="Resources\Images\UtilityImages\skull.png" />
+    <Resource Include="Resources\Images\UtilityImages\upgrade.png" />
     <Content Include="Resources\music.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
