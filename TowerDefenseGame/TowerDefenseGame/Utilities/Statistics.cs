@@ -11,151 +11,107 @@ namespace TowerDefenseGame.Utilities
 
     class Statistics
     {
-        public static TextBlock Money { get; set; }
+        private static TextBlock money = new TextBlock();
 
-        public static TextBlock PlayerLife { get; set; }
+        private static TextBlock playerLife = new TextBlock();
 
-        public static TextBlock TowerStats { get; set; }
+        private static TextBlock towerStats = new TextBlock();
 
-        public static TextBlock UpgradePrice { get; set; }
+        private static TextBlock upgradePrice = new TextBlock();
 
-        public static TextBlock RemovePrice { get; set; }
+        private static TextBlock removePrice = new TextBlock();
 
-        public static TextBlock TowerInformation { get; set; }
+        private static TextBlock towerInformation = new TextBlock();
 
-        public static TextBlock WaveCounter { get; set; }
+        private static TextBlock waveCounter = new TextBlock();
 
-        public static TextBlock KilledEnemies { get; set; }
+        private static TextBlock killedEnemies = new TextBlock();
 
-        public static int KilledEnemiesCounter = 0;
+        private static int KilledEnemiesCounter = 0;
 
         static Statistics()
         {
-            Money = new TextBlock();
-            PlayerLife = new TextBlock();
-            TowerStats = new TextBlock();
-            UpgradePrice = new TextBlock();
-            RemovePrice = new TextBlock();
-            TowerInformation = new TextBlock();
-            WaveCounter = new TextBlock();
-            KilledEnemies = new TextBlock(){};
+            killedEnemies.Foreground = Brushes.Black;
+            killedEnemies.FontSize = 25;
+
+            waveCounter.Foreground = Brushes.Black;
+            waveCounter.FontSize = 25;
+
+            upgradePrice.FontSize = 17;
+            upgradePrice.FontWeight = FontWeights.Bold;
+            towerInformation.Foreground = Brushes.Black;
+            towerInformation.FontSize = 17;
+
+            removePrice.Foreground = Brushes.Green;
+            removePrice.FontSize = 17;
+            removePrice.FontWeight = FontWeights.Bold;
+
+            upgradePrice.Foreground = Brushes.Red;
+
+            towerStats.Foreground = Brushes.Black;
+            towerStats.FontSize = 17;
+
+            money.Foreground = Brushes.Goldenrod;
+            money.FontSize = 25;
+
+            playerLife.Foreground = Brushes.Green;
+            playerLife.FontSize = 25;
         }
 
         public static void Render()
         {
-            AnimationController.Renderer.DrawText(Money, 950, 9);
-            AnimationController.Renderer.DrawText(PlayerLife, 1055, 9);
-            AnimationController.Renderer.DrawText(TowerStats, 1004, 415);
-            AnimationController.Renderer.DrawText(UpgradePrice, 1034, 503);
-            AnimationController.Renderer.DrawText(RemovePrice, 1034, 540);
-            AnimationController.Renderer.DrawText(TowerInformation, 544, 640);
-            AnimationController.Renderer.DrawText(WaveCounter, 948, 52);
-            AnimationController.Renderer.DrawText(KilledEnemies, 1055, 52);
-
-
+            AnimationController.Renderer.DrawText(money, 950, 9);
+            AnimationController.Renderer.DrawText(playerLife, 1055, 9);
+            AnimationController.Renderer.DrawText(towerStats, 1004, 415);
+            AnimationController.Renderer.DrawText(upgradePrice, 1034, 503);
+            AnimationController.Renderer.DrawText(removePrice, 1034, 540);
+            AnimationController.Renderer.DrawText(towerInformation, 544, 640);
+            AnimationController.Renderer.DrawText(waveCounter, 948, 52);
+            AnimationController.Renderer.DrawText(killedEnemies, 1055, 52);
         }
-        public static void SetKilledEnemies(string text, Brush color)
+        public static void SetKilledEnemies()
         {
-            KilledEnemies.Foreground = color;
-            KilledEnemies.Text = text;
-            KilledEnemies.FontSize = 25;
+            killedEnemies.Text = KilledEnemiesCounter.ToString();
         }
 
-        public static void SetWaveCounter(string text, Brush color)
+        public static void SetWaveCounter(string text)
         {
-            WaveCounter.Foreground = color;
-            WaveCounter.Text = text;
-            WaveCounter.FontSize = 25;
+            waveCounter.Text = text;
         }
 
-        public static void SetTowerInformation(string text, Brush color)
+        public static void SetTowerInformation(string text)
         {
-            TowerInformation.Foreground = color;
-            TowerInformation.Text = text;
-            TowerInformation.FontSize = 17;
+            towerInformation.Text = text;
         }
 
-        public static void SetRemovePrice(string text, Brush color)
+        public static void SetRemovePrice(string text)
         {
-            RemovePrice.Foreground = color;
-            RemovePrice.Text = text;
-            RemovePrice.FontSize = 17;
-            RemovePrice.FontWeight = FontWeights.Bold;
+            removePrice.Text = text;
         }
 
-        public static void SetUpgradePrice(string text, Brush color)
+        public static void SetUpgradePrice(string text)
         {
-            UpgradePrice.Foreground = color;
-            UpgradePrice.Text = text;
-            UpgradePrice.FontSize = 17;
-            UpgradePrice.FontWeight = FontWeights.Bold;
+            upgradePrice.Text = text;
         }
 
-        public static void SetTowerInfo(string text, Brush color)
+        public static void SetTowerInfo(string text)
         {
-            TowerStats.Foreground = color;
-            TowerStats.Text = text;
-            TowerStats.FontSize = 17;
+            towerStats.Text = text;
         }
 
-        public static void SetMoney(string text, Brush color)
+        public static void SetMoney(string text)
         {
-            Money.Foreground = color;
-            Money.Text = text;
-            Money.FontSize = 25;
+            money.Text = text;
         }
 
-        public static void SetLife(string text, Brush color)
+        public static void SetLife(string text)
         {
-            PlayerLife.Foreground = color;
-            PlayerLife.Text = text;
-            PlayerLife.FontSize = 25;
+            playerLife.Text = text;
         }
 
-        public static void Update()
+        public static void IncrementKilledEnemies()
         {
-            SetMoney(PlayerInterfaceController.Money.ToString(), Brushes.Goldenrod);
-            SetLife(PlayerInterfaceController.PlayerLife.ToString(), Brushes.Green);
-            SetWaveCounter(EnemyController.WaveCount.ToString(), Brushes.Black);
-
-            SetKilledEnemies(KilledEnemiesCounter.ToString(), Brushes.Black);
-
-            //for (int index = 0; index < EnemyController.Enemies.Count; index++)
-            //{
-            //    EnemyController.Enemies[index].Update();
-
-            //    if (!EnemyController.Enemies[index].Exists)
-            //    {
-            //        KilledEnemiesCounter++;
-            //    }
-            //}
-
-            if (PlayerInterfaceController.TowerSelected != null)
-            {
-                StringBuilder info = new StringBuilder();
-                info.Append("Level: ");
-                info.Append(PlayerInterfaceController.TowerSelected.Level.ToString());
-                info.Append("\nDamage: ");
-                info.Append(PlayerInterfaceController.TowerSelected.Damage.ToString());
-                info.Append("\nRange: ");
-                info.Append(PlayerInterfaceController.TowerSelected.Range.ToString());
-                SetTowerInfo(info.ToString(), Brushes.Black);
-                SetUpgradePrice(PlayerInterfaceController.TowerSelected.Price.ToString(), Brushes.Black);
-                SetRemovePrice(((PlayerInterfaceController.TowerSelected.Price) / 3).ToString(), Brushes.Black);
-            }
-
-            switch (PlayerInterfaceController.TowerTypeSelected)
-            {
-                case TowerType.Arrow: SetTowerInformation(Constants.ArrowTowerInformation.ToString(), Brushes.Black);
-                    break;
-                case TowerType.Fire: SetTowerInformation(Constants.FireTowerInformation.ToString(), Brushes.Black);
-                    break;
-                case TowerType.Freeze: SetTowerInformation(Constants.FreezeTowerInformation.ToString(), Brushes.Black);
-                    break;
-                case TowerType.Sniper: SetTowerInformation(Constants.SniperTowerInformation.ToString(), Brushes.Black);
-                    break;
-               
-            }
+            KilledEnemiesCounter++;
         }
     }
 }

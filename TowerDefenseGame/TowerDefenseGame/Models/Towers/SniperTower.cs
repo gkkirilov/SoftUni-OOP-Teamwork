@@ -7,8 +7,8 @@
 
     public class SniperTower : Tower
     {
-        private const int TowerSpeed = 100;
-        private const int TowerRange = 300;
+        private const int TowerSpeed = 75;
+        private const int TowerRange = 350;
         private const int TowerDamage = 70;
         public const int TowerPrice = 350;
 

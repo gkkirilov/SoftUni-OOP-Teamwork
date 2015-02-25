@@ -25,6 +25,6 @@
         public const string ArrowTowerInformation = "Arrow Tower\nTower Damage: 5\nTower Range: 100\nTower Speed: Fast\nTower Price: 50";
         public const string FireTowerInformation = "Fire Tower\nTower Damage: 25\nTower Range: 150\nTower Speed: Regular\nTower Price: 150";
         public const string FreezeTowerInformation = "Freeze Tower\nTower Damage: 10\nTower Range: 150\nTower Speed: Regular\nTower Price: 125";
-        public const string SniperTowerInformation = "Sniper Tower\nTower Damage: 70\nTower Range: 300\nTower Speed: Slow\nTower Price: 350";
+        public const string SniperTowerInformation = "Sniper Tower\nTower Damage: 70\nTower Range: 350\nTower Speed: Slow\nTower Price: 350";
     }
 }
