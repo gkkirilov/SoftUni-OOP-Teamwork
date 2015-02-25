@@ -16,6 +16,7 @@
 
         public static readonly Point[] EnemyBeacons = new Point[] 
             { 
+                new Point(29 * Constants.FieldSegmentSize, 16 * Constants.FieldSegmentSize),
                 new Point(2 * Constants.FieldSegmentSize, 16 * Constants.FieldSegmentSize),
                 new Point(2 * Constants.FieldSegmentSize, 11 * Constants.FieldSegmentSize),
                 new Point(28 * Constants.FieldSegmentSize, 11 * Constants.FieldSegmentSize),
