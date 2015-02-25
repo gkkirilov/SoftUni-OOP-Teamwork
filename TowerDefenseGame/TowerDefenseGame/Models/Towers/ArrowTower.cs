@@ -7,7 +7,7 @@
 
     public class ArrowTower : Tower
     {
-        private const int TowerSpeed = 10;
+        private const int TowerSpeed = 8;
         private const int TowerRange = 100;
         private const int TowerDamage = 5;
         public const int TowerPrice = 50;
@@ -41,31 +41,31 @@
                     this.levelBonus += 4;
                     break;
                 case 2:
-                    this.levelBonus += 4;
+                    this.levelBonus += 5;
                     break;
                 case 3:
-                    this.levelBonus += 4;
+                    this.levelBonus += 7;
                     break;
                 case 4:
-                    this.levelBonus += 4;
+                    this.levelBonus += 10;
                     break;
                 case 5:
-                    this.levelBonus += 4;
+                    this.levelBonus += 14;
                     break;
                 case 6:
-                    this.levelBonus += 4;
+                    this.levelBonus += 20;
                     break;
                 case 7:
-                    this.levelBonus += 5;
+                    this.levelBonus += 25;
                     break;
                 case 8:
-                    this.levelBonus += 5;
+                    this.levelBonus += 33;
                     break;
                 case 9:
-                    this.levelBonus += 5;
+                    this.levelBonus += 40;
                     break;
                 case 10:
-                    this.levelBonus += 5;
+                    this.levelBonus += 40;
                     break;
             }
         }

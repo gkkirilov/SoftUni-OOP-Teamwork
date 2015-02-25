@@ -41,28 +41,28 @@
                     this.levelBonus +=12;
                     break;
                 case 2:
-                    this.levelBonus += 12;
+                    this.levelBonus += 19;
                     break;
                 case 3:
-                    this.levelBonus += 12;
+                    this.levelBonus += 29;
                     break;
                 case 4:
-                    this.levelBonus += 12;
+                    this.levelBonus += 40;
                     break;
                 case 5:
-                    this.levelBonus += 12;
+                    this.levelBonus += 52;
                     break;
                 case 6:
-                    this.levelBonus += 12;
+                    this.levelBonus += 62;
                     break;
                 case 7:
-                    this.levelBonus += 12;
+                    this.levelBonus += 72;
                     break;
                 case 8:
-                    this.levelBonus += 12;
+                    this.levelBonus += 82;
                     break;
                 case 9:
-                    this.levelBonus += 12;
+                    this.levelBonus += 92;
                     break;
                 case 10:
                     this.levelBonus += 12;

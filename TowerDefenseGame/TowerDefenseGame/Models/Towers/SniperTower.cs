@@ -41,31 +41,31 @@
                     this.levelBonus += 30;
                     break;
                 case 2:
-                    this.levelBonus += 30;
+                    this.levelBonus += 60;
                     break;
                 case 3:
-                    this.levelBonus += 30;
+                    this.levelBonus += 90;
                     break;
                 case 4:
-                    this.levelBonus += 30;
+                    this.levelBonus += 120;
                     break;
                 case 5:
-                    this.levelBonus += 30;
+                    this.levelBonus += 150;
                     break;
                 case 6:
-                    this.levelBonus += 30;
+                    this.levelBonus += 180;
                     break;
                 case 7:
-                    this.levelBonus += 30;
+                    this.levelBonus += 210;
                     break;
                 case 8:
-                    this.levelBonus += 30;
+                    this.levelBonus += 240;
                     break;
                 case 9:
-                    this.levelBonus += 30;
+                    this.levelBonus += 270;
                     break;
                 case 10:
-                    this.levelBonus += 30;
+                    this.levelBonus += 300;
                     break;
             }
         }

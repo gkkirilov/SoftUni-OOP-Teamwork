@@ -48,7 +48,7 @@
                 {
                     throw new ArgumentException("The count of the wave cannot be negative");
                 }
-
+                Enemy.Upgrade();
                 waveCount = value;
             }
         }

@@ -33,10 +33,10 @@
         protected Enemy(double x, double y, int width, int height, double lifePoints, double speed, CroppedBitmap[][] enemySprites, int bounty)
             : base(x, y, width, height, Brushes.Transparent)
         {
-            this.LifePoints = lifePoints + (lifePoints * 70 / 100) * Level;
+            this.LifePoints = lifePoints + (lifePoints * Level / 10);
             this.Speed = speed;
             this.enemySprites = enemySprites;
-            this.bounty = bounty + (bounty * 40 / 100) * Level;
+            this.bounty = bounty + (bounty * ((Level / 2) / 10));
 
             healthPointsBar.Maximum = this.LifePoints;
             healthPointsBar.Minimum = 0;
@@ -69,7 +69,7 @@
 
         public double LifePoints { get; private set; }
 
-        public IDebuff Debuff 
+        public IDebuff Debuff
         {
             get
             {
@@ -123,7 +123,7 @@
                 this.Exists = false;
                 return;
             }
-            else if (this.LifePoints <= 0) 
+            else if (this.LifePoints <= 0)
             {
                 this.IsDying = true;
             }
@@ -140,7 +140,7 @@
             {
                 beaconCounter++;
                 this.Update();
-            }  
+            }
         }
 
         public void TakeDamage(int damage)
@@ -205,7 +205,7 @@
             if (deathSpriteFrameCounter >= 5)
             {
                 this.Exists = false;
-                PlayerInterfaceController.Money += this.bounty; 
+                PlayerInterfaceController.Money += this.bounty;
                 return;
             }
 
@@ -220,13 +220,13 @@
                             [(int)currentState]
                             [deathSpriteFrameCounter]);
 
-                deathSpriteFrameCounter++;   
+                deathSpriteFrameCounter++;
             }
         }
 
         public static void Upgrade()
         {
-            Level++;
+            Level += EnemyController.WaveCount;
         }
     }
 }
