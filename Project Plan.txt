@@ -56,4 +56,4 @@ Extract projectile sprites from the spritesheet // Dani - Done
 
 Add Selected tower information window.	// Vesko - Done
 
-StyleCop the entire project				// Preslav
+StyleCop the entire project				// Preslav - Done
