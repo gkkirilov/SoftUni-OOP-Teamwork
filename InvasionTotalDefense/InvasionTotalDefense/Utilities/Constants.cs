@@ -18,7 +18,7 @@
         public const int UpdateDelay = 75;
         public const int WaveDelay = 15000;
 
-        public const int StartingMoney = 450;
+        public const int StartingMoney = 300;
         public const int PlayerStartingLife = 10;
 
         // Tower information
