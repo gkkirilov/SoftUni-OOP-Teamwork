@@ -148,6 +148,7 @@
         {
             if (this.Target == null ||
                 !this.Target.Exists ||
+                this.Target.HasExited ||
                 this.Target.IsDying ||
                 GeometryUtils.CalculateDistance(this.Coordinates, this.Target.Coordinates) > this.Range)
             {

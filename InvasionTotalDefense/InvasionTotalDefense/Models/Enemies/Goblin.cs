@@ -6,8 +6,8 @@
 
     public class Goblin : Enemy
     {
-        private const int EnemyLifePoints = 85;
-        private const int EnemySpeed = 3;
+        private const int EnemyLifePoints = 90;
+        private const int EnemySpeed = 4;
         private const int EnemyBounty = 10;
 
         private static readonly CroppedBitmap[][] EnemySprites = SpritesManager.GoblinSprites;

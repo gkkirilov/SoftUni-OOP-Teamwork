@@ -6,8 +6,8 @@
 
     public class Skeleton : Enemy
     {
-        private const int EnemyLifePoints = 45;
-        private const int EnemySpeed = 4;
+        private const int EnemyLifePoints = 50;
+        private const int EnemySpeed = 5;
         private const int EnemyBounty = 6;
 
         private static readonly CroppedBitmap[][] EnemySprites = SpritesManager.SkeletonSprites;

@@ -10,7 +10,7 @@
         public const int TowerPrice = 300;
         private const int TowerSpeed = 75;
         private const int TowerRange = 350;
-        private const int TowerDamage = 70;
+        private const int TowerDamage = 80;
         private const ProjectileSelection ProjectileType = ProjectileSelection.SniperProjectile;
 
         private static readonly ImageBrush TowerImage = SpritesManager.SniperTower;

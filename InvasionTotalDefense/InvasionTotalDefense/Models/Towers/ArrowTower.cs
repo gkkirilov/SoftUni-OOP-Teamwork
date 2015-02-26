@@ -11,7 +11,7 @@
 
         private const int TowerSpeed = 8;
         private const int TowerRange = 100;
-        private const int TowerDamage = 5;
+        private const int TowerDamage = 6;
         private const ProjectileSelection ProjectileType = ProjectileSelection.ArrowProjectile;
 
         private static readonly ImageBrush TowerImage = SpritesManager.ArrowTower;

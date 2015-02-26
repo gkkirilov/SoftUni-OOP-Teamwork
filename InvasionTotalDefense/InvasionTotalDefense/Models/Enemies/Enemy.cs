@@ -44,7 +44,7 @@
         protected Enemy(double x, double y, int width, int height, double lifePoints, double speed, CroppedBitmap[][] enemySprites, int bounty)
             : base(x, y, width, height, Brushes.Transparent)
         {
-            this.LifePoints = lifePoints + ((lifePoints * 80 / 100) * level);
+            this.LifePoints = lifePoints + (lifePoints * level);
             this.Speed = speed;
             this.enemySprites = enemySprites;
             this.Bounty = bounty + (level * 2);
@@ -250,7 +250,7 @@
             this.healthPointsBar.Height = 5;
             this.healthPointsBar.Width = width;
             this.healthPointsBar.Background = Brushes.Red;
-            this.healthPointsBar.Foreground = Brushes.Green;
+            this.healthPointsBar.Foreground = Brushes.Yellow;
             this.healthPointsBar.BeginAnimation(ProgressBar.ValueProperty, null);
         }
     }
