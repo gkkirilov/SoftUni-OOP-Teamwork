@@ -1,5 +1,5 @@
 # Invasion: Total Defense
-A tower defense game created using C# and WPF framework.
+A tower defense game created using C# and WPF framework.  
 It is a team project completed as part of the Object Oriented Course at Software University.
 
 ## Contributors  
