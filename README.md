@@ -8,5 +8,6 @@ Contributors:
 [Daniel Georgiev](https://github.com/Daniel-Georgiev)  
 [Preslav Mihaylov](https://github.com/PreslavMihaylov)  
 
-Screenshot of gameplay:  
+## Screenshot of gameplay:
+
 ![Invasion: Total Defense GamePlay](https://github.com/PreslavMihaylov/Invasion-TotalDefense/blob/master/ingame-screenshot.png)
